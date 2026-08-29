@@ -10,16 +10,61 @@ torch.set_num_threads(num_cpus)
 
 from ultralytics import YOLO
 
+def find_data_yaml(project_root):
+    """Dynamically locates data.yaml across current working directory and project root."""
+    candidates = [
+        project_root / "data" / "data.yaml",
+        Path.cwd() / "data" / "data.yaml",
+        Path.cwd() / "data.yaml",
+        project_root / "data.yaml",
+    ]
+    for c in candidates:
+        if c.exists():
+            return c.resolve()
+    raise FileNotFoundError(f"data.yaml not found in candidate paths: {[str(c) for c in candidates]}")
+
+def setup_data_yaml(data_yaml_path):
+    """Rewrites data.yaml with absolute path of the data folder for seamless cross-platform execution."""
+    data_dir = data_yaml_path.parent
+    yaml_content = (
+        f"path: {data_dir.as_posix()}\n"
+        "train: train/images\n"
+        "val: valid/images\n"
+        "test: test/images\n\n"
+        "nc: 1\n"
+        "names: ['Kidney Stone']\n"
+    )
+    with open(data_yaml_path, 'w', encoding='utf-8') as f:
+        f.write(yaml_content)
+    return data_yaml_path
+
 def train_yolo(epochs=10, imgsz=512, batch=16, patience=10, device=None, is_sanity=False):
     """Trains YOLOv8 model for kidney stone detection and evaluates on held-out test set."""
     project_root = Path(__file__).resolve().parent.parent.parent
-    data_yaml_path = project_root / "data" / "data.yaml"
+    
+    # Dynamically resolve data.yaml
+    data_yaml_path = find_data_yaml(project_root)
+    setup_data_yaml(data_yaml_path)
+    
     models_dir = project_root / "models"
     models_dir.mkdir(parents=True, exist_ok=True)
     
     # Auto-detect CUDA GPU if device is not explicitly specified
     if device is None or device == "":
-        device = "0" if torch.cuda.is_available() else "cpu"
+        if torch.cuda.is_available():
+            device = "0"
+            print("🚀 CUDA GPU Detected! Running training on GPU (device '0').")
+        else:
+            device = "cpu"
+            print("⚠️ WARNING: CUDA GPU not detected. Falling back to CPU.")
+            print("   (If running on Google Colab, ensure Runtime -> Change runtime type is set to T4 GPU).")
+    elif device == "0" or device == "cuda" or device == "cuda:0":
+        if not torch.cuda.is_available():
+            print(f"⚠️ WARNING: GPU '{device}' requested but PyTorch CUDA is not available. Falling back to CPU.")
+            device = "cpu"
+        else:
+            device = "0"
+            print("🚀 Running training on GPU (device '0').")
         
     print("=" * 65)
     print(f"Starting YOLOv8 {'Sanity Run' if is_sanity else 'Full Training'}")
