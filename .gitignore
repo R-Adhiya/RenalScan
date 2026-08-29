@@ -14,8 +14,10 @@ ENV/
 env/
 
 # Project Data & Models (large binary files)
-data/
-models/
+data/*
+!data/data.yaml
+models/*
+!models/test_metrics.txt
 runs/
 
 # Environment Variables & Keys

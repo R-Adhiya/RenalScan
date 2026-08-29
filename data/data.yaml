@@ -1,0 +1,7 @@
+path: c:/Users/akhil/Desktop/Renal Scan/data
+train: train/images
+val: valid/images
+test: test/images
+
+nc: 1
+names: ['Kidney Stone']

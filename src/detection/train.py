@@ -38,6 +38,24 @@ def setup_data_yaml(data_yaml_path):
         f.write(yaml_content)
     return data_yaml_path
 
+def verify_dataset_images_exist(data_yaml_path):
+    """Checks whether train/images contains CT scan images before training."""
+    data_dir = data_yaml_path.parent
+    train_img_dir = data_dir / "train" / "images"
+    images = list(train_img_dir.glob("*.jpg")) + list(train_img_dir.glob("*.png")) + list(train_img_dir.glob("*.jpeg"))
+    
+    if len(images) == 0:
+        print("\n" + "!" * 65)
+        print("⚠️ DATASET IMAGES MISSING IN Google Colab!")
+        print("Because raw image files are gitignored, you must download the dataset into data/ on Colab before training.")
+        print("Run one of the following commands in Colab:")
+        print("  Option A (Kaggle API):")
+        print("    !kaggle datasets download -d safurahajiheidari/kidney-stone-images --unzip -p data/")
+        print("  Option B (Upload Local data.zip):")
+        print("    !unzip -q data.zip -d data/")
+        print("!" * 65 + "\n")
+        raise FileNotFoundError(f"No image files found in '{train_img_dir}'. Download dataset into data/ before training.")
+
 def train_yolo(epochs=10, imgsz=512, batch=16, patience=10, device=None, is_sanity=False):
     """Trains YOLOv8 model for kidney stone detection and evaluates on held-out test set."""
     project_root = Path(__file__).resolve().parent.parent.parent
@@ -45,6 +63,7 @@ def train_yolo(epochs=10, imgsz=512, batch=16, patience=10, device=None, is_sani
     # Dynamically resolve data.yaml
     data_yaml_path = find_data_yaml(project_root)
     setup_data_yaml(data_yaml_path)
+    verify_dataset_images_exist(data_yaml_path)
     
     models_dir = project_root / "models"
     models_dir.mkdir(parents=True, exist_ok=True)

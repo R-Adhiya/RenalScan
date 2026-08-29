@@ -1,0 +1,13 @@
+=====================================================
+RENALSCAN YOLOv8 DETECTION — HELD-OUT TEST METRICS
+=====================================================
+Evaluation Split : Held-Out Test Set (data/test)
+Image Resolution : 512x512 px
+Total Epochs     : 2
+Training Time    : 1571.49 sec (785.75 s/epoch)
+-----------------------------------------------------
+Precision (P)    : 0.7185 (71.85%)
+Recall (R)       : 0.5014 (50.14%)
+mAP@0.50         : 0.5172 (51.72%)
+mAP@0.50:0.95    : 0.2131 (21.31%)
+=====================================================
