@@ -35,6 +35,10 @@ renalscan/
    - The dataset provides bounding box annotations (`.txt` in YOLO format) for object detection.
    - Ground-truth segmentation masks are not included. Segmentation in this project uses **classical Computer Vision techniques** (Otsu thresholding, morphological operations, and contour analysis) applied within detected bounding box regions, rather than a supervised deep learning segmentation network (e.g., U-Net or Mask R-CNN).
 
+3. **Resizing CT Images to 512x512**:
+   - Images are resized from their original resolution (640x640) to 512x512 pixels to optimize CPU training and inference speed.
+   - This trade-off significantly speeds up training while maintaining strong overall detection accuracy for kidney stones, though exceptionally small stones may experience a minor drop in sensitivity.
+
 ---
 
 ## 📦 Dataset Download & Setup
