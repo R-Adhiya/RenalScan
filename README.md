@@ -31,9 +31,11 @@ renalscan/
    - The CT scans in this dataset are standard JPG files without DICOM metadata tags (such as `PixelSpacing` $(mm/pixel)$ or `SliceThickness`).
    - Consequently, size and area measurements derived during the measurement module are **approximate pixel-space metrics** rather than clinically precise millimeter measurements.
 
-2. **Absence of Segmentation Masks**:
-   - The dataset provides bounding box annotations (`.txt` in YOLO format) for object detection.
-   - Ground-truth segmentation masks are not included. Segmentation in this project uses **classical Computer Vision techniques** (Otsu thresholding, morphological operations, and contour analysis) applied within detected bounding box regions, rather than a supervised deep learning segmentation network (e.g., U-Net or Mask R-CNN).
+2. **Absence of Ground-Truth Segmentation Masks**:
+   - The dataset provides bounding box annotations (`.txt` in YOLO format) for object detection, but lacks ground-truth pixel-level segmentation mask annotations.
+   - **Methodology**: Segmentation is performed using **classical Computer Vision techniques** (10% padded ROI cropping around YOLO bounding boxes, Otsu adaptive thresholding, morphological opening/closing, and largest high-intensity contour extraction) rather than a supervised neural network (e.g., U-Net or Mask R-CNN).
+   - **Key Assumption**: Assumes the largest high-intensity (brightest) structure within the padded bounding box ROI is the kidney stone. This can fail if adjacent bright bone, calcifications, or vascular contrast exist inside the ROI box.
+   - **Qualitative Evaluation Protocol**: Because no ground-truth mask labels exist in the source dataset, segmentation performance is evaluated **qualitatively** via visual inspection (pass/partial/fail logging on test CT images) rather than quantitative IoU/Dice metrics.
 
 3. **Resizing CT Images to 512x512**:
    - Images are resized from their original resolution (640x640) to 512x512 pixels to optimize CPU training and inference speed.
