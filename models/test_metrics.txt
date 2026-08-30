@@ -3,11 +3,12 @@ RENALSCAN YOLOv8 DETECTION — HELD-OUT TEST METRICS
 =====================================================
 Evaluation Split : Held-Out Test Set (data/test)
 Image Resolution : 512x512 px
-Total Epochs     : 2
-Training Time    : 1571.49 sec (785.75 s/epoch)
+Total Epochs     : 50 (Early Stopped at Epoch 45, Best Epoch 35)
+Device Used      : 0 (Google Colab Tesla T4 GPU)
+Training Time    : 550.70 sec (11.01 s/epoch)
 -----------------------------------------------------
-Precision (P)    : 0.7185 (71.85%)
-Recall (R)       : 0.5014 (50.14%)
-mAP@0.50         : 0.5172 (51.72%)
-mAP@0.50:0.95    : 0.2131 (21.31%)
+Precision (P)    : 0.8480 (84.80%)
+Recall (R)       : 0.6964 (69.64%)
+mAP@0.50         : 0.7303 (73.03%)
+mAP@0.50:0.95    : 0.3182 (31.82%)
 =====================================================
