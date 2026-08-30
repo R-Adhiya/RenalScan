@@ -1,5 +1,6 @@
 import argparse
 import os
+import shutil
 import time
 from pathlib import Path
 import torch
@@ -21,7 +22,10 @@ def find_data_yaml(project_root):
     for c in candidates:
         if c.exists():
             return c.resolve()
-    raise FileNotFoundError(f"data.yaml not found in candidate paths: {[str(c) for c in candidates]}")
+    # If not found, return target data/data.yaml path
+    target = project_root / "data" / "data.yaml"
+    target.parent.mkdir(parents=True, exist_ok=True)
+    return target
 
 def setup_data_yaml(data_yaml_path):
     """Rewrites data.yaml with absolute path of the data folder for seamless cross-platform execution."""
@@ -39,22 +43,33 @@ def setup_data_yaml(data_yaml_path):
     return data_yaml_path
 
 def verify_dataset_images_exist(data_yaml_path):
-    """Checks whether train/images contains CT scan images before training."""
+    """Checks whether train/images contains CT scan images. If missing, automatically downloads via kagglehub."""
     data_dir = data_yaml_path.parent
     train_img_dir = data_dir / "train" / "images"
     images = list(train_img_dir.glob("*.jpg")) + list(train_img_dir.glob("*.png")) + list(train_img_dir.glob("*.jpeg"))
     
     if len(images) == 0:
-        print("\n" + "!" * 65)
-        print("⚠️ DATASET IMAGES MISSING IN Google Colab!")
-        print("Because raw image files are gitignored, you must download the dataset into data/ on Colab before training.")
-        print("Run one of the following commands in Colab:")
-        print("  Option A (Kaggle API):")
-        print("    !kaggle datasets download -d safurahajiheidari/kidney-stone-images --unzip -p data/")
-        print("  Option B (Upload Local data.zip):")
-        print("    !unzip -q data.zip -d data/")
-        print("!" * 65 + "\n")
-        raise FileNotFoundError(f"No image files found in '{train_img_dir}'. Download dataset into data/ before training.")
+        print("\n" + "=" * 65)
+        print("⚡ AUTO-DOWNLOADING DATASET via kagglehub...")
+        print("=" * 65)
+        try:
+            import kagglehub
+            downloaded_path = Path(kagglehub.dataset_download('safurahajiheidari/kidney-stone-images'))
+            print(f"Downloaded Kaggle dataset to: {downloaded_path}")
+            
+            for item in downloaded_path.iterdir():
+                dest = data_dir / item.name
+                if item.is_dir():
+                    if dest.exists():
+                        shutil.rmtree(dest)
+                    shutil.copytree(item, dest)
+                else:
+                    shutil.copy2(item, dest)
+            print(f"✅ Successfully auto-extracted dataset into {data_dir}!")
+        except Exception as e:
+            print(f"⚠️ Automatic dataset download failed: {e}")
+            print("Please upload data.zip to Google Colab and run: !unzip -o -q data.zip -d data/")
+            raise e
 
 def train_yolo(epochs=10, imgsz=512, batch=16, patience=10, device=None, is_sanity=False):
     """Trains YOLOv8 model for kidney stone detection and evaluates on held-out test set."""
@@ -120,7 +135,6 @@ def train_yolo(epochs=10, imgsz=512, batch=16, patience=10, device=None, is_sani
     target_best_weights = models_dir / "detection_best.pt"
     
     if best_weights.exists():
-        import shutil
         shutil.copy(best_weights, target_best_weights)
         print(f"Saved best model weights to: {target_best_weights}")
     

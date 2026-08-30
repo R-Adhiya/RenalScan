@@ -10,3 +10,4 @@ albumentations==1.4.2
 scikit-image==0.22.0
 jupyter==1.0.0
 ipykernel==6.29.3
+kagglehub
