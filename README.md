@@ -27,9 +27,15 @@ renalscan/
 
 ## ⚠️ Known Project Limitations
 
-1. **Lack of Pixel-Spacing Metadata (Plain JPG CT Images)**:
+1. **Lack of Pixel-Spacing Metadata & Literature-Based mm Conversion**:
    - The CT scans in this dataset are standard JPG files without DICOM metadata tags (such as `PixelSpacing` $(mm/pixel)$ or `SliceThickness`).
-   - Consequently, size and area measurements derived during the measurement module are **approximate pixel-space metrics** rather than clinically precise millimeter measurements.
+   - **Literature-Based Constant**: For approximate dimension estimations, a baseline constant of **$0.70\text{ mm/px}$** is adopted based on standard abdominal CT scan literature (typical $360\text{ mm}$ abdominal Field of View divided by a $512\text{ px}$ image matrix $\approx 0.703\text{ mm/px}$).
+   - **Clinical Size Banding**: Estimated diameters are categorized into standard urological treatment decision bands:
+     - `< 4 mm`: Small (High spontaneous passage likelihood ~80%)
+     - `4 - 6 mm`: Medium (Moderate passage likelihood ~50%, MET / observation)
+     - `6 - 10 mm`: Large (Low passage likelihood ~20%, intervention often required)
+     - `> 10 mm`: Very Large (Surgical intervention indicated — ESWL / URS / PCNL)
+   - **Non-Clinical Disclaimer**: All millimeter-based measurements and size bands are explicitly labeled as **estimated, non-clinical metrics** and must not be used for clinical diagnostic or surgical decisions.
 
 2. **Absence of Ground-Truth Segmentation Masks**:
    - The dataset provides bounding box annotations (`.txt` in YOLO format) for object detection, but lacks ground-truth pixel-level segmentation mask annotations.
