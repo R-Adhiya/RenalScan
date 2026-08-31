@@ -4,7 +4,6 @@ import cv2
 import numpy as np
 import pandas as pd
 import streamlit as st
-from PIL import Image
 
 # Add project root to sys.path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -39,34 +38,35 @@ st.markdown("""
     .disclaimer-box {
         background-color: #FEF2F2;
         border-left: 5px solid #EF4444;
-        padding: 10px 15px;
+        padding: 12px 18px;
         border-radius: 4px;
         margin-bottom: 25px;
-        font-size: 0.9rem;
+        font-size: 0.92rem;
         color: #991B1B;
+        line-height: 1.4;
     }
 </style>
 """, unsafe_allow_html=True)
 
-# Main Title & Header
+# Main Title & Header (Rendered on EVERY view)
 st.markdown('<div class="main-title">🩺 RenalScan — AI Kidney Stone Detection & Physical Measurement</div>', unsafe_allow_html=True)
 st.markdown('<div class="sub-title">End-to-End Pipeline: YOLOv8 Bounding Box Detection ➔ Classical CV Otsu Segmentation ➔ Quantitative Dimension Analysis</div>', unsafe_allow_html=True)
 
-# Non-Clinical Disclaimer Banner
+# Non-Clinical Disclaimer Banner (Rendered Unconditionally on EVERY View)
 st.markdown(f"""
 <div class="disclaimer-box">
-    <strong>⚠️ NON-CLINICAL PORTFOLIO DISCLAIMER:</strong> All millimeter-based measurements and urological size classifications are estimated using a literature-based baseline constant ({ASSUMED_MM_PER_PIXEL} mm/px FOV). This application is designed strictly for portfolio evaluation and technical demonstration. It must <strong>NOT</strong> be used for clinical diagnosis or surgical decision-making.
+    <strong>⚠️ NON-CLINICAL PORTFOLIO DISCLAIMER:</strong> All millimeter-based measurements and urological size classifications are estimated using a literature-based baseline constant (fixed at <strong>{ASSUMED_MM_PER_PIXEL} mm/px</strong> FOV). This application is designed strictly for portfolio evaluation and technical demonstration. It must <strong>NOT</strong> be used for clinical diagnosis or surgical decision-making.
 </div>
 """, unsafe_allow_html=True)
 
 # Sidebar Configuration
-st.sidebar.title("⚙️ Pipeline Settings")
+st.sidebar.title("⚙️ Pipeline Controls")
 
-# Model Loading Helper
+# Fixed Pipeline Loader (Uses fixed ASSUMED_MM_PER_PIXEL = 0.70 constant)
 @st.cache_resource
-def load_pipeline(mm_per_pixel=ASSUMED_MM_PER_PIXEL):
+def load_pipeline():
     model_path = PROJECT_ROOT / "models" / "detection_best.pt"
-    return RenalScanPipeline(model_path=model_path, mm_per_pixel=mm_per_pixel)
+    return RenalScanPipeline(model_path=model_path, mm_per_pixel=ASSUMED_MM_PER_PIXEL)
 
 conf_thresh = st.sidebar.slider(
     "YOLO Confidence Threshold",
@@ -77,16 +77,7 @@ conf_thresh = st.sidebar.slider(
     help="Detections below this confidence score are filtered out before segmentation."
 )
 
-mm_factor = st.sidebar.slider(
-    "Assumed Pixel Spacing (mm/px)",
-    min_value=0.50,
-    max_value=1.00,
-    value=ASSUMED_MM_PER_PIXEL,
-    step=0.01,
-    help="Literature-based pixel spacing conversion constant for plain CT images."
-)
-
-pipeline = load_pipeline(mm_per_pixel=mm_factor)
+pipeline = load_pipeline()
 
 st.sidebar.markdown("---")
 st.sidebar.subheader("📷 Input CT Scan Selection")
@@ -103,7 +94,7 @@ uploaded_file = st.sidebar.file_uploader("Or Upload Custom CT Scan (JPG/PNG)", t
 input_img_array = None
 
 if uploaded_file is not None:
-    file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=uint8) if 'uint8' in globals() else np.frombuffer(uploaded_file.read(), np.uint8)
+    file_bytes = np.frombuffer(uploaded_file.read(), np.uint8)
     bgr_img = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
     if bgr_img is not None:
         input_img_array = cv2.cvtColor(bgr_img, cv2.COLOR_BGR2RGB)
@@ -140,7 +131,7 @@ else:
     
     # 0-Stones Edge Case View
     if not summary['has_stones']:
-        st.info("ℹ️ **No Kidney Stones Detected**: No high-confidence stone candidates were detected in this CT scan.")
+        st.info(f"ℹ️ **No Kidney Stones Detected**: No high-confidence stone candidates were detected in this CT scan (Confidence Threshold: {conf_thresh:.2f}).")
         col1, col2 = st.columns(2)
         with col1:
             st.subheader("Original CT Scan")
@@ -205,3 +196,11 @@ else:
         df_display = pd.DataFrame(df_records)
         st.dataframe(df_display, use_container_width=True)
         st.caption(f"*DISCLAIMER: {NON_CLINICAL_DISCLAIMER}")
+
+    # Optional Sensitivity Rationale Expander (Separate from Main Controls & Results)
+    with st.expander("ℹ️ Methodological Note: Pixel Spacing Assumption & Sensitivity Rationale"):
+        st.markdown(f"""
+        - **Fixed Baseline**: Millimeter estimations use a fixed constant of **`{ASSUMED_MM_PER_PIXEL} mm/px`**, derived from typical $360\\text{{ mm}}$ abdominal CT Field of View (FOV) divided by a $512\\text{{ px}}$ image matrix ($360 / 512 = 0.703\\text{{ mm/px}}$).
+        - **Why Fixed?**: Keeping the factor fixed as a documented constant prevents arbitrary live manipulation and reinforces the non-clinical, literature-based nature of plain JPG CT size estimations.
+        - **Sensitivity Range**: On abdominal CT scans with FOVs ranging from $300\\text{{ mm}}$ ($0.58\\text{{ mm/px}}$) to $400\\text{{ mm}}$ ($0.78\\text{{ mm/px}}$), true physical dimensions may vary by approximately $\\pm 15\\%$.
+        """)
