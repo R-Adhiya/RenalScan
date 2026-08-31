@@ -104,3 +104,15 @@ data/
    ```bash
    python -c "import torch; import cv2; from ultralytics import YOLO; print('Imports Successful!')"
    ```
+
+---
+
+## 🖥️ Running the Streamlit Web Application
+
+Launch the interactive web application to upload CT scans, adjust confidence thresholds, view side-by-side diagnostic tabs, and inspect per-stone physical measurements:
+
+```bash
+streamlit run app/app.py
+```
+
+Once launched, open your web browser to `http://localhost:8501`.
