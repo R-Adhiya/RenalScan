@@ -49,7 +49,7 @@ st.markdown("""
     .block-container {
         padding-top: 1.2rem;
         padding-bottom: 3rem;
-        max-width: 1540px;
+        max-width: 1560px;
     }
 
     /* Workstation Top Navigation Bar */
@@ -70,8 +70,8 @@ st.markdown("""
         gap: 12px;
     }
     .rs-logo-icon {
-        width: 36px;
-        height: 36px;
+        width: 38px;
+        height: 38px;
         background: linear-gradient(135deg, #3B82F6 0%, #19B8B5 100%);
         border-radius: 10px;
         display: flex;
@@ -79,10 +79,10 @@ st.markdown("""
         justify-content: center;
         color: #FFFFFF;
         font-weight: 800;
-        font-size: 1.15rem;
+        font-size: 1.2rem;
     }
     .rs-logo-title-navy {
-        font-size: 1.4rem;
+        font-size: 1.45rem;
         font-weight: 800;
         color: #18253D;
         letter-spacing: -0.02em;
@@ -190,9 +190,9 @@ st.markdown("""
     .rs-ws-card {
         background-color: #FFFFFF;
         border: 1px solid #D7E6F5;
-        border-radius: 18px;
-        padding: 18px;
-        box-shadow: 0 6px 24px rgba(60, 110, 170, 0.06);
+        border-radius: 16px;
+        padding: 20px;
+        box-shadow: 0 6px 20px rgba(60, 110, 170, 0.05);
         margin-bottom: 18px;
     }
     .rs-ws-card-title {
@@ -233,7 +233,7 @@ st.markdown("""
         background-color: #101827;
         border-radius: 20px;
         border: 1px solid #1F2937;
-        padding: 18px;
+        padding: 20px;
         box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
     }
     .rs-ct-canvas-header {
@@ -342,18 +342,19 @@ st.markdown("""
         background-color: #FFFFFF;
         border: 1px solid #D7E6F5;
         border-radius: 16px;
-        padding: 16px;
+        padding: 20px;
         text-align: center;
+        box-shadow: 0 6px 20px rgba(60, 110, 170, 0.05);
     }
     .rs-kidney-flex {
         display: flex;
         justify-content: space-around;
         align-items: center;
-        margin-top: 8px;
+        margin-top: 12px;
     }
     .rs-kidney-organ {
-        width: 85px;
-        height: 110px;
+        width: 90px;
+        height: 115px;
         background-color: #FFD6E0;
         border: 2px solid #F472B6;
         border-radius: 45% 55% 50% 50% / 60% 40% 60% 40%;
@@ -383,6 +384,13 @@ st.markdown("""
     }
 
     /* Physical Measurement Value Table */
+    .rs-meas-box {
+        background-color: #FFFFFF;
+        border: 1px solid #D7E6F5;
+        border-radius: 16px;
+        padding: 20px;
+        box-shadow: 0 6px 20px rgba(60, 110, 170, 0.05);
+    }
     .rs-meas-table {
         width: 100%;
         border-collapse: collapse;
@@ -392,12 +400,12 @@ st.markdown("""
         font-size: 0.78rem;
         color: #64748B;
         text-align: left;
-        padding: 8px 12px;
+        padding: 10px 14px;
         border-bottom: 2px solid #E2E8F0;
     }
     .rs-meas-table td {
         font-size: 0.88rem;
-        padding: 10px 12px;
+        padding: 12px 14px;
         border-bottom: 1px solid #E2E8F0;
         color: #18253D;
         font-weight: 600;
@@ -434,8 +442,6 @@ if 'active_image' not in st.session_state:
     st.session_state['active_image'] = None
 if 'active_sample_name' not in st.session_state:
     st.session_state['active_sample_name'] = None
-if 'view_tab' not in st.session_state:
-    st.session_state['view_tab'] = "Dashboard"
 
 sample_dir = PROJECT_ROOT / "data" / "test" / "images"
 sample_files = sorted(list(sample_dir.glob("*.jpg"))) if sample_dir.exists() else []
@@ -455,7 +461,7 @@ if len(sample_files) > 0:
 # -----------------------------------------------------------------------------
 # 1. WORKSTATION TOP NAVIGATION BAR
 # -----------------------------------------------------------------------------
-nav_col1, nav_col2, nav_col3 = st.columns([2, 3, 1])
+nav_col1, nav_col2, nav_col3 = st.columns([2, 3.2, 1])
 with nav_col1:
     st.markdown("""
     <div class="rs-logo-group">
@@ -642,13 +648,8 @@ with tab2:
                 <img src="data:image/jpeg;base64,{sample_b64}" class="ct-img" id="ctImg">
                 
                 <svg class="svg-layer" viewBox="0 0 600 440">
-                    <!-- Bounding Box (YOLOv8) -->
                     <rect id="yoloBox" x="250" y="160" width="100" height="90" class="yolo-box" opacity="0"/>
-                    
-                    <!-- Otsu Segmentation Contour -->
                     <path id="otsuContour" d="M 270,180 Q 320,165 335,200 T 310,235 T 265,220 Z" class="otsu-contour"/>
-                    
-                    <!-- Major & Minor Axis Measurement Vectors -->
                     <line id="vecMajor" x1="260" y1="200" x2="340" y2="200" class="meas-vector" opacity="0"/>
                     <line id="vecMinor" x1="300" y1="170" x2="300" y2="230" class="meas-vector" opacity="0"/>
                 </svg>
@@ -658,7 +659,6 @@ with tab2:
                 <div id="readoutBadge" class="badge-floating" style="bottom: 20px; right: 20px; opacity: 0; background: rgba(59, 130, 246, 0.9);">DIMENSIONS: 8.2mm × 5.4mm</div>
             </div>
 
-            <!-- Stage Timeline Indicators -->
             <div class="timeline-bar">
                 <div id="t1" class="t-stage active-stage">01 CT Preprocess</div>
                 <div id="t2" class="t-stage">02 YOLOv8 Detect</div>
@@ -667,7 +667,6 @@ with tab2:
                 <div id="t5" class="t-stage">05 Analysis Report</div>
             </div>
 
-            <!-- Interactive Control Buttons -->
             <div class="ctrl-bar">
                 <button class="step-btn" onclick="jumpTo(1)">01 Detect</button>
                 <button class="step-btn" onclick="jumpTo(2)">02 Segment</button>
@@ -691,7 +690,6 @@ with tab2:
                 const vecMaj = document.getElementById('vecMajor');
                 const vecMin = document.getElementById('vecMinor');
 
-                // Reset stage highlights
                 for(let i=1; i<=5; i++) {{
                     document.getElementById('t' + i).classList.remove('active-stage');
                 }}
@@ -761,7 +759,6 @@ with tab2:
                 timer = setInterval(autoLoop, 4000);
             }}
 
-            // Start automated 20-second loop cycle
             timer = setInterval(autoLoop, 4000);
         </script>
     </body>
@@ -834,9 +831,10 @@ st.markdown("""
 # TAB 1: WORKSTATION DASHBOARD WORKSPACE
 # -----------------------------------------------------------------------------
 with tab1:
-    col_left, col_center, col_right = st.columns([1, 2.7, 1.3])
+    # OPTIMAL 3-COLUMN WORKSTATION PROPORTIONS (1.1 | 2.8 | 1.4)
+    col_left, col_center, col_right = st.columns([1.1, 2.8, 1.4])
 
-    # --- LEFT PANEL: CONTROLS & METADATA (20%) ---
+    # --- LEFT PANEL: CONTROLS & METADATA (1.1) ---
     with col_left:
         st.markdown('<div class="rs-ws-card"><div class="rs-ws-card-title">📤 Upload CT Scan</div>', unsafe_allow_html=True)
         uploaded_file = st.file_uploader(
@@ -926,7 +924,7 @@ with tab1:
     summary = result['summary']
     stones = result['stones']
 
-    # --- CENTER PANEL: CT SCAN VIEWER WORKSTATION (55%) ---
+    # --- CENTER PANEL: CT SCAN VIEWER WORKSTATION (2.8) ---
     with col_center:
         st.markdown("""
         <div class="rs-ct-canvas">
@@ -957,7 +955,7 @@ with tab1:
                 st.caption("AI Segmentation Overlay")
                 st.image(result['annotated_segmentation'], use_container_width=True)
 
-    # --- RIGHT PANEL: AI ANALYSIS RESULTS (25%) ---
+    # --- RIGHT PANEL: AI ANALYSIS RESULTS (1.4) ---
     with col_right:
         st.markdown("### AI Analysis Results")
         st.markdown("<span style='color: #10B981; font-weight: 700; font-size: 0.85rem;'>● Analysis Complete</span>", unsafe_allow_html=True)
@@ -1027,16 +1025,16 @@ with tab1:
                     """, unsafe_allow_html=True)
 
     # -----------------------------------------------------------------------------
-    # 5. LOWER SECTION: KIDNEY LOCATION & PHYSICAL MEASUREMENT TABLE
+    # 5. LOWER SECTION: KIDNEY LOCATION & PHYSICAL MEASUREMENT TABLE (1 : 1.6)
     # -----------------------------------------------------------------------------
     st.markdown("---")
-    low_col1, low_col2 = st.columns([1, 1.4])
+    low_col1, low_col2 = st.columns([1, 1.6])
 
     with low_col1:
         st.markdown("""
         <div class="rs-kidney-box">
-            <div style="font-weight: 800; font-size: 0.95rem; color: #18253D;">🫘 Kidney Location Map</div>
-            <div style="font-size: 0.8rem; color: #64748B; margin-bottom: 8px;">Anatomical Renal Region Markers</div>
+            <div style="font-weight: 800; font-size: 1rem; color: #18253D;">🫘 Kidney Location Map</div>
+            <div style="font-size: 0.82rem; color: #64748B; margin-bottom: 12px;">Anatomical Renal Region Markers</div>
             <div class="rs-kidney-flex">
                 <div class="rs-kidney-organ">
                     Left (L)
@@ -1053,7 +1051,10 @@ with tab1:
     with low_col2:
         if summary['has_stones'] and len(stones) > 0 and stones[0].get('status') == 'Success':
             s1 = stones[0]
-            st.markdown("### Physical Measurements (Stone #1)")
+            st.markdown("""
+            <div class="rs-meas-box">
+                <div style="font-weight: 800; font-size: 1rem; color: #18253D; margin-bottom: 8px;">📊 Physical Measurements (Stone #1)</div>
+            """, unsafe_allow_html=True)
             st.markdown(f"""
             <table class="rs-meas-table">
                 <thead>
@@ -1083,6 +1084,7 @@ with tab1:
             </table>
             """, unsafe_allow_html=True)
             st.caption(f"*DISCLAIMER: {NON_CLINICAL_DISCLAIMER}")
+            st.markdown('</div>', unsafe_allow_html=True)
 
     # -----------------------------------------------------------------------------
     # 6. EXPORT SECTION
