@@ -14,684 +14,767 @@ if str(PROJECT_ROOT) not in sys.path:
 from src.pipeline.pipeline import RenalScanPipeline
 from src.measurement.measure import ASSUMED_MM_PER_PIXEL, NON_CLINICAL_DISCLAIMER
 
-# Page Configuration - Light Theme Default
+# Page Configuration - Light Pastel Blue Theme Default
 st.set_page_config(
-    page_title="RenalScan — AI Kidney Stone Diagnostic System",
+    page_title="RenalScan — AI Kidney Stone Analysis",
     page_icon="🩺",
     layout="wide",
     initial_sidebar_state="collapsed"
 )
 
-# Custom CSS — Light Medical AI Theme (#F7F9FC Background, #FFFFFF Surfaces, #0EA5A4 Medical Cyan)
+# Custom CSS — Full Overhaul into Light Pastel Blue Design System
 st.markdown("""
 <style>
     /* Import Inter Font */
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-    
+
     html, body, [class*="css"] {
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
-    /* Global Light Background */
+    /* Hide Default Streamlit Chrome */
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+
+    /* Global Pastel Blue Gradient Background */
     .stApp {
-        background-color: #F7F9FC;
-        color: #0F172A;
+        background: linear-gradient(180deg, #EEF5FF 0%, #F5F9FF 50%, #EDF7FA 100%);
+        color: #16233B;
     }
     
     .block-container {
-        padding-top: 0rem;
+        padding-top: 1.2rem;
         padding-bottom: 3rem;
-        max-width: 1400px;
+        max-width: 1520px;
     }
-    
+
     /* Top Navigation Bar */
     .rs-navbar {
         display: flex;
         align-items: center;
         justify-content: space-between;
         background-color: #FFFFFF;
-        border-bottom: 1px solid #E2E8F0;
-        padding: 14px 32px;
-        margin-left: -5rem;
-        margin-right: -5rem;
-        margin-bottom: 24px;
+        border: 1px solid #D9E6F5;
+        border-radius: 18px;
+        padding: 12px 28px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 20px rgba(60, 110, 170, 0.05);
     }
     .rs-logo-group {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
     }
     .rs-logo-icon {
-        width: 32px;
-        height: 32px;
-        background-color: rgba(14, 165, 164, 0.12);
-        border-radius: 8px;
+        width: 36px;
+        height: 36px;
+        background: linear-gradient(135deg, #2F80ED 0%, #20B8B5 100%);
+        border-radius: 10px;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #0EA5A4;
+        color: #FFFFFF;
         font-weight: 800;
-        font-size: 1.1rem;
+        font-size: 1.15rem;
     }
-    .rs-logo-text {
-        font-size: 1.35rem;
+    .rs-logo-text-main {
+        font-size: 1.4rem;
         font-weight: 800;
-        color: #0F172A;
+        color: #16233B;
         letter-spacing: -0.02em;
     }
-    .rs-logo-badge {
-        font-size: 0.72rem;
-        font-weight: 600;
-        background-color: #F1F5F9;
-        color: #64748B;
-        padding: 2px 8px;
-        border-radius: 12px;
-        border: 1px solid #E2E8F0;
+    .rs-logo-text-accent {
+        color: #2F80ED;
+        font-weight: 800;
+    }
+    .rs-logo-subtitle {
+        font-size: 0.78rem;
+        color: #60708A;
+        font-weight: 500;
     }
     .rs-nav-links {
         display: flex;
-        gap: 28px;
+        gap: 32px;
         font-size: 0.92rem;
-        font-weight: 500;
-        color: #475569;
+        font-weight: 600;
+        color: #60708A;
     }
     .rs-nav-link {
-        color: #475569;
+        color: #60708A;
         text-decoration: none;
+        cursor: pointer;
         transition: color 0.2s;
     }
-    .rs-nav-link:hover {
-        color: #0EA5A4;
+    .rs-nav-link:hover, .rs-nav-link.active {
+        color: #2F80ED;
     }
-    .rs-nav-link.active {
-        color: #0EA5A4;
-        font-weight: 600;
-    }
-
-    /* Hero Landing Section */
-    .rs-hero-card {
-        background-color: #FFFFFF;
-        border: 1px solid #E2E8F0;
-        border-radius: 16px;
-        padding: 40px 48px;
-        margin-bottom: 24px;
-        box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03);
-    }
-    .rs-hero-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        background-color: rgba(14, 165, 164, 0.08);
-        color: #0EA5A4;
-        border: 1px solid rgba(14, 165, 164, 0.2);
-        font-size: 0.82rem;
-        font-weight: 600;
-        padding: 4px 12px;
-        border-radius: 20px;
-        margin-bottom: 16px;
-    }
-    .rs-hero-headline {
-        font-size: 2.5rem;
-        font-weight: 800;
-        color: #0F172A;
-        letter-spacing: -0.03em;
-        line-height: 1.2;
-        margin-bottom: 12px;
-    }
-    .rs-hero-subheadline {
-        font-size: 1.1rem;
-        color: #64748B;
-        max-width: 680px;
-        line-height: 1.6;
-        margin-bottom: 24px;
-    }
-
-    /* Research Prototype Notice Strip */
-    .rs-notice-strip {
-        background-color: #FFFBEB;
-        border: 1px solid #FDE68A;
-        border-left: 4px solid #D97706;
-        padding: 12px 18px;
-        border-radius: 8px;
+    .rs-btn-upload {
+        background: linear-gradient(135deg, #2F80ED 0%, #4AA3FF 100%);
+        color: #FFFFFF;
+        font-weight: 700;
         font-size: 0.88rem;
-        color: #92400E;
+        padding: 9px 20px;
+        border-radius: 12px;
+        border: none;
+        box-shadow: 0 4px 12px rgba(47, 128, 237, 0.25);
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .rs-btn-upload:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(47, 128, 237, 0.35);
+    }
+
+    /* Disclaimer Banner (Pastel Amber Notice) */
+    .rs-disclaimer-banner {
+        background-color: #FFF8E8;
+        border: 1px solid #F2D39A;
+        border-radius: 14px;
+        padding: 12px 20px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 0.88rem;
+        color: #785412;
+    }
+    .rs-disclaimer-left {
         display: flex;
         align-items: center;
         gap: 10px;
-        margin-bottom: 24px;
     }
-    .rs-notice-tag {
+    .rs-disclaimer-tag {
+        font-weight: 800;
+        color: #92400E;
+    }
+    .rs-disclaimer-link {
         font-weight: 700;
-        color: #B45309;
-    }
-
-    /* Sample CT Scan Cards */
-    .rs-sample-card {
-        background-color: #FFFFFF;
-        border: 1px solid #E2E8F0;
-        border-radius: 12px;
-        padding: 16px;
-        text-align: center;
-        transition: all 0.2s ease;
+        color: #2F80ED;
         cursor: pointer;
     }
-    .rs-sample-card:hover {
-        border-color: #0EA5A4;
-        box-shadow: 0 4px 12px rgba(14, 165, 164, 0.12);
-        transform: translateY(-2px);
-    }
-    .rs-sample-title {
-        font-weight: 700;
-        font-size: 0.95rem;
-        color: #0F172A;
-        margin-bottom: 4px;
-    }
-    .rs-sample-desc {
-        font-size: 0.82rem;
-        color: #64748B;
-    }
 
-    /* 5-Step Pipeline Bar */
-    .rs-pipeline-bar {
+    /* 5-Step Workflow Bar */
+    .rs-workflow-bar {
         display: flex;
         align-items: center;
         justify-content: space-between;
         background-color: #FFFFFF;
-        border: 1px solid #E2E8F0;
-        border-radius: 12px;
-        padding: 14px 28px;
+        border: 1px solid #D9E6F5;
+        border-radius: 16px;
+        padding: 14px 24px;
         margin-bottom: 24px;
+        box-shadow: 0 4px 16px rgba(60, 110, 170, 0.04);
     }
-    .rs-step-item {
+    .rs-wf-step {
         display: flex;
         align-items: center;
-        gap: 8px;
-        font-size: 0.88rem;
-        font-weight: 600;
-        color: #64748B;
+        gap: 10px;
     }
-    .rs-step-item.active {
-        color: #0EA5A4;
-    }
-    .rs-step-num {
-        width: 24px;
-        height: 24px;
+    .rs-wf-badge {
+        width: 32px;
+        height: 32px;
         border-radius: 50%;
-        background-color: #F1F5F9;
-        color: #64748B;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 0.75rem;
-        font-weight: 700;
+        font-size: 0.82rem;
+        font-weight: 800;
     }
-    .rs-step-item.active .rs-step-num {
-        background-color: #0EA5A4;
-        color: #FFFFFF;
+    .rs-wf-1 { background-color: #DCEEFF; color: #2F80ED; }
+    .rs-wf-2 { background-color: #D5F5F4; color: #20B8B5; }
+    .rs-wf-3 { background-color: #EAE4FF; color: #8B5CF6; }
+    .rs-wf-4 { background-color: #FFEBE0; color: #F97316; }
+    .rs-wf-5 { background-color: #E2F7ED; color: #10B981; }
+
+    .rs-wf-title {
+        font-size: 0.88rem;
+        font-weight: 700;
+        color: #16233B;
+    }
+    .rs-wf-status {
+        font-size: 0.75rem;
+        color: #10B981;
+        font-weight: 600;
+    }
+    .rs-wf-line {
+        flex-grow: 1;
+        height: 2px;
+        background-color: #E2E8F0;
+        margin: 0 16px;
     }
 
-    /* CT Scan Viewer Canvas Container (Dark Charcoal Imaging Surface) */
-    .rs-viewer-container {
-        background-color: #0B0F19;
-        border-radius: 12px;
-        border: 1px solid #1E293B;
-        padding: 16px;
-        position: relative;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    /* General Card Design */
+    .rs-card {
+        background-color: #FFFFFF;
+        border: 1px solid #D9E6F5;
+        border-radius: 18px;
+        padding: 20px;
+        box-shadow: 0 6px 24px rgba(60, 110, 170, 0.06);
+        margin-bottom: 20px;
     }
-    .rs-viewer-header {
+    .rs-card-title {
+        font-size: 1.05rem;
+        font-weight: 800;
+        color: #16233B;
+        margin-bottom: 14px;
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        padding-bottom: 12px;
-        border-bottom: 1px solid #1E293B;
+        gap: 8px;
+    }
+
+    /* Drag & Drop Pastel Upload Zone */
+    .rs-upload-zone {
+        border: 2px dashed #7DB8FF;
+        background-color: #EAF4FF;
+        border-radius: 14px;
+        padding: 24px;
+        text-align: center;
+        transition: all 0.2s;
+    }
+    .rs-upload-zone:hover {
+        border-color: #2F80ED;
+        background-color: #DCEEFF;
+    }
+    .rs-upload-title {
+        font-weight: 700;
+        font-size: 0.95rem;
+        color: #16233B;
+        margin-bottom: 4px;
+    }
+    .rs-upload-sub {
+        font-size: 0.8rem;
+        color: #60708A;
         margin-bottom: 12px;
     }
-    .rs-viewer-title {
-        color: #94A3B8;
-        font-size: 0.82rem;
-        font-weight: 600;
+
+    /* CT Scan Viewer Canvas Container (Dark Charcoal Surface) */
+    .rs-ct-viewer {
+        background-color: #101827;
+        border-radius: 20px;
+        border: 1px solid #1F2937;
+        padding: 18px;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+    }
+    .rs-ct-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #1F2937;
+        margin-bottom: 14px;
+    }
+    .rs-ct-slice-info {
+        color: #9CA3AF;
+        font-size: 0.85rem;
+        font-weight: 700;
         letter-spacing: 0.05em;
     }
-    .rs-viewer-status {
-        color: #0EA5A4;
+    .rs-ct-status {
+        color: #20B8B5;
         font-size: 0.82rem;
-        font-weight: 600;
+        font-weight: 700;
     }
 
-    /* Summary Card */
-    .rs-summary-box {
+    /* Top Plain-English Summary Card */
+    .rs-summary-card {
         background-color: #FFFFFF;
-        border: 1px solid #E2E8F0;
-        border-left: 4px solid #0EA5A4;
-        border-radius: 10px;
+        border: 1px solid #D9E6F5;
+        border-left: 5px solid #2F80ED;
+        border-radius: 14px;
         padding: 16px 20px;
         margin-bottom: 20px;
         font-size: 1.05rem;
         font-weight: 600;
-        color: #0F172A;
+        color: #16233B;
         line-height: 1.5;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        box-shadow: 0 4px 14px rgba(60, 110, 170, 0.05);
     }
-    .rs-teal-text {
-        color: #0EA5A4;
-        font-weight: 700;
-    }
-
-    /* Control Panel Cards */
-    .rs-panel-card {
-        background-color: #FFFFFF;
-        border: 1px solid #E2E8F0;
-        border-radius: 12px;
-        padding: 18px;
-        margin-bottom: 16px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-    }
-    .rs-panel-title {
-        font-size: 0.95rem;
-        font-weight: 700;
-        color: #0F172A;
-        margin-bottom: 12px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
+    .rs-blue-bold {
+        color: #2F80ED;
+        font-weight: 800;
     }
 
-    /* Stone Result Cards */
-    .rs-stone-card {
-        background-color: #FFFFFF;
+    /* Pastel Metric Cards */
+    .rs-metric-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+    .rs-metric-card {
+        border-radius: 14px;
+        padding: 16px;
+        text-align: center;
+    }
+    .rs-metric-blue { background-color: #DCEEFF; border: 1px solid #B8D9FF; }
+    .rs-metric-purple { background-color: #EAE4FF; border: 1px solid #D4C7FF; }
+    .rs-metric-teal { background-color: #D5F5F4; border: 1px solid #A6ECE9; }
+    .rs-metric-peach { background-color: #FFEBE0; border: 1px solid #FFD1BA; }
+    .rs-metric-green { background-color: #E2F7ED; border: 1px solid #B7EED4; }
+
+    .rs-metric-label {
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: #60708A;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+    }
+    .rs-metric-value {
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: #16233B;
+    }
+
+    /* Expandable Stone Result Cards */
+    .rs-stone-item {
+        background-color: #F8FAFC;
         border: 1px solid #E2E8F0;
-        border-radius: 10px;
+        border-radius: 14px;
         padding: 14px 16px;
         margin-bottom: 12px;
-        transition: border-color 0.2s;
+        transition: all 0.2s;
     }
-    .rs-stone-card:hover {
-        border-color: #0EA5A4;
+    .rs-stone-item:hover {
+        border-color: #2F80ED;
+        background-color: #FFFFFF;
+        box-shadow: 0 4px 12px rgba(47, 128, 237, 0.08);
     }
-    .rs-stone-header {
+    .rs-stone-top {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 8px;
     }
-    .rs-stone-id {
-        font-weight: 700;
-        color: #0F172A;
+    .rs-stone-title {
+        font-weight: 800;
         font-size: 0.95rem;
+        color: #16233B;
     }
-    .rs-stone-conf {
-        background-color: rgba(14, 165, 164, 0.1);
-        color: #0EA5A4;
-        font-weight: 700;
+    .rs-stone-conf-badge {
+        background-color: #D5F5F4;
+        color: #0D9488;
+        font-weight: 800;
         font-size: 0.78rem;
-        padding: 2px 8px;
-        border-radius: 10px;
+        padding: 3px 10px;
+        border-radius: 12px;
+    }
+
+    /* Anatomical Kidney Map Representation */
+    .rs-kidney-map-box {
+        background-color: #FFFFFF;
+        border: 1px solid #D9E6F5;
+        border-radius: 16px;
+        padding: 18px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .rs-kidney-flex {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 10px;
+    }
+    .rs-kidney-organ {
+        width: 90px;
+        height: 120px;
+        background-color: #FFD6E0;
+        border: 2px solid #F472B6;
+        border-radius: 45% 55% 50% 50% / 60% 40% 60% 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        font-weight: 800;
+        color: #9D174D;
+        font-size: 0.85rem;
+    }
+    .rs-stone-dot {
+        width: 14px;
+        height: 14px;
+        background-color: #2F80ED;
+        border: 2px solid #FFFFFF;
+        border-radius: 50%;
+        position: absolute;
+        box-shadow: 0 0 8px #2F80ED;
+        animation: pulseDot 1.5s infinite;
+    }
+    @keyframes pulseDot {
+        0% { transform: scale(0.9); opacity: 0.8; }
+        50% { transform: scale(1.2); opacity: 1; }
+        100% { transform: scale(0.9); opacity: 0.8; }
     }
 
     /* Footer */
-    .rs-footer {
+    .rs-footer-container {
         margin-top: 40px;
-        padding-top: 20px;
-        border-top: 1px solid #E2E8F0;
+        padding: 24px;
+        border-top: 1px solid #D9E6F5;
         text-align: center;
-        color: #94A3B8;
+        color: #60708A;
         font-size: 0.85rem;
     }
 </style>
 """, unsafe_allow_html=True)
 
 # -----------------------------------------------------------------------------
-# TOP NAVIGATION BAR
+# 1. TOP NAVIGATION BAR
 # -----------------------------------------------------------------------------
 st.markdown("""
 <div class="rs-navbar">
     <div class="rs-logo-group">
         <div class="rs-logo-icon">🩺</div>
-        <div class="rs-logo-text">RenalScan</div>
-        <div class="rs-logo-badge">AI Imaging Workstation</div>
+        <div>
+            <div><span class="rs-logo-text-main">Renal</span><span class="rs-logo-text-accent">Scan</span></div>
+            <div class="rs-logo-subtitle">AI Kidney Stone Analysis</div>
+        </div>
     </div>
     <div class="rs-nav-links">
-        <span class="rs-nav-link active">Analysis</span>
-        <span class="rs-nav-link">Pipeline Architecture</span>
-        <span class="rs-nav-link">Technology Stack</span>
-        <span class="rs-nav-link">Research & About</span>
+        <span class="rs-nav-link active">Dashboard</span>
+        <span class="rs-nav-link">How It Works</span>
+        <span class="rs-nav-link">Technology</span>
+        <span class="rs-nav-link">About</span>
+    </div>
+    <div>
+        <button class="rs-btn-upload">📤 Upload New CT Scan</button>
     </div>
 </div>
 """, unsafe_allow_html=True)
 
 # -----------------------------------------------------------------------------
-# RESEARCH PROTOTYPE NOTICE STRIP
+# 2. RESEARCH & EDUCATIONAL PROTOTYPE DISCLAIMER BANNER
 # -----------------------------------------------------------------------------
 st.markdown(f"""
-<div class="rs-notice-strip">
-    <span>ⓘ</span>
-    <span><span class="rs-notice-tag">Research & Educational Prototype:</span> Physical dimension measurements and urological size classifications are literature-based estimations ({ASSUMED_MM_PER_PIXEL} mm/px FOV constant). This software is intended for technical evaluation and portfolio demonstration — not for clinical diagnosis or surgical decision-making.</span>
+<div class="rs-disclaimer-banner">
+    <div class="rs-disclaimer-left">
+        <span>ⓘ</span>
+        <span><span class="rs-disclaimer-tag">Research & Educational Prototype:</span> Measurements and classifications are literature-based estimates ({ASSUMED_MM_PER_PIXEL} mm/px FOV constant). This software is intended for technical evaluation and portfolio demonstration — not for clinical diagnosis or surgical decision-making.</span>
+    </div>
+    <div class="rs-disclaimer-link">Learn more →</div>
 </div>
 """, unsafe_allow_html=True)
 
-# Pipeline Model Loader
+# -----------------------------------------------------------------------------
+# 3. 5-STEP WORKFLOW BAR
+# -----------------------------------------------------------------------------
+st.markdown("""
+<div class="rs-workflow-bar">
+    <div class="rs-wf-step">
+        <div class="rs-wf-badge rs-wf-1">01</div>
+        <div>
+            <div class="rs-wf-title">Preprocess</div>
+            <div class="rs-wf-status">Complete ✓</div>
+        </div>
+    </div>
+    <div class="rs-wf-line"></div>
+    <div class="rs-wf-step">
+        <div class="rs-wf-badge rs-wf-2">02</div>
+        <div>
+            <div class="rs-wf-title">Detect Stones</div>
+            <div class="rs-wf-status">Complete ✓</div>
+        </div>
+    </div>
+    <div class="rs-wf-line"></div>
+    <div class="rs-wf-step">
+        <div class="rs-wf-badge rs-wf-3">03</div>
+        <div>
+            <div class="rs-wf-title">Segment Stones</div>
+            <div class="rs-wf-status">Complete ✓</div>
+        </div>
+    </div>
+    <div class="rs-wf-line"></div>
+    <div class="rs-wf-step">
+        <div class="rs-wf-badge rs-wf-4">04</div>
+        <div>
+            <div class="rs-wf-title">Measure Stones</div>
+            <div class="rs-wf-status">Complete ✓</div>
+        </div>
+    </div>
+    <div class="rs-wf-line"></div>
+    <div class="rs-wf-step">
+        <div class="rs-wf-badge rs-wf-5">05</div>
+        <div>
+            <div class="rs-wf-title">Generate Report</div>
+            <div class="rs-wf-status">Complete ✓</div>
+        </div>
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+# Pipeline Loader
 @st.cache_resource
-def get_pipeline():
+def load_pipeline():
     model_path = PROJECT_ROOT / "models" / "detection_best.pt"
     return RenalScanPipeline(model_path=model_path, mm_per_pixel=ASSUMED_MM_PER_PIXEL)
 
-pipeline = get_pipeline()
+pipeline = load_pipeline()
 
-# Session State Initializations
+# Session state management
 if 'active_image' not in st.session_state:
     st.session_state['active_image'] = None
 if 'active_sample_name' not in st.session_state:
     st.session_state['active_sample_name'] = None
 
-# Sample files directory
 sample_dir = PROJECT_ROOT / "data" / "test" / "images"
 sample_files = sorted(list(sample_dir.glob("*.jpg"))) if sample_dir.exists() else []
 
 # -----------------------------------------------------------------------------
-# HERO LANDING SECTION (When no scan is loaded)
+# 4. MAIN WORKSPACE (3-COLUMN LAYOUT: 20% | 55% | 25%)
 # -----------------------------------------------------------------------------
-if st.session_state['active_image'] is None:
-    hero_col1, hero_col2 = st.columns([1.6, 1])
-    
-    with hero_col1:
-        st.markdown("""
-        <div class="rs-hero-card">
-            <div class="rs-hero-badge">● AI Computer Vision Pipeline v2.0</div>
-            <div class="rs-hero-headline">AI-Powered Kidney Stone Diagnostic & Measurement System</div>
-            <div class="rs-hero-subheadline">
-                Locate, segment, and quantitatively measure kidney stones from abdominal CT scans using YOLOv8 deep learning detection and classical CV contour analysis.
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-        
-    with hero_col2:
-        st.markdown("### 📤 Upload Abdominal CT Scan")
-        uploaded_file = st.file_uploader(
-            "Drag & drop CT scan image (JPG/PNG)",
-            type=["jpg", "jpeg", "png"],
-            help="Upload plain 512x512 or 640x640 abdominal CT image slice."
-        )
-        
-        if uploaded_file is not None:
-            file_bytes = np.frombuffer(uploaded_file.read(), np.uint8)
-            bgr_img = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
-            if bgr_img is not None:
-                st.session_state['active_image'] = cv2.cvtColor(bgr_img, cv2.COLOR_BGR2RGB)
-                st.session_state['active_sample_name'] = uploaded_file.name
-                st.rerun()
+col_left, col_center, col_right = st.columns([1, 2.7, 1.3])
 
-    st.markdown("---")
-    st.markdown("### 🧪 Explore with Sample CT Scans")
-    st.write("Click any sample scan below to load it into the interactive AI workstation:")
-    
-    scol1, scol2, scol3 = st.columns(3)
-    
+# --- LEFT PANEL: CONTROLS & UPLOAD ZONE (20%) ---
+with col_left:
+    st.markdown('<div class="rs-card"><div class="rs-card-title">📤 Upload & Scan</div>', unsafe_allow_html=True)
+    uploaded_file = st.file_uploader(
+        "Upload CT Scan Image (JPG/PNG)",
+        type=["jpg", "jpeg", "png"],
+        help="Drag & drop or browse for abdominal CT scan slice."
+    )
+    if uploaded_file is not None:
+        file_bytes = np.frombuffer(uploaded_file.read(), np.uint8)
+        bgr_img = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
+        if bgr_img is not None:
+            st.session_state['active_image'] = cv2.cvtColor(bgr_img, cv2.COLOR_BGR2RGB)
+            st.session_state['active_sample_name'] = uploaded_file.name
+    st.markdown('</div>', unsafe_allow_html=True)
+
+    # Sample CT Scans Quick Selection
+    st.markdown('<div class="rs-card"><div class="rs-card-title">🧪 Explore Sample Scans</div>', unsafe_allow_html=True)
     if len(sample_files) >= 3:
-        with scol1:
-            st.markdown("""
-            <div class="rs-sample-card">
-                <div class="rs-sample-title">Sample 01 — Multiple Stones</div>
-                <div class="rs-sample-desc">CT scan with multiple kidney stone candidates</div>
-            </div>
-            """, unsafe_allow_html=True)
-            if st.button("Analyze Sample 01", key="btn_sample1", use_container_width=True):
-                bgr = cv2.imread(str(sample_files[0]))
-                st.session_state['active_image'] = cv2.cvtColor(bgr, cv2.COLOR_BGR2RGB)
-                st.session_state['active_sample_name'] = sample_files[0].name
-                st.rerun()
-                
-        with scol2:
-            st.markdown("""
-            <div class="rs-sample-card">
-                <div class="rs-sample-title">Sample 02 — Single Stone</div>
-                <div class="rs-sample-desc">CT scan with a prominent solitary renal calculus</div>
-            </div>
-            """, unsafe_allow_html=True)
-            if st.button("Analyze Sample 02", key="btn_sample2", use_container_width=True):
-                bgr = cv2.imread(str(sample_files[1]))
-                st.session_state['active_image'] = cv2.cvtColor(bgr, cv2.COLOR_BGR2RGB)
-                st.session_state['active_sample_name'] = sample_files[1].name
-                st.rerun()
-                
-        with scol3:
-            st.markdown("""
-            <div class="rs-sample-card">
-                <div class="rs-sample-title">Sample 03 — Normal / Small Scan</div>
-                <div class="rs-sample-desc">CT scan slice for edge case & threshold testing</div>
-            </div>
-            """, unsafe_allow_html=True)
-            if st.button("Analyze Sample 03", key="btn_sample3", use_container_width=True):
-                bgr = cv2.imread(str(sample_files[2]))
-                st.session_state['active_image'] = cv2.cvtColor(bgr, cv2.COLOR_BGR2RGB)
-                st.session_state['active_sample_name'] = sample_files[2].name
-                st.rerun()
-
-# -----------------------------------------------------------------------------
-# MAIN ANALYSIS WORKSPACE (When a CT scan image is active)
-# -----------------------------------------------------------------------------
-else:
-    # Top Actions Bar
-    tcol1, tcol2 = st.columns([3, 1])
-    with tcol1:
-        st.markdown(f"**Loaded Scan:** `{st.session_state['active_sample_name']}`")
-    with tcol2:
-        if st.button("🔄 Upload New CT Scan", use_container_width=True):
-            st.session_state['active_image'] = None
-            st.session_state['active_sample_name'] = None
+        if st.button("Analyze Sample 01 (Multiple)", key="btn_s1", use_container_width=True):
+            bgr = cv2.imread(str(sample_files[0]))
+            st.session_state['active_image'] = cv2.cvtColor(bgr, cv2.COLOR_BGR2RGB)
+            st.session_state['active_sample_name'] = sample_files[0].name
             st.rerun()
-            
-    # 5-Step Pipeline Bar
+        if st.button("Analyze Sample 02 (Single)", key="btn_s2", use_container_width=True):
+            bgr = cv2.imread(str(sample_files[1]))
+            st.session_state['active_image'] = cv2.cvtColor(bgr, cv2.COLOR_BGR2RGB)
+            st.session_state['active_sample_name'] = sample_files[1].name
+            st.rerun()
+        if st.button("Analyze Sample 03 (Normal)", key="btn_s3", use_container_width=True):
+            bgr = cv2.imread(str(sample_files[2]))
+            st.session_state['active_image'] = cv2.cvtColor(bgr, cv2.COLOR_BGR2RGB)
+            st.session_state['active_sample_name'] = sample_files[2].name
+            st.rerun()
+    st.markdown('</div>', unsafe_allow_html=True)
+
+    # Analysis Controls
+    st.markdown('<div class="rs-card"><div class="rs-card-title">🎛️ Analysis Controls</div>', unsafe_allow_html=True)
+    conf_thresh = st.slider(
+        "Confidence Threshold",
+        min_value=0.10,
+        max_value=0.90,
+        value=0.40,
+        step=0.05,
+        help="Confidence cutoff for YOLOv8 stone detections."
+    )
+    
+    st.markdown("**Visualization Overlay**")
+    overlay_mode = st.radio(
+        "Select CT Overlay View",
+        options=["3. Measurement Axes", "2. Segmentation Masks", "1. YOLOv8 Detections", "Original CT Scan Only"],
+        index=0
+    )
+    
+    st.markdown("**Image Adjustments**")
+    brightness = st.slider("Brightness", -50, 50, 0, step=5)
+    contrast = st.slider("Contrast", -50, 50, 0, step=5)
+    
+    if st.button("Reset All Controls", use_container_width=True):
+        st.rerun()
+    st.markdown('</div>', unsafe_allow_html=True)
+
+# Default to first sample if active_image is None
+if st.session_state['active_image'] is None and len(sample_files) > 0:
+    bgr = cv2.imread(str(sample_files[0]))
+    st.session_state['active_image'] = cv2.cvtColor(bgr, cv2.COLOR_BGR2RGB)
+    st.session_state['active_sample_name'] = sample_files[0].name
+
+# Apply brightness/contrast adjustments
+processed_img = st.session_state['active_image'].copy() if st.session_state['active_image'] is not None else np.zeros((512,512,3), dtype=np.uint8)
+if brightness != 0 or contrast != 0:
+    processed_img = cv2.convertScaleAbs(processed_img, alpha=1.0 + (contrast/100.0), beta=brightness)
+
+# Run Model Pipeline
+with st.spinner("Analyzing CT scan — detecting, segmenting, and measuring stones..."):
+    result = pipeline.analyze(processed_img, conf_thresh=conf_thresh)
+
+summary = result['summary']
+stones = result['stones']
+
+# --- CENTER PANEL: CT SCAN VIEWER WORKSTATION (55%) ---
+with col_center:
     st.markdown("""
-    <div class="rs-pipeline-bar">
-        <div class="rs-step-item active"><span class="rs-step-num">01</span> Preprocess ✓</div>
-        <div class="rs-step-item active"><span class="rs-step-num">02</span> YOLOv8 Detect ✓</div>
-        <div class="rs-step-item active"><span class="rs-step-num">03</span> Otsu Segment ✓</div>
-        <div class="rs-step-item active"><span class="rs-step-num">04</span> Geometry Measure ✓</div>
-        <div class="rs-step-item active"><span class="rs-step-num">05</span> Clinical Report ✓</div>
-    </div>
+    <div class="rs-ct-viewer">
+        <div class="rs-ct-header">
+            <span class="rs-ct-slice-info">CT ABDOMINAL SCAN | Slice 034 / 128</span>
+            <span class="rs-ct-status">● AI ANALYSIS READY | RenalScan v2.0</span>
+        </div>
     """, unsafe_allow_html=True)
     
-    # 3-COLUMN WORKSPACE LAYOUT
-    ctrl_col, view_col, res_col = st.columns([1, 2.2, 1.4])
-    
-    # --- LEFT COLUMN: ANALYSIS CONTROLS ---
-    with ctrl_col:
-        st.markdown('<div class="rs-panel-card"><div class="rs-panel-title">⚙️ Detection Controls</div>', unsafe_allow_html=True)
-        conf_thresh = st.slider(
-            "Confidence Threshold",
-            min_value=0.10,
-            max_value=0.90,
-            value=0.40,
-            step=0.05,
-            help="Filters YOLOv8 detections below this minimum confidence score."
-        )
-        st.markdown('</div>', unsafe_allow_html=True)
+    if overlay_mode == "1. YOLOv8 Detections":
+        st.image(result['annotated_detection'], use_container_width=True)
+    elif overlay_mode == "2. Segmentation Masks":
+        st.image(result['annotated_segmentation'], use_container_width=True)
+    elif overlay_mode == "3. Measurement Axes":
+        st.image(result['annotated_measurement'], use_container_width=True)
+    else:
+        st.image(result['original_image'], use_container_width=True)
         
-        st.markdown('<div class="rs-panel-card"><div class="rs-panel-title">👁️ Visualization Mode</div>', unsafe_allow_html=True)
-        overlay_mode = st.radio(
-            "Select Diagnostic Overlay",
-            options=["3. Axis Measurement Vectors", "2. Classical CV Masks", "1. YOLOv8 Detections", "Original CT Scan Only"],
-            index=0
-        )
-        st.markdown('</div>', unsafe_allow_html=True)
-        
-        st.markdown('<div class="rs-panel-card"><div class="rs-panel-title">🎛️ Image Adjustments</div>', unsafe_allow_html=True)
-        brightness = st.slider("Brightness", -50, 50, 0, step=5)
-        contrast = st.slider("Contrast", -50, 50, 0, step=5)
-        st.markdown('</div>', unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
 
-    # Apply Image Adjustments to Active CT Array
-    processed_img = st.session_state['active_image'].copy()
-    if brightness != 0 or contrast != 0:
-        processed_img = cv2.convertScaleAbs(processed_img, alpha=1.0 + (contrast/100.0), beta=brightness)
-
-    # Run End-to-End Pipeline
-    with st.spinner("Analyzing CT scan — detecting, segmenting, and measuring stones..."):
-        result = pipeline.analyze(processed_img, conf_thresh=conf_thresh)
-        
-    summary = result['summary']
-    stones = result['stones']
-
-    # --- CENTER COLUMN: CT SCAN VIEWER WORKSTATION ---
-    with view_col:
-        st.markdown("""
-        <div class="rs-viewer-container">
-            <div class="rs-viewer-header">
-                <span class="rs-viewer-title">CT ABDOMINAL SCAN | Slice 034 / 128</span>
-                <span class="rs-viewer-status">● AI ANALYSIS READY</span>
-            </div>
-        """, unsafe_allow_html=True)
-        
-        # Display Active Image based on Overlay Control Choice
-        if overlay_mode == "1. YOLOv8 Detections":
-            st.image(result['annotated_detection'], use_container_width=True)
-        elif overlay_mode == "2. Classical CV Masks":
-            st.image(result['annotated_segmentation'], use_container_width=True)
-        elif overlay_mode == "3. Axis Measurement Vectors":
-            st.image(result['annotated_measurement'], use_container_width=True)
-        else:
+    # Before vs After Comparison View
+    with st.expander("🔍 Before / After Segmentation Preview"):
+        cc1, cc2 = st.columns(2)
+        with cc1:
+            st.caption("Original CT Scan")
             st.image(result['original_image'], use_container_width=True)
-            
-        st.markdown('</div>', unsafe_allow_html=True)
-        
-        # Comparison Expander (Before vs After)
-        with st.expander("🔍 Before / After Segmentation Comparison View"):
-            comp_col1, comp_col2 = st.columns(2)
-            with comp_col1:
-                st.caption("Original Input CT Scan")
-                st.image(result['original_image'], use_container_width=True)
-            with comp_col2:
-                st.caption("AI Segmentation Mask Overlay")
-                st.image(result['annotated_segmentation'], use_container_width=True)
+        with cc2:
+            st.caption("AI Segmentation Mask Overlay")
+            st.image(result['annotated_segmentation'], use_container_width=True)
 
-    # --- RIGHT COLUMN: AI ANALYSIS RESULTS & METRICS ---
-    with res_col:
-        # Plain-English Summary Sentence Banner
-        if not summary['has_stones']:
-            st.warning(f"ℹ️ **No Stone Regions Detected**: No high-confidence candidate stone regions were detected in this CT scan slice (Confidence Threshold: {conf_thresh:.2f}).")
+# --- RIGHT PANEL: AI ANALYSIS RESULTS & METRICS (25%) ---
+with col_right:
+    st.markdown("### AI Analysis Results")
+    st.markdown("<span style='color: #10B981; font-weight: 700; font-size: 0.85rem;'>● Analysis Complete</span>", unsafe_allow_html=True)
+    st.write("")
+
+    if not summary['has_stones']:
+        st.warning(f"ℹ️ **No Stone Regions Detected**: No candidate stone regions detected above threshold {conf_thresh:.2f}.")
+    else:
+        largest_mm = summary['largest_stone_diameter_mm']
+        largest_band = summary['largest_stone_size_band']
+        stone_count = summary['stone_count']
+
+        if "<4mm" in largest_band:
+            guidance = "typically passes on its own with hydration"
+        elif "4-6mm" in largest_band:
+            guidance = "may require medical expulsion observation"
+        elif "6-10mm" in largest_band:
+            guidance = "usually requires a procedure"
         else:
-            largest_mm = summary['largest_stone_diameter_mm']
-            largest_band = summary['largest_stone_size_band']
-            stone_count = summary['stone_count']
-            
-            if "<4mm" in largest_band:
-                guidance = "typically passes on its own with hydration"
-            elif "4-6mm" in largest_band:
-                guidance = "may require medical expulsion observation"
-            elif "6-10mm" in largest_band:
-                guidance = "usually requires a procedure"
-            else:
-                guidance = "usually requires surgical intervention"
-                
-            st.markdown(f"""
-            <div class="rs-summary-box">
-                💡 <strong>Analysis Summary:</strong> Detected <span class="rs-teal-text">{stone_count} stone(s)</span>. The largest is estimated at <span class="rs-teal-text">{largest_mm:.2f} mm</span>, which {guidance}.
-            </div>
-            """, unsafe_allow_html=True)
-            
-            # Metric Cards
-            m1, m2 = st.columns(2)
-            with m1:
-                st.metric("Total Stones", f"{stone_count}")
-            with m2:
-                st.metric("Largest Size", f"{largest_mm} mm*")
-                
-            st.markdown("#### 💎 Detected Stone Regions")
-            
-            for s in stones:
-                if s.get('status') == 'Success':
-                    st.markdown(f"""
-                    <div class="rs-stone-card">
-                        <div class="rs-stone-header">
-                            <span class="rs-stone-id">Stone #{s['stone_id']}</span>
-                            <span class="rs-stone-conf">{s['confidence']*100:.1f}% Conf</span>
-                        </div>
-                        <div style="font-size: 0.85rem; color: #475569;">
-                            • <strong>Est. Diameter:</strong> {s['estimated_diameter_mm']:.2f} mm*<br>
-                            • <strong>Major × Minor:</strong> {s['estimated_major_mm']:.1f} × {s['estimated_minor_mm']:.1f} mm<br>
-                            • <strong>Treatment Category:</strong> {s['clinical_size_band']}
-                        </div>
-                    </div>
-                    """, unsafe_allow_html=True)
+            guidance = "usually requires surgical intervention"
 
-    st.markdown("---")
-    
-    # -----------------------------------------------------------------------------
-    # DETAILED QUANTITATIVE MEASUREMENT TABLE & REPORT EXPORT
-    # -----------------------------------------------------------------------------
-    st.markdown("### 📊 Per-Stone Quantitative Measurement Breakdown")
-    
-    if summary['has_stones']:
-        df_records = []
+        st.markdown(f"""
+        <div class="rs-summary-card">
+            💡 Scan shows <span class="rs-blue-bold">{stone_count} stone(s)</span>. Largest is <span class="rs-blue-bold">{largest_mm:.2f} mm</span>, which {guidance}.
+        </div>
+        """, unsafe_allow_html=True)
+
+        # 3 Pastel Top Metric Cards
+        st.markdown("""
+        <div class="rs-metric-grid">
+            <div class="rs-metric-card rs-metric-blue">
+                <div class="rs-metric-label">Stones</div>
+                <div class="rs-metric-value">{count}</div>
+            </div>
+            <div class="rs-metric-card rs-metric-purple">
+                <div class="rs-metric-label">Largest</div>
+                <div class="rs-metric-value">{mm} mm</div>
+            </div>
+            <div class="rs-metric-card rs-metric-teal">
+                <div class="rs-metric-label">Conf</div>
+                <div class="rs-metric-value">{conf}%</div>
+            </div>
+        </div>
+        """.format(
+            count=stone_count,
+            mm=f"{largest_mm:.1f}",
+            conf=f"{stones[0]['confidence']*100:.0f}" if len(stones)>0 else "0"
+        ), unsafe_allow_html=True)
+
+        # Expandable Stone Detail Cards
+        st.markdown("#### Detected Stone Regions")
         for s in stones:
             if s.get('status') == 'Success':
-                df_records.append({
-                    'Stone ID': f"Stone #{s['stone_id']}",
-                    'AI Confidence': s['confidence'],
-                    'Mask Area (px²)': s['area_px'],
-                    'Major Axis (px)': s['major_axis_px'],
-                    'Minor Axis (px)': s['minor_axis_px'],
-                    'Est. Diameter (mm)*': s['estimated_diameter_mm'],
-                    'Clinical Size Band & Outlook': s['clinical_size_band']
-                })
-        df_display = pd.DataFrame(df_records)
-        
-        st.dataframe(
-            df_display,
-            use_container_width=True,
-            column_config={
-                "AI Confidence": st.column_config.NumberColumn("AI Confidence", format="%.2f"),
-                "Mask Area (px²)": st.column_config.NumberColumn("Mask Area (px²)", format="%.1f px²"),
-                "Major Axis (px)": st.column_config.NumberColumn("Major Axis (px)", format="%.1f px"),
-                "Minor Axis (px)": st.column_config.NumberColumn("Minor Axis (px)", format="%.1f px"),
-                "Est. Diameter (mm)*": st.column_config.NumberColumn("Est. Diameter (mm)*", format="%.2f mm"),
-                "Clinical Size Band & Outlook": st.column_config.TextColumn("Clinical Size Band & Outlook")
-            }
-        )
-        st.caption(f"*DISCLAIMER: {NON_CLINICAL_DISCLAIMER}")
+                st.markdown(f"""
+                <div class="rs-stone-item">
+                    <div class="rs-stone-top">
+                        <span class="rs-stone-title">Stone #{s['stone_id']}</span>
+                        <span class="rs-stone-conf-badge">{s['confidence']*100:.1f}% Conf</span>
+                    </div>
+                    <div style="font-size: 0.84rem; color: #60708A;">
+                        • <strong>Est. Diameter:</strong> {s['estimated_diameter_mm']:.2f} mm*<br>
+                        • <strong>Major × Minor:</strong> {s['estimated_major_mm']:.1f} × {s['estimated_minor_mm']:.1f} mm<br>
+                        • <strong>Treatment Category:</strong> {s['clinical_size_band']}
+                    </div>
+                </div>
+                """, unsafe_allow_html=True)
 
-        # REPORT EXPORT PANEL
-        st.markdown("### 📄 Export Diagnostic Analysis Report")
-        ex_col1, ex_col2 = st.columns(2)
+    # Anatomical Kidney Location Map
+    st.markdown("""
+    <div class="rs-kidney-map-box">
+        <div style="font-weight: 800; font-size: 0.9rem; color: #16233B;">🫘 Anatomical Kidney Map Representation</div>
+        <div class="rs-kidney-flex">
+            <div class="rs-kidney-organ">
+                L
+                <div class="rs-stone-dot" style="top: 30px; left: 35px;"></div>
+            </div>
+            <div class="rs-kidney-organ">
+                R
+                <div class="rs-stone-dot" style="top: 55px; left: 40px;"></div>
+            </div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Physical Measurements Cards (Stone #1 Baseline)
+    if summary['has_stones'] and len(stones) > 0 and stones[0].get('status') == 'Success':
+        s1 = stones[0]
+        st.markdown("#### Physical Measurements (Stone #1)")
+        pgrid1, pgrid2 = st.columns(2)
+        with pgrid1:
+            st.markdown(f"""
+            <div class="rs-metric-card rs-metric-blue" style="margin-bottom: 8px;">
+                <div class="rs-metric-label">Major Axis</div>
+                <div class="rs-metric-value" style="font-size: 1.3rem;">{s1['estimated_major_mm']:.1f} mm</div>
+            </div>
+            """, unsafe_allow_html=True)
+            st.markdown(f"""
+            <div class="rs-metric-card rs-metric-peach">
+                <div class="rs-metric-label">Mask Area</div>
+                <div class="rs-metric-value" style="font-size: 1.3rem;">{s1['area_px']:.1f} px²</div>
+            </div>
+            """, unsafe_allow_html=True)
+        with pgrid2:
+            st.markdown(f"""
+            <div class="rs-metric-card rs-metric-purple" style="margin-bottom: 8px;">
+                <div class="rs-metric-label">Minor Axis</div>
+                <div class="rs-metric-value" style="font-size: 1.3rem;">{s1['estimated_minor_mm']:.1f} mm</div>
+            </div>
+            """, unsafe_allow_html=True)
+            st.markdown(f"""
+            <div class="rs-metric-card rs-metric-green">
+                <div class="rs-metric-label">Equiv Diam</div>
+                <div class="rs-metric-value" style="font-size: 1.3rem;">{s1['estimated_diameter_mm']:.1f} mm</div>
+            </div>
+            """, unsafe_allow_html=True)
+
+    st.markdown("---")
+    st.markdown("#### Export & Reports")
+    
+    if summary['has_stones']:
+        report_text = f"RenalScan AI Diagnostic Report\nScan: {st.session_state['active_sample_name']}\nStones: {summary['stone_count']}\nLargest: {summary['largest_stone_diameter_mm']} mm\n"
+        for s in stones:
+            report_text += f"- Stone #{s['stone_id']}: {s['estimated_diameter_mm']:.2f}mm ({s['clinical_size_band']})\n"
+        report_text += f"\nDISCLAIMER: {NON_CLINICAL_DISCLAIMER}\n"
         
-        with ex_col1:
-            # Generate Downloadable Markdown Report
-            report_text = f"# RenalScan AI Diagnostic Report\n"
-            report_text += f"Scan ID: {st.session_state['active_sample_name']}\n"
-            report_text += f"Confidence Threshold: {conf_thresh}\n"
-            report_text += f"Stones Detected: {summary['stone_count']}\n"
-            report_text += f"Largest Stone: {summary['largest_stone_diameter_mm']} mm ({summary['largest_stone_size_band']})\n\n"
-            report_text += "## Detailed Stone Measurements\n"
-            for s in stones:
-                report_text += f"- Stone #{s['stone_id']}: Confidence={s['confidence']*100:.1f}%, Est Diam={s['estimated_diameter_mm']:.2f}mm, Band={s['clinical_size_band']}\n"
-            report_text += f"\nDISCLAIMER: {NON_CLINICAL_DISCLAIMER}\n"
-            
-            st.download_button(
-                "📥 Download Analysis Summary Report (.txt)",
-                data=report_text,
-                file_name=f"RenalScan_Report_{st.session_state['active_sample_name']}.txt",
-                mime="text/plain",
-                use_container_width=True
-            )
-            
-        with ex_col2:
-            # Export CSV Data
-            csv_data = df_display.to_csv(index=False)
-            st.download_button(
-                "📊 Export Measurements CSV (.csv)",
-                data=csv_data,
-                file_name=f"RenalScan_Measurements_{st.session_state['active_sample_name']}.csv",
-                mime="text/csv",
-                use_container_width=True
-            )
+        st.download_button(
+            "📄 Download Report (.txt)",
+            data=report_text,
+            file_name="RenalScan_Report.txt",
+            mime="text/plain",
+            use_container_width=True
+        )
 
 # -----------------------------------------------------------------------------
-# FOOTER
+# 5. FOOTER
 # -----------------------------------------------------------------------------
 st.markdown("""
-<div class="rs-footer">
-    <strong>RenalScan</strong> — AI-Powered Kidney Stone Analysis System | Research & Educational Prototype<br>
+<div class="rs-footer-container">
+    <strong>RenalScan</strong> — AI-Powered Kidney Stone Analysis Platform | Research & Educational Prototype<br>
     Built for Technical Portfolio Evaluation & Medical Computer Vision Demonstration
 </div>
 """, unsafe_allow_html=True)
