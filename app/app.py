@@ -25,7 +25,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Custom CSS — Clinical Workstation Design System (Inter Font, Pastel Blue Palette, Aligned Grid)
+# Custom CSS — Landscape Workstation Alignment & Styling
 st.markdown("""
 <style>
     /* Import Inter Font */
@@ -47,20 +47,18 @@ st.markdown("""
     }
     
     .block-container {
-        padding-top: 1.2rem;
+        padding-top: 1.5rem;
         padding-bottom: 3rem;
-        max-width: 1560px;
+        max-width: 1480px;
+        margin: 0 auto;
     }
 
     /* Workstation Top Navigation Bar */
-    .rs-ws-navbar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+    .rs-navbar-wrapper {
         background-color: #FFFFFF;
         border: 1px solid #D7E6F5;
         border-radius: 18px;
-        padding: 12px 28px;
+        padding: 14px 28px;
         margin-bottom: 18px;
         box-shadow: 0 4px 20px rgba(60, 110, 170, 0.05);
     }
@@ -101,12 +99,13 @@ st.markdown("""
         color: #FFFFFF;
         font-weight: 700;
         font-size: 0.88rem;
-        padding: 9px 22px;
+        padding: 10px 22px;
         border-radius: 12px;
         border: none;
         box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
         cursor: pointer;
         transition: transform 0.2s, box-shadow 0.2s;
+        float: right;
     }
     .rs-btn-upload-nav:hover {
         transform: translateY(-2px);
@@ -129,11 +128,6 @@ st.markdown("""
     .rs-notice-tag {
         font-weight: 800;
         color: #92400E;
-    }
-    .rs-notice-link {
-        font-weight: 700;
-        color: #3B82F6;
-        cursor: pointer;
     }
 
     /* AI Pipeline 5-Step Workflow Bar */
@@ -191,7 +185,7 @@ st.markdown("""
         background-color: #FFFFFF;
         border: 1px solid #D7E6F5;
         border-radius: 16px;
-        padding: 20px;
+        padding: 18px 20px;
         box-shadow: 0 6px 20px rgba(60, 110, 170, 0.05);
         margin-bottom: 18px;
     }
@@ -210,11 +204,11 @@ st.markdown("""
     .rs-meta-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 10px;
+        gap: 12px;
         background-color: #F8FAFC;
         border: 1px solid #E2E8F0;
         border-radius: 12px;
-        padding: 12px;
+        padding: 14px;
         margin-bottom: 16px;
     }
     .rs-meta-label {
@@ -226,23 +220,19 @@ st.markdown("""
         font-size: 0.88rem;
         color: #18253D;
         font-weight: 700;
+        white-space: nowrap;
     }
 
     /* CT Scan Viewer Canvas Container (Dark Navy Imaging Canvas #101827) */
-    .rs-ct-canvas {
-        background-color: #101827;
-        border-radius: 20px;
-        border: 1px solid #1F2937;
-        padding: 20px;
-        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
-    }
     .rs-ct-canvas-header {
+        background-color: #101827;
+        border-radius: 16px 16px 0 0;
+        border: 1px solid #1F2937;
+        border-bottom: none;
+        padding: 14px 20px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding-bottom: 12px;
-        border-bottom: 1px solid #1F2937;
-        margin-bottom: 14px;
     }
     .rs-ct-slice-txt {
         color: #9CA3AF;
@@ -459,25 +449,27 @@ if len(sample_files) > 0:
         sample_b64 = base64.b64encode(img_f.read()).decode()
 
 # -----------------------------------------------------------------------------
-# 1. WORKSTATION TOP NAVIGATION BAR
+# 1. UNIFIED TOP NAVIGATION BAR (Centered inside main container)
 # -----------------------------------------------------------------------------
-nav_col1, nav_col2, nav_col3 = st.columns([2, 3.2, 1])
-with nav_col1:
-    st.markdown("""
-    <div class="rs-logo-group">
-        <div class="rs-logo-icon">🩺</div>
+st.markdown("""
+<div class="rs-navbar-wrapper">
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+        <div class="rs-logo-group">
+            <div class="rs-logo-icon">🩺</div>
+            <div>
+                <div><span class="rs-logo-title-navy">Renal</span><span class="rs-logo-title-blue">Scan</span></div>
+                <div class="rs-logo-sub">AI Kidney Stone Analysis</div>
+            </div>
+        </div>
         <div>
-            <div><span class="rs-logo-title-navy">Renal</span><span class="rs-logo-title-blue">Scan</span></div>
-            <div class="rs-logo-sub">AI Kidney Stone Analysis</div>
+            <button class="rs-btn-upload-nav">📤 Upload New CT Scan</button>
         </div>
     </div>
-    """, unsafe_allow_html=True)
+</div>
+""", unsafe_allow_html=True)
 
-with nav_col2:
-    tab1, tab2 = st.tabs(["📊 Workstation Dashboard", "🔬 How RenalScan Works (Interactive AI Pipeline)"])
-
-with nav_col3:
-    st.markdown('<button class="rs-btn-upload-nav">📤 Upload New CT Scan</button>', unsafe_allow_html=True)
+# Main Navigation Tabs right below top navbar
+tab1, tab2 = st.tabs(["📊 Workstation Dashboard", "🔬 How RenalScan Works (Interactive AI Pipeline)"])
 
 # -----------------------------------------------------------------------------
 # TAB 2: INTERACTIVE ANIMATED "HOW RENALSCAN WORKS" PIPELINE SECTION
@@ -530,7 +522,6 @@ with tab2:
                 border-radius: 8px;
                 transition: opacity 0.5s, filter 0.5s;
             }}
-            /* Scanning Beam Line */
             .scan-line {{
                 position: absolute;
                 top: 0;
@@ -547,7 +538,6 @@ with tab2:
                 50% {{ top: 90%; }}
                 100% {{ top: 5%; }}
             }}
-            /* SVG Contour & Vector Layer */
             .svg-layer {{
                 position: absolute;
                 top: 0;
@@ -579,7 +569,6 @@ with tab2:
                 stroke-width: 2.5;
                 stroke-dasharray: 4;
             }}
-            /* Floating Labels & Badges */
             .badge-floating {{
                 position: absolute;
                 background: rgba(16, 24, 39, 0.85);
@@ -592,7 +581,6 @@ with tab2:
                 font-weight: 700;
                 transition: opacity 0.5s, transform 0.5s;
             }}
-            /* Step Control Buttons Bar */
             .ctrl-bar {{
                 display: flex;
                 gap: 12px;
@@ -615,7 +603,6 @@ with tab2:
                 border-color: #3B82F6;
                 color: #3B82F6;
             }}
-            /* Stage Timeline Bar */
             .timeline-bar {{
                 display: grid;
                 grid-template-columns: repeat(5, 1fr);
@@ -831,10 +818,10 @@ st.markdown("""
 # TAB 1: WORKSTATION DASHBOARD WORKSPACE
 # -----------------------------------------------------------------------------
 with tab1:
-    # OPTIMAL 3-COLUMN WORKSTATION PROPORTIONS (1.1 | 2.8 | 1.4)
-    col_left, col_center, col_right = st.columns([1.1, 2.8, 1.4])
+    # BALANCED 3-COLUMN WORKSTATION PROPORTIONS (1.4 | 2.4 | 1.4) (~26% | ~48% | ~26%)
+    col_left, col_center, col_right = st.columns([1.4, 2.4, 1.4])
 
-    # --- LEFT PANEL: CONTROLS & METADATA (1.1) ---
+    # --- LEFT PANEL: CONTROLS & METADATA (1.4) ---
     with col_left:
         st.markdown('<div class="rs-ws-card"><div class="rs-ws-card-title">📤 Upload CT Scan</div>', unsafe_allow_html=True)
         uploaded_file = st.file_uploader(
@@ -924,14 +911,14 @@ with tab1:
     summary = result['summary']
     stones = result['stones']
 
-    # --- CENTER PANEL: CT SCAN VIEWER WORKSTATION (2.8) ---
+    # --- CENTER PANEL: CT SCAN VIEWER WORKSTATION (2.4) ---
     with col_center:
+        # ENCAPSULATED DARK NAVY CT VIEWER
         st.markdown("""
-        <div class="rs-ct-canvas">
-            <div class="rs-ct-canvas-header">
-                <span class="rs-ct-slice-txt">CT ABDOMINAL SCAN | Slice 034 / 128</span>
-                <span class="rs-ct-ready-txt">● AI ANALYSIS READY</span>
-            </div>
+        <div class="rs-ct-canvas-header">
+            <span class="rs-ct-slice-txt">CT ABDOMINAL SCAN | Slice 034 / 128</span>
+            <span class="rs-ct-ready-txt">● AI ANALYSIS READY</span>
+        </div>
         """, unsafe_allow_html=True)
         
         if overlay_mode == "1. YOLOv8 Detections":
@@ -942,8 +929,6 @@ with tab1:
             st.image(result['annotated_measurement'], use_container_width=True)
         else:
             st.image(result['original_image'], use_container_width=True)
-            
-        st.markdown('</div>', unsafe_allow_html=True)
 
         # Before vs After Comparison Expander
         with st.expander("🔍 Before / After Segmentation Preview"):
