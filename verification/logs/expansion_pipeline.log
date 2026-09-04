@@ -1,0 +1,41 @@
+2026-09-02 20:07:06,716 - __main__ - INFO - ======================================================================
+2026-09-02 20:07:06,716 - __main__ - INFO - Dataset Expansion Pipeline Starting
+2026-09-02 20:07:06,716 - __main__ - INFO - ======================================================================
+2026-09-02 20:07:06,716 - __main__ - INFO - 
+[Stage 1/5] Skipping download (using existing source dataset)
+2026-09-02 20:07:06,730 - __main__ - INFO - 
+[Stage 2/5] Running verification checks...
+2026-09-02 20:07:06,818 - __main__ - ERROR - 
+Pipeline failed at stage: download_skipped
+2026-09-02 20:07:06,818 - __main__ - ERROR - Error: Class validation failed: Source dataset must have exactly one class, found 2
+2026-09-02 20:09:38,335 - __main__ - INFO - ======================================================================
+2026-09-02 20:09:38,337 - __main__ - INFO - Dataset Expansion Pipeline Starting
+2026-09-02 20:09:38,339 - __main__ - INFO - ======================================================================
+2026-09-02 20:09:38,341 - __main__ - INFO - 
+[Stage 1/5] Skipping download (using existing source dataset)
+2026-09-02 20:09:38,343 - __main__ - INFO - 
+[Stage 2/5] Running verification checks...
+2026-09-02 20:09:38,381 - __main__ - INFO - Class validation: Classes are compatible but different ('Stone' -> 'Kidney Stone'). Remapping recommended.
+2026-09-02 20:10:59,958 - __main__ - INFO - Format validation: 5 recommendations
+2026-09-02 20:11:01,242 - __main__ - INFO - Quality check: 20 samples visualized
+2026-09-02 20:11:01,242 - __main__ - INFO - Verification stage completed
+2026-09-02 20:11:01,242 - __main__ - INFO - 
+[Stage 3/5] Detecting duplicates...
+2026-09-02 20:11:47,629 - __main__ - INFO - Duplicate detection: 2202 duplicates found
+2026-09-02 20:11:47,629 - __main__ - INFO - Duplicate detection completed
+2026-09-02 20:11:47,629 - __main__ - INFO - 
+[Stage 4/5] Merging datasets...
+2026-09-02 20:13:07,581 - __main__ - INFO - Dataset merging completed
+2026-09-02 20:13:07,591 - __main__ - INFO - 
+[Stage 5/5] Generating verification report...
+2026-09-02 20:13:07,596 - __main__ - INFO - Report generation completed
+2026-09-02 20:13:07,596 - __main__ - INFO - 
+======================================================================
+2026-09-02 20:13:07,597 - __main__ - INFO - Pipeline completed successfully!
+2026-09-02 20:13:07,597 - __main__ - INFO - Verification report: verification\expansion_report.md
+2026-09-02 20:13:07,598 - __main__ - INFO - Quality samples: verification\quality_samples
+2026-09-02 20:13:07,598 - __main__ - INFO - Logs: verification\logs\expansion_pipeline.log
+2026-09-02 20:13:07,599 - __main__ - INFO - ======================================================================
+2026-09-02 20:13:07,600 - __main__ - INFO - 
+IMPORTANT: Review the verification report before retraining.
+2026-09-02 20:13:07,600 - __main__ - INFO - The pipeline does NOT automatically retrain the model.

@@ -20,6 +20,16 @@ models/*
 !models/test_metrics.txt
 runs/
 
+# Dataset Expansion - Temporary/Large Files
+data_merged/
+roboflow_dataset/
+roboflow_dataset_preprocessed/
+Kidney stone detection.v1-new.yolov8/
+Kidney stone detection.v1-new.yolov8.zip
+yolov8s.pt
+.hypothesis/
+.kiro/
+
 # Environment Variables & Keys
 .env
 

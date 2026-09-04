@@ -1,0 +1,7 @@
+names:
+- stone
+nc: 1
+path: C:\Users\akhil\Desktop\Renal Scan\verification\test_merge\current
+test: test/images
+train: train/images
+val: valid/images

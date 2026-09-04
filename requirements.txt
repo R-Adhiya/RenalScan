@@ -12,3 +12,9 @@ jupyter==1.0.0
 ipykernel==6.29.3
 kagglehub
 streamlit==1.50.0
+
+# Dataset Expansion Dependencies
+roboflow==1.1.31
+imagehash==4.3.1
+PyYAML==6.0.1
+hypothesis==6.100.0
