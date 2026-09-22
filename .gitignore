@@ -22,7 +22,8 @@ models/*
 runs/
 
 # Dataset Expansion - Temporary/Large Files
-data_merged/
+data_merged/*
+!data_merged/data.yaml
 roboflow_dataset/
 roboflow_dataset_preprocessed/
 Kidney stone detection.v1-new.yolov8/
