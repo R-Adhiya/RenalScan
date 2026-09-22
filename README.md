@@ -58,27 +58,27 @@ An error breakdown was conducted on the original 123 held-out test scans (224 gr
 | **False Negatives (FN)** | **52** | 23.21% | Ground-truth stones that failed to meet the confidence or IoU criteria |
 | **Operational F1** | **80.94%** | — | Precision: **85.57%** \| Recall: **76.79%** |
 
-Honest qualitative inspection of the false positives and false negatives revealed five primary failure mechanisms:
+Qualitative inspection of the false positives and false negatives reveals five primary observed failure modes based on visual characteristics and spatial context:
 
-* **Sub-Resolution Punctate Calculi (False Negatives)**: Tiny punctate stones ($\le 6\times 6\text{ px}$ / $\le 4.2\text{ mm}$) generate minimal volumetric attenuation, causing deep convolutional feature activations to fall just below the detection threshold.
-* **Dense Cortical Bone Mimicry (False Positives)**: High-attenuation cortical bone margins along vertebral transverse processes and lower ribs exhibit radio-density similar to calcified stones. Because the detector operates on whole-slice CT without an initial kidney mask, dense skeletal structures can trigger false alarms.
-* **Extra-Renal Vascular Calcifications (False Positives)**: Pelvic phleboliths and vascular calcifications exhibit identical radio-opacity and rounded morphology to nephrolithiasis, leading to false detections outside the renal collecting system.
-* **Low-Contrast / Faint Calculi (False Negatives)**: Low-attenuation or uric acid stones with subtle grayscale gradients against surrounding parenchyma fail to trigger high-confidence detections.
-* **Clustered / Multi-Focal Proximity (False Negatives)**: When multiple small stones lie in immediate adjacent calyces, non-maximum suppression or shared spatial receptive fields can lead to one stone being caught while adjacent companion stones are missed.
+* **Stones Near the Practical Resolution Limit (False Negatives)**: Very small stones ($\le 6\times 6\text{ px}$, roughly $\le 4\text{ mm}$ at $512\times 512$ resolution) were missed, likely because their small pixel footprint approaches the practical spatial resolution limit of the detector at this scale.
+* **Bright Skeletal Structures Near Vertebral Margins (False Positives)**: Compact, bright structures along the vertebral edge and lower rib margins visually resemble calcified stones in grayscale intensity and shape. Because the model operates on the full CT slice without an explicit kidney segmentation mask to constrain the search space, these dense bony margins can trigger false detections.
+* **Dense Extra-Renal Structures (False Positives)**: Dense, rounded structures outside the expected kidney region share similar visual brightness, size, and rounded contour with stones, leading to false detections in the absence of organ-boundary priors.
+* **Faint, Low-Contrast Stone Regions (False Negatives)**: Ground-truth stones with low visual contrast against the surrounding renal tissue lacked the sharp boundary gradients typical of clearly detectable stones, failing to meet the confidence threshold.
+* **Clustered Stones in Close Proximity (False Negatives)**: When multiple annotated stones appear in close spatial proximity, the detector sometimes successfully captures one or two while missing adjacent companion stones, likely due to spatial overlap or bounding box suppression.
 
 Detailed diagnostic overlays for representative failure cases are archived in [`verification/failure_cases/`](verification/failure_cases/):
 
-#### Case 1 — Sub-Resolution Punctate Calculus (False Negative)
-*A tiny punctate calculus measuring only 6x6 pixels (~4.2 mm) in the lower pole was missed because its minimal attenuation volume produced feature activations below the detection threshold.*
-![Failure Case 1 — Sub-Resolution Punctate Calculus](verification/failure_cases/failure_01_fn_subresolution_tiny_stone.png)
+#### Case 1 — Very Small Stone Near Resolution Limit (False Negative)
+*A very small stone (~6x6 pixels, roughly 4 mm) was missed, likely because its size is near the practical detection limit for this model at this image resolution (512x512).*
+![Failure Case 1 — Very Small Stone Near Resolution Limit](verification/failure_cases/failure_01_fn_subresolution_tiny_stone.png)
 
-#### Case 2 — Dense Cortical Bone False Alarm (False Positive)
-*High-density cortical bone at the vertebral transverse process edge exhibits calcified attenuation similar to a stone, falsely triggering a detection without kidney boundary priors.*
-![Failure Case 2 — Dense Cortical Bone False Alarm](verification/failure_cases/failure_03_fp_dense_cortical_bone.png)
+#### Case 2 — Bright Structure Near Vertebral Edge (False Positive)
+*A bright, compact structure near the vertebral edge was falsely detected (confidence 62%), likely due to its visual resemblance in brightness and shape to a stone.*
+![Failure Case 2 — Bright Structure Near Vertebral Edge](verification/failure_cases/failure_03_fp_dense_cortical_bone.png)
 
-#### Case 3 — Extra-Renal Vascular Phlebolith (False Positive)
-*A dense extra-renal vascular calcification (pelvic phlebolith) shares near-identical size and radio-opacity with nephrolithiasis, misleading the detector due to lack of anatomical organ masking.*
-![Failure Case 3 — Extra-Renal Vascular Phlebolith](verification/failure_cases/failure_04_fp_vascular_pelvic_phlebolith.png)
+#### Case 3 — Dense Structure Outside Expected Kidney Region (False Positive)
+*A dense, rounded structure outside the expected kidney region was falsely detected (confidence 77%), showing visual similarity in brightness and size to a stone.*
+![Failure Case 3 — Dense Structure Outside Expected Kidney Region](verification/failure_cases/failure_04_fp_vascular_pelvic_phlebolith.png)
 
 ---
 
