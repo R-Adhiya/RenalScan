@@ -23,7 +23,7 @@ import torch
 num_cpus = os.cpu_count() or 4
 torch.set_num_threads(num_cpus)
 
-from ultralytics import YOLO
+from ultralytics import YOLO, settings
 
 
 def train_yolov8s_enhanced(
@@ -49,6 +49,7 @@ def train_yolov8s_enhanced(
     project_root = Path(__file__).resolve().parent
     models_dir = project_root / "models"
     models_dir.mkdir(parents=True, exist_ok=True)
+    settings.update({'datasets_dir': str(project_root)})
     
     # Check if merged dataset exists
     data_yaml_path = project_root / data_yaml
