@@ -37,6 +37,18 @@ renalscan/
      - `> 10 mm`: Very Large (Surgical intervention indicated — ESWL / URS / PCNL)
    - **Non-Clinical Disclaimer**: All millimeter-based measurements and size bands are explicitly labeled as **estimated, non-clinical metrics** and must not be used for clinical diagnostic or surgical decisions.
 
+   #### 🔬 Pixel-Spacing Sensitivity Analysis
+   Because the $0.70\text{ mm/px}$ constant is an uncalibrated literature assumption without per-scan DICOM metadata, the table below illustrates how estimated stone diameters and clinical size band assignments shift across a plausible abdominal CT pixel-spacing range ($0.50 - 0.90\text{ mm/px}$):
+
+   | Representative Calculus | Measured Dimension | 0.50 mm/px | 0.60 mm/px | 0.70 mm/px *(Baseline)* | 0.80 mm/px | 0.90 mm/px | Band Shift Impact |
+   | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
+   | **Small Stone** | 5.23 px | 2.62 mm *(Small)* | 3.14 mm *(Small)* | **3.66 mm *(Small)*** | 4.18 mm *(Medium)* | 4.71 mm *(Medium)* | Small $\rightarrow$ Medium |
+   | **Borderline Stone (Medium)** | 7.53 px | 3.77 mm *(Small)* | 4.52 mm *(Medium)* | **5.27 mm *(Medium)*** | 6.02 mm *(Large)* | 6.78 mm *(Large)* | Small $\rightarrow$ Medium $\rightarrow$ Large |
+   | **Borderline Stone (Large)** | 11.70 px | 5.85 mm *(Medium)* | 7.02 mm *(Large)* | **8.19 mm *(Large)*** | 9.36 mm *(Large)* | 10.53 mm *(Very Large)* | Medium $\rightarrow$ Large $\rightarrow$ Very Large |
+   | **Very Large Calculus** | 32.42 px | 16.21 mm *(V.Large)* | 19.45 mm *(V.Large)* | **22.69 mm *(V.Large)*** | 25.94 mm *(V.Large)* | 29.18 mm *(V.Large)* | Stable (>10 mm) |
+
+   > **Interpretation**: At the extremes of the plausible range, a borderline stone could shift between the Medium and Large treatment bands — underscoring why this is an uncalibrated estimate, not a diagnostic measurement.
+
 2. **Absence of Ground-Truth Segmentation Masks**:
    - The dataset provides bounding box annotations (`.txt` in YOLO format) for object detection, but lacks ground-truth pixel-level segmentation mask annotations.
    - **Methodology**: Segmentation is performed using **classical Computer Vision techniques** (10% padded ROI cropping around YOLO bounding boxes, Otsu adaptive thresholding, morphological opening/closing, and largest high-intensity contour extraction) rather than a supervised neural network (e.g., U-Net or Mask R-CNN).
