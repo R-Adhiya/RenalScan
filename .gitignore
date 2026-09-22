@@ -18,6 +18,7 @@ data/*
 !data/data.yaml
 models/*
 !models/test_metrics.txt
+!models/test_metrics_v2.txt
 runs/
 
 # Dataset Expansion - Temporary/Large Files
@@ -27,6 +28,7 @@ roboflow_dataset_preprocessed/
 Kidney stone detection.v1-new.yolov8/
 Kidney stone detection.v1-new.yolov8.zip
 yolov8s.pt
+verification/test_merge/
 .hypothesis/
 .kiro/
 
