@@ -1,4 +1,4 @@
-path: c:/Users/akhil/Desktop/Renal Scan/data
+path: data
 train: train/images
 val: valid/images
 test: test/images
