@@ -1,0 +1,32 @@
+======================================================================
+RENALSCAN YOLOv8S (V2) ON ORIGINAL TEST SET (APPLES-TO-APPLES)
+======================================================================
+Model Evaluated  : models/detection_best_v2.pt (YOLOv8s, Merged Dataset)
+Baseline Model   : models/detection_best.pt (YOLOv8n, Original Dataset)
+Evaluation Split : Original Held-Out Test Set (data/test)
+Images Evaluated : 123
+Target Instances : 224
+Image Resolution : 512x512 px
+Device Used      : CPU
+----------------------------------------------------------------------
+V2 METRICS (ON ORIGINAL TEST SET):
+  Precision (P)    : 0.8683 (86.83%)
+  Recall (R)       : 0.7768 (77.68%)
+  F1 Score         : 0.8200 (82.00%)
+  mAP@0.50         : 0.8121 (81.21%)
+  mAP@0.50:0.95    : 0.4110 (41.10%)
+----------------------------------------------------------------------
+V1 BASELINE METRICS (data/test):
+  Precision (P)    : 0.8480 (84.80%)
+  Recall (R)       : 0.6964 (69.64%)
+  F1 Score         : 0.7648 (76.48%)
+  mAP@0.50         : 0.7303 (73.03%)
+  mAP@0.50:0.95    : 0.3182 (31.82%)
+----------------------------------------------------------------------
+PERFORMANCE DELTAS (V2 vs V1 on identical 123 test images):
+  Precision (P)    : +2.03%
+  Recall (R)       : +8.04%
+  F1 Score         : +5.52%
+  mAP@0.50         : +8.18%
+  mAP@0.50:0.95    : +9.28%
+======================================================================

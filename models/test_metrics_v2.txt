@@ -1,0 +1,2941 @@
+======================================================================
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+RENALSCAN YOLOv8S — MERGED DATASET TEST METRICS (V2)
+=
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+Model Version    : YOLOv8s (Small variant)
+Dataset          : Merged dataset (3,305 images)
+Evaluation Split : Held-Out Test Set (data_merged/test)
+Image Resolution : 512x512 px
+Total Epochs     : 1
+Device Used      : 0
+Training Time    : 3134.37 sec (3134.37 s/epoch)
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+METRICS
+-
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+Precision (P)    : 0.7809 (78.09%)
+Recall (R)       : 0.6218 (62.18%)
+F1 Score         : 0.6923 (69.23%)
+mAP@0.50         : 0.6965 (69.65%)
+mAP@0.50:0.95    : 0.3069 (30.69%)
+=
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+
+COMPARISON WITH V1 (Original 1,300 images, YOLOv8n)
+-
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
+V1 Metrics (from test_metrics.txt):
+  Precision:     84.80%
+  Recall:        69.64%
+  F1 Score:      76.48%
+  mAP@0.50:      73.03%
+  mAP@0.50:0.95: 31.82%
+
+V2 Metrics (current):
+  Precision:     78.09%
+  Recall:        62.18%
+  F1 Score:      69.23%
+  mAP@0.50:      69.65%
+  mAP@0.50:0.95: 30.69%
+
+Changes:
+  Precision:     -6.71%
+  Recall:        -7.46%
+  F1 Score:      -7.25%
+  mAP@0.50:      -3.38%
+  mAP@0.50:0.95: -1.13%
+=
