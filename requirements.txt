@@ -1,20 +1,10 @@
---extra-index-url https://download.pytorch.org/whl/cpu
-torch==2.2.2
-torchvision==0.17.2
-ultralytics==8.1.34
-opencv-python==4.9.0.80
-numpy==1.26.4
-pandas==2.2.1
-matplotlib==3.8.3
-albumentations==1.4.2
-scikit-image==0.22.0
-jupyter==1.0.0
-ipykernel==6.29.3
-kagglehub
-streamlit==1.50.0
-
-# Dataset Expansion Dependencies
-roboflow>=1.1.31
-imagehash==4.3.1
-PyYAML==6.0.1
-hypothesis==6.100.0
+# RenalScan Production Inference Dependencies
+streamlit>=1.35.0
+ultralytics>=8.1.0
+torch>=2.2.0
+torchvision>=0.17.0
+opencv-python-headless>=4.8.0
+numpy>=1.24.0,<2.0.0
+pandas>=2.0.0
+matplotlib>=3.7.0
+PyYAML>=6.0
