@@ -831,10 +831,18 @@ with tab1:
         )
         if uploaded_file is not None:
             file_bytes = np.frombuffer(uploaded_file.read(), np.uint8)
-            bgr_img = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
-            if bgr_img is not None:
-                st.session_state['active_image'] = cv2.cvtColor(bgr_img, cv2.COLOR_BGR2RGB)
+            bgr_img = cv2.imdecode(file_bytes, cv2.IMREAD_UNCHANGED)
+            if bgr_img is not None and bgr_img.size > 0:
+                if len(bgr_img.shape) == 3 and bgr_img.shape[2] == 4:
+                    rgb_img = cv2.cvtColor(bgr_img, cv2.COLOR_BGRA2RGB)
+                elif len(bgr_img.shape) == 2:
+                    rgb_img = cv2.cvtColor(bgr_img, cv2.COLOR_GRAY2RGB)
+                else:
+                    rgb_img = cv2.cvtColor(bgr_img, cv2.COLOR_BGR2RGB)
+                st.session_state['active_image'] = rgb_img
                 st.session_state['active_sample_name'] = uploaded_file.name
+            else:
+                st.error(f"⚠️ **Invalid or Corrupted Image**: Could not decode '{uploaded_file.name}'. Please ensure the file is an uncorrupted JPG or PNG CT scan.")
         st.markdown('</div>', unsafe_allow_html=True)
 
         # Scan Information Metadata Grid
@@ -905,8 +913,12 @@ with tab1:
         processed_img = cv2.convertScaleAbs(processed_img, alpha=1.0 + (contrast/100.0), beta=brightness)
 
     # Run End-to-End Model Pipeline
-    with st.spinner("Analyzing CT scan — detecting, segmenting, and measuring stones..."):
-        result = pipeline.analyze(processed_img, conf_thresh=conf_thresh)
+    try:
+        with st.spinner("Analyzing CT scan — detecting, segmenting, and measuring stones..."):
+            result = pipeline.analyze(processed_img, conf_thresh=conf_thresh)
+    except Exception as exc:
+        st.error(f"⚠️ **Analysis Error**: An unexpected issue occurred while analyzing this image ({type(exc).__name__}: {str(exc)}). Please check the uploaded scan or select a sample scan above.")
+        st.stop()
 
     summary = result['summary']
     stones = result['stones']

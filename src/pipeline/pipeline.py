@@ -1,11 +1,22 @@
 import os
 import cv2
+import time
+import logging
 import numpy as np
 from pathlib import Path
 
 from src.detection.predict import StoneDetector
 from src.segmentation.segment import StoneSegmenter
 from src.measurement.measure import StoneMeasurer, ASSUMED_MM_PER_PIXEL, NON_CLINICAL_DISCLAIMER
+
+# Initialize standard pipeline logger
+logger = logging.getLogger("renalscan.pipeline")
+if not logger.handlers:
+    handler = logging.StreamHandler()
+    formatter = logging.Formatter("[%(asctime)s] [%(name)s] [%(levelname)s] %(message)s", datefmt="%H:%M:%S")
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
+    logger.setLevel(logging.INFO)
 
 class RenalScanPipeline:
     """End-to-End Diagnostic Pipeline chaining Detection -> Segmentation -> Physical Measurement."""
@@ -21,10 +32,12 @@ class RenalScanPipeline:
         if model_path is None:
             model_path = project_root / "models" / "detection_best.pt"
             
+        logger.info("Initializing RenalScanPipeline with weights: %s", model_path)
         self.detector = StoneDetector(model_path=model_path)
         self.segmenter = StoneSegmenter(padding_pct=padding_pct)
         self.measurer = StoneMeasurer(mm_per_pixel=mm_per_pixel)
         self.mm_per_pixel = mm_per_pixel
+        logger.info("Pipeline components initialized successfully (mm_per_pixel=%.2f)", mm_per_pixel)
 
     def analyze(self, image_input, conf_thresh=0.40):
         """Runs the complete Detection -> Segmentation -> Measurement pipeline on a CT image.
@@ -43,26 +56,75 @@ class RenalScanPipeline:
                 - 'stones': list of stone dicts (box, mask, measurements, confidence),
                 - 'summary': dict (stone_count, largest_stone_mm, largest_stone_band, has_stones, status_message)
         """
-        # Load & normalize image input to RGB numpy array
+        t_start = time.perf_counter()
+        logger.info("Beginning pipeline analysis (conf_thresh=%.2f)...", conf_thresh)
+        
+        # --- INPUT VALIDATION & NORMALIZATION ---
+        if image_input is None:
+            logger.error("image_input is None.")
+            raise ValueError("Invalid input: image_input cannot be None.")
+
         if isinstance(image_input, (str, Path)):
-            bgr_img = cv2.imread(str(image_input))
+            p = Path(image_input)
+            if not p.exists():
+                logger.error("Image file does not exist: %s", image_input)
+                raise FileNotFoundError(f"Image file not found: {image_input}")
+            bgr_img = cv2.imread(str(p))
             if bgr_img is None:
-                raise FileNotFoundError(f"Could not read image from path: {image_input}")
+                logger.error("Failed to decode image file: %s (file may be corrupted or non-image format)", image_input)
+                raise ValueError(f"Could not decode image from '{image_input}'. Please check file integrity.")
             rgb_img = cv2.cvtColor(bgr_img, cv2.COLOR_BGR2RGB)
         elif isinstance(image_input, np.ndarray):
-            if len(image_input.shape) == 2:
-                rgb_img = cv2.cvtColor(image_input, cv2.COLOR_GRAY2RGB)
-            elif image_input.shape[2] == 3:
-                rgb_img = image_input.copy()
+            if image_input.size == 0 or len(image_input.shape) < 2:
+                logger.error("Input numpy array is empty or has invalid shape: %s", getattr(image_input, "shape", None))
+                raise ValueError(f"Input image array is empty or has invalid dimensions: shape={getattr(image_input, 'shape', None)}")
+                
+            # Convert float arrays [0.0, 1.0] to uint8 [0, 255] safely
+            if np.issubdtype(image_input.dtype, np.floating):
+                logger.info("Converting floating point image array to uint8 [0, 255]")
+                if image_input.max() <= 1.0:
+                    arr = (np.clip(image_input, 0.0, 1.0) * 255.0).astype(np.uint8)
+                else:
+                    arr = np.clip(image_input, 0.0, 255.0).astype(np.uint8)
             else:
-                rgb_img = image_input.copy()
+                arr = image_input.astype(np.uint8)
+                
+            # Channel normalization
+            if len(arr.shape) == 2:
+                # 2D grayscale -> RGB
+                rgb_img = cv2.cvtColor(arr, cv2.COLOR_GRAY2RGB)
+            elif len(arr.shape) == 3:
+                c = arr.shape[2]
+                if c == 1:
+                    rgb_img = cv2.cvtColor(arr[:, :, 0], cv2.COLOR_GRAY2RGB)
+                elif c == 3:
+                    rgb_img = arr.copy()
+                elif c == 4:
+                    logger.info("Input has 4 channels (RGBA) — converting to standard 3-channel RGB")
+                    rgb_img = cv2.cvtColor(arr, cv2.COLOR_RGBA2RGB)
+                else:
+                    logger.warning("Input array has %d channels — taking first 3 channels", c)
+                    rgb_img = arr[:, :, :3].copy()
+            else:
+                logger.error("Unsupported array shape: %s", image_input.shape)
+                raise ValueError(f"Unsupported image array dimensions: {image_input.shape}")
         else:
-            raise ValueError("image_input must be a filepath string, Path, or numpy array.")
-            
+            logger.error("Unsupported image_input type: %s", type(image_input).__name__)
+            raise TypeError(f"image_input must be a filepath string, Path, or numpy ndarray, got {type(image_input).__name__}")
+
+        # Guard against extreme small dimensions (< 32px)
+        h, w = rgb_img.shape[:2]
+        if h < 32 or w < 32:
+            logger.warning("Input image dimensions (%dx%d) are extremely small. Upscaling to 32x32 for safe pipeline execution.", w, h)
+            rgb_img = cv2.resize(rgb_img, (max(32, w), max(32, h)), interpolation=cv2.INTER_NEAREST)
+
+        logger.info("Normalized image ready for analysis: shape=%s, dtype=%s", rgb_img.shape, rgb_img.dtype)
+
         # 1. RUN DETECTION (YOLOv8)
-        # Default conf_thresh = 0.40 to filter out low-confidence false positives
+        logger.info("[Stage 1/3] Detection: Running YOLOv8 stone detector (conf_thresh=%.2f)...", conf_thresh)
         annotated_det_bgr, detections = self.detector.predict(rgb_img, conf_thresh=conf_thresh)
         annotated_det_rgb = cv2.cvtColor(annotated_det_bgr, cv2.COLOR_BGR2RGB)
+        logger.info("[Stage 1/3] Detection complete: %d candidate stone bounding box(es) found.", len(detections))
         
         # EDGE CASE 1: No stones detected
         if len(detections) == 0:
@@ -83,9 +145,12 @@ class RenalScanPipeline:
             }
             
         # 2. RUN SEGMENTATION (Classical CV Otsu ROI)
+        logger.info("[Stage 2/3] Segmentation: Running padded ROI Otsu segmentation on %d detection(s)...", len(detections))
         seg_results = self.segmenter.segment_image_detections(rgb_img, detections)
+        logger.info("[Stage 2/3] Segmentation complete: %d contour mask(s) extracted.", len(seg_results))
         
         # 3. RUN MEASUREMENT (Geometric Contour Axis Analysis)
+        logger.info("[Stage 3/3] Measurement: Computing physical dimensions and clinical size bands (assumed mm/px=%.2f)...", self.mm_per_pixel)
         measured_results = self.measurer.measure_segmentation_results(seg_results)
         
         # Render Segmentation & Measurement Visual Overlays
@@ -100,6 +165,7 @@ class RenalScanPipeline:
         for idx, m in enumerate(measured_results):
             # EDGE CASE 2: Bounding box where segmentation found no bright contour
             if m.get('area_px', 0) <= 0:
+                logger.warning("Stone candidate #%d: Segmentation produced 0 area contour. Marking as failed segmentation.", idx + 1)
                 stone_info = {
                     'stone_id': idx + 1,
                     'box_xyxy': [round(v, 1) for v in m['box_xyxy']],
@@ -153,7 +219,12 @@ class RenalScanPipeline:
                 'disclaimer': NON_CLINICAL_DISCLAIMER
             }
             stones.append(stone_info)
+            logger.debug("Stone #%d measured: %.2f mm (%s, conf=%.2f)", idx + 1, est_mm, m['clinical_size_band'], m['confidence'])
             
+        t_elapsed = time.perf_counter() - t_start
+        logger.info("[Stage 3/3] Measurement complete: %d/%d valid stones quantified (largest: %.2f mm, band: %s) in %.3fs.",
+                    valid_count, len(stones), largest_mm, largest_band, t_elapsed)
+        
         summary = {
             'stone_count': len(stones),
             'valid_segmented_stones': valid_count,
