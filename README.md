@@ -25,7 +25,7 @@ renalscan/
 
 ---
 
-## ⚠️ Known Project Limitations
+## ⚠️ Known Limitations & Failure Modes
 
 1. **Lack of Pixel-Spacing Metadata & Literature-Based mm Conversion**:
    - The CT scans in this dataset are standard JPG files without DICOM metadata tags (such as `PixelSpacing` $(mm/pixel)$ or `SliceThickness`).
@@ -46,6 +46,39 @@ renalscan/
 3. **Resizing CT Images to 512x512**:
    - Images are resized from their original resolution (640x640) to 512x512 pixels to optimize CPU training and inference speed.
    - This trade-off significantly speeds up training while maintaining strong overall detection accuracy for kidney stones, though exceptionally small stones may experience a minor drop in sensitivity.
+
+### 🔍 Empirical Detection Failure Modes (Held-Out Error Breakdown)
+
+An error breakdown was conducted on the original 123 held-out test scans (224 ground-truth stone instances) using the promoted v2 model (`models/detection_best.pt`) at the standard operational threshold (`conf=0.40`, IoU $\ge 0.50$):
+
+| Category | Count | Proportion | Description |
+| :--- | :---: | :---: | :--- |
+| **True Positives (TP)** | **172** | 76.79% | Accurately detected calculi matching ground truth with IoU $\ge 0.50$ |
+| **False Positives (FP)** | **29** | 14.43% | Candidate detections without matching ground-truth stone labels |
+| **False Negatives (FN)** | **52** | 23.21% | Ground-truth stones that failed to meet the confidence or IoU criteria |
+| **Operational F1** | **80.94%** | — | Precision: **85.57%** \| Recall: **76.79%** |
+
+Honest qualitative inspection of the false positives and false negatives revealed five primary failure mechanisms:
+
+* **Sub-Resolution Punctate Calculi (False Negatives)**: Tiny punctate stones ($\le 6\times 6\text{ px}$ / $\le 4.2\text{ mm}$) generate minimal volumetric attenuation, causing deep convolutional feature activations to fall just below the detection threshold.
+* **Dense Cortical Bone Mimicry (False Positives)**: High-attenuation cortical bone margins along vertebral transverse processes and lower ribs exhibit radio-density similar to calcified stones. Because the detector operates on whole-slice CT without an initial kidney mask, dense skeletal structures can trigger false alarms.
+* **Extra-Renal Vascular Calcifications (False Positives)**: Pelvic phleboliths and vascular calcifications exhibit identical radio-opacity and rounded morphology to nephrolithiasis, leading to false detections outside the renal collecting system.
+* **Low-Contrast / Faint Calculi (False Negatives)**: Low-attenuation or uric acid stones with subtle grayscale gradients against surrounding parenchyma fail to trigger high-confidence detections.
+* **Clustered / Multi-Focal Proximity (False Negatives)**: When multiple small stones lie in immediate adjacent calyces, non-maximum suppression or shared spatial receptive fields can lead to one stone being caught while adjacent companion stones are missed.
+
+Detailed diagnostic overlays for representative failure cases are archived in [`verification/failure_cases/`](verification/failure_cases/):
+
+#### Case 1 — Sub-Resolution Punctate Calculus (False Negative)
+*A tiny punctate calculus measuring only 6x6 pixels (~4.2 mm) in the lower pole was missed because its minimal attenuation volume produced feature activations below the detection threshold.*
+![Failure Case 1 — Sub-Resolution Punctate Calculus](verification/failure_cases/failure_01_fn_subresolution_tiny_stone.png)
+
+#### Case 2 — Dense Cortical Bone False Alarm (False Positive)
+*High-density cortical bone at the vertebral transverse process edge exhibits calcified attenuation similar to a stone, falsely triggering a detection without kidney boundary priors.*
+![Failure Case 2 — Dense Cortical Bone False Alarm](verification/failure_cases/failure_03_fp_dense_cortical_bone.png)
+
+#### Case 3 — Extra-Renal Vascular Phlebolith (False Positive)
+*A dense extra-renal vascular calcification (pelvic phlebolith) shares near-identical size and radio-opacity with nephrolithiasis, misleading the detector due to lack of anatomical organ masking.*
+![Failure Case 3 — Extra-Renal Vascular Phlebolith](verification/failure_cases/failure_04_fp_vascular_pelvic_phlebolith.png)
 
 ---
 
