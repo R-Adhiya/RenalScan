@@ -70,15 +70,15 @@ Detailed diagnostic overlays for representative failure cases are archived in [`
 
 #### Case 1 — Very Small Stone Near Resolution Limit (False Negative)
 *A very small stone (~6x6 pixels, roughly 4 mm) was missed, likely because its size is near the practical detection limit for this model at this image resolution (512x512).*
-![Failure Case 1 — Very Small Stone Near Resolution Limit](verification/failure_cases/failure_01_fn_subresolution_tiny_stone.png)
+![Failure Case 1 — Very Small Stone Near Resolution Limit](verification/failure_cases/failure_01_fn_small_stone_near_resolution_limit.png)
 
 #### Case 2 — Bright Structure Near Vertebral Edge (False Positive)
 *A bright, compact structure near the vertebral edge was falsely detected (confidence 62%), likely due to its visual resemblance in brightness and shape to a stone.*
-![Failure Case 2 — Bright Structure Near Vertebral Edge](verification/failure_cases/failure_03_fp_dense_cortical_bone.png)
+![Failure Case 2 — Bright Structure Near Vertebral Edge](verification/failure_cases/failure_03_fp_bone_like_structure.png)
 
 #### Case 3 — Dense Structure Outside Expected Kidney Region (False Positive)
 *A dense, rounded structure outside the expected kidney region was falsely detected (confidence 77%), showing visual similarity in brightness and size to a stone.*
-![Failure Case 3 — Dense Structure Outside Expected Kidney Region](verification/failure_cases/failure_04_fp_vascular_pelvic_phlebolith.png)
+![Failure Case 3 — Dense Structure Outside Expected Kidney Region](verification/failure_cases/failure_04_fp_dense_extrarenal_structure.png)
 
 ---
 
