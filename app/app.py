@@ -433,7 +433,11 @@ if 'active_image' not in st.session_state:
 if 'active_sample_name' not in st.session_state:
     st.session_state['active_sample_name'] = None
 
-sample_dir = PROJECT_ROOT / "data" / "test" / "images"
+# Sourced from tracked sample_scans folder (fallback to data/test/images if present)
+sample_dir = PROJECT_ROOT / "app" / "sample_scans"
+if not sample_dir.exists() or len(list(sample_dir.glob("*.jpg"))) == 0:
+    sample_dir = PROJECT_ROOT / "data" / "test" / "images"
+
 sample_files = sorted(list(sample_dir.glob("*.jpg"))) if sample_dir.exists() else []
 
 # Default to first sample if active_image is None
@@ -848,11 +852,12 @@ with tab1:
         # Scan Information Metadata Grid
         st.markdown('<div class="rs-ws-card"><div class="rs-ws-card-title">ℹ️ Scan Information</div>', unsafe_allow_html=True)
         scan_name = st.session_state['active_sample_name'] if st.session_state['active_sample_name'] else "RS-2026-001"
+        display_scan_id = scan_name if len(scan_name) <= 15 else scan_name[:12] + "..."
         st.markdown(f"""
         <div class="rs-meta-grid">
             <div>
                 <div class="rs-meta-label">Scan ID</div>
-                <div class="rs-meta-val">RS-2026-001</div>
+                <div class="rs-meta-val">{display_scan_id}</div>
             </div>
             <div>
                 <div class="rs-meta-label">Image Format</div>
@@ -876,17 +881,17 @@ with tab1:
             if st.button("Sample 01 (Multiple Stones)", key="b1", use_container_width=True):
                 bgr = cv2.imread(str(sample_files[0]))
                 st.session_state['active_image'] = cv2.cvtColor(bgr, cv2.COLOR_BGR2RGB)
-                st.session_state['active_sample_name'] = sample_files[0].name
+                st.session_state['active_sample_name'] = "Sample 01 (Multiple Stones)"
                 st.rerun()
             if st.button("Sample 02 (Single Stone)", key="b2", use_container_width=True):
                 bgr = cv2.imread(str(sample_files[1]))
                 st.session_state['active_image'] = cv2.cvtColor(bgr, cv2.COLOR_BGR2RGB)
-                st.session_state['active_sample_name'] = sample_files[1].name
+                st.session_state['active_sample_name'] = "Sample 02 (Single Stone)"
                 st.rerun()
             if st.button("Sample 03 (Normal Scan)", key="b3", use_container_width=True):
                 bgr = cv2.imread(str(sample_files[2]))
                 st.session_state['active_image'] = cv2.cvtColor(bgr, cv2.COLOR_BGR2RGB)
-                st.session_state['active_sample_name'] = sample_files[2].name
+                st.session_state['active_sample_name'] = "Sample 03 (Normal Scan)"
                 st.rerun()
         st.markdown('</div>', unsafe_allow_html=True)
 

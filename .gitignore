@@ -17,6 +17,7 @@ env/
 data/*
 !data/data.yaml
 models/*
+!models/detection_best.pt
 !models/test_metrics.txt
 !models/test_metrics_v2.txt
 !models/test_metrics_v2_on_original_testset.txt
