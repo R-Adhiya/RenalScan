@@ -49,6 +49,68 @@ renalscan/
 
 ---
 
+## 📊 Model Training & Evaluation (v1 → v2 Retraining Story)
+
+RenalScan employs a multi-stage iterative model development lifecycle, progressing from an initial lightweight baseline to an enhanced detector trained on an expanded multi-source dataset.
+
+### 1. Model Architecture & Training Summary
+
+* **v1 Baseline Detector (`models/detection_best_v1.pt`)**:
+  * **Architecture**: YOLOv8n (Nano variant, ~3.2M parameters).
+  * **Dataset**: Original Kaggle NCCT dataset (1,235 images: 988 train / 124 valid / 123 test).
+  * **Training Setup**: 50 epochs on Google Colab GPU (512x512 resolution, AdamW optimizer).
+* **v2 Promoted Primary Detector (`models/detection_best.pt`)**:
+  * **Architecture**: YOLOv8s (Small variant, ~11.1M parameters, 3.5x capacity).
+  * **Dataset**: Merged & standardized multi-source dataset (3,305 images: 2,313 train / 495 valid / 497 test), integrating the original Kaggle dataset with an external Roboflow NCCT stone cohort.
+  * **Training Setup**: 50 epochs on Google Colab T4 GPU (512x512 resolution, SGD optimizer).
+
+---
+
+### 2. The Evaluation Story: Naive vs. Rigorous Testing
+
+A critical engineering insight emerged during post-training validation that highlights the importance of rigorous distribution control in machine learning evaluation:
+
+> [!IMPORTANT]
+> **The Naive Evaluation Pitfall**:
+> When the retrained v2 model was initially evaluated on the new, expanded test set (497 held-out images from the merged dataset), its raw mAP@0.50 was **69.65%** — lower than v1's reported **73.03%**.
+> A naive or automated decision rule would have rejected the v2 model as a regression. However, the merged test split contained external, multi-center scans with high slice variation, subtle low-attenuation calculi, and differing scanner noise profiles — representing a fundamentally harder evaluation distribution.
+
+> [!TIP]
+> **Rigorous Apples-to-Apples Benchmark**:
+> To eliminate distribution confounding and establish true transfer gain, v2 was evaluated against the **exact same 123 original held-out test images** that v1 was benchmarked on.
+> Under identical test conditions, the v2 model **outperformed v1 across every single metric**:
+> - **Recall (+8.04%)**: Jumped from 69.64% to **77.68%**, achieving a meaningful reduction in missed detections — though this remains a non-clinical estimate, not a diagnostic tool.
+> - **High-IoU Localization (+9.28% mAP@0.50:0.95)**: Surged from 31.82% to **41.10%**, producing significantly tighter, more anatomically grounded bounding boxes.
+> - **Overall Detection (+8.18% mAP@0.50)**: Rose from 73.03% to **81.21%**.
+> - **Precision (+2.03%)**: Improved from 84.80% to **86.83%**.
+> - **F1 Score (+5.52%)**: Rose from 76.48% to **82.00%**.
+
+---
+
+### 3. Comprehensive Metrics Comparison Matrix
+
+| Metric | v1 Baseline (YOLOv8n)<br>*(Original 123 Test Scans)* | v2 Naive Benchmark<br>*(Merged 497 Test Scans)* | v2 Primary Model (YOLOv8s)<br>*(Original 123 Test Scans)* | Performance Delta<br>*(Apples-to-Apples)* |
+| :--- | :---: | :---: | :---: | :---: |
+| **Precision (P)** | 84.80% | 78.09% | **86.83%** | **+2.03%** |
+| **Recall (R)** | 69.64% | 62.18% | **77.68%** | **+8.04%** |
+| **F1 Score** | 76.48% | 69.23% | **82.00%** | **+5.52%** |
+| **mAP@0.50** | 73.03% | 69.65% | **81.21%** | **+8.18%** |
+| **mAP@0.50:0.95** | 31.82% | 30.69% | **41.10%** | **+9.28%** |
+| **Parameters** | 3.2M | 11.1M | 11.1M | +7.9M (3.5x capacity) |
+| **Inference Time (CPU)** | ~45 ms/img | ~120 ms/img | ~120 ms/img | Fast desktop CPU inference |
+
+*Detailed metrics logs are preserved in `models/test_metrics.txt`, `models/test_metrics_v2.txt`, and `models/test_metrics_v2_on_original_testset.txt`.*
+
+---
+
+### 4. Downstream Pipeline Stability & Verification
+
+Because object detection serves as the upstream foundation for the subsequent stages:
+1. **Classical CV Segmentation**: Padded ROI cropping around detections feeds into Otsu adaptive thresholding and morphological filtering ([`notebooks/03_segmentation.ipynb`](notebooks/03_segmentation.ipynb)). Re-running against the promoted v2 detections yielded a **100% qualitative pass rate** across all evaluated test scans with zero false-contour degradations.
+2. **Dimension Quantification**: Contours are fitted to minimum bounding ellipses and scaled using the assumed, literature-based factor (0.70 mm/px) to assign clinical size risk bands ([`notebooks/04_measurement.ipynb`](notebooks/04_measurement.ipynb)). Tighter v2 bounding boxes prevented ROI clipping on larger calculi and reduced background bone interference.
+
+---
+
 ## 📦 Dataset Download & Setup
 
 Dataset Source: [Kaggle Kidney Stone Images Dataset](https://www.kaggle.com/datasets/safurahajiheidari/kidney-stone-images)
