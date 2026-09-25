@@ -1,13 +1,15 @@
 """
 styles.py - Global CSS Design System for RenalScan (Medical Red + White)
-Primary Brand Color: #B9362F
-Primary Accent: #D94841
-Dark Red: #8F2924
-Light Red: #FCEDEC
-Background Canvas: #FFFFFF
-Text Primary: #20283A
-Text Secondary: #6B7280
-Border: #F1D5D5
+Official Brand Identity:
+  Primary Brand Color: #B9362F
+  Primary Accent: #D94841
+  Dark Red: #8F2924
+  Light Red: #FCEDEC
+  Background Canvas: #FFFFFF
+  Secondary Surface: #FFF7F7
+  Text Primary: #20283A
+  Text Secondary: #6B7280
+  Border: #F1D5D5
 """
 
 import streamlit as st
@@ -16,10 +18,11 @@ def inject_global_css():
     st.markdown("""
 <style>
     /* Inter Font Typography */
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
     html, body, [class*="css"] {
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        scroll-behavior: smooth;
     }
 
     /* Hide Default Streamlit Chrome */
@@ -35,8 +38,8 @@ def inject_global_css():
 
     .block-container {
         padding-top: 0.5rem;
-        padding-bottom: 2rem;
-        max-width: 1380px;
+        padding-bottom: 2.5rem;
+        max-width: 1400px;
         margin: 0 auto;
     }
 
@@ -44,23 +47,24 @@ def inject_global_css():
     .stButton > button {
         background-color: #B9362F !important;
         color: #FFFFFF !important;
-        border: 1px solid #B9362F !important;
-        border-radius: 8px !important;
-        font-weight: 600 !important;
-        font-size: 0.92rem !important;
-        padding: 9px 22px !important;
-        transition: all 0.2s ease !important;
-        box-shadow: 0 2px 8px rgba(185, 54, 47, 0.18) !important;
+        border: 1.5px solid #B9362F !important;
+        border-radius: 9px !important;
+        font-weight: 700 !important;
+        font-size: 0.93rem !important;
+        padding: 10px 24px !important;
+        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        box-shadow: 0 4px 12px rgba(185, 54, 47, 0.22) !important;
+        cursor: pointer !important;
     }
     .stButton > button:hover {
         background-color: #8F2924 !important;
         border-color: #8F2924 !important;
         color: #FFFFFF !important;
-        transform: translateY(-2px) !important;
-        box-shadow: 0 6px 16px rgba(185, 54, 47, 0.28) !important;
+        transform: translateY(-2px) scale(1.01) !important;
+        box-shadow: 0 8px 22px rgba(185, 54, 47, 0.32) !important;
     }
     .stButton > button:active {
-        transform: translateY(0) !important;
+        transform: translateY(0) scale(0.99) !important;
     }
 
     /* Secondary White Button Style */
@@ -69,12 +73,12 @@ def inject_global_css():
         background-color: #FFFFFF;
         color: #B9362F;
         border: 1.5px solid #B9362F;
-        border-radius: 8px;
-        padding: 9px 20px;
-        font-weight: 600;
-        font-size: 0.9rem;
+        border-radius: 9px;
+        padding: 9px 22px;
+        font-weight: 700;
+        font-size: 0.92rem;
         text-decoration: none;
-        transition: all 0.2s ease;
+        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         text-align: center;
         cursor: pointer;
     }
@@ -82,14 +86,43 @@ def inject_global_css():
         background-color: #FCEDEC;
         color: #8F2924;
         border-color: #8F2924;
-        transform: translateY(-1px);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 14px rgba(185, 54, 47, 0.14);
     }
 
-    /* Navbar */
+    /* Primary HTML Link Button (for zero-latency routing) */
+    .rs-btn-primary-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        background-color: #B9362F;
+        color: #FFFFFF !important;
+        border: 1.5px solid #B9362F;
+        border-radius: 9px;
+        padding: 10px 24px;
+        font-weight: 700;
+        font-size: 0.93rem;
+        text-decoration: none;
+        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: 0 4px 14px rgba(185, 54, 47, 0.24);
+        cursor: pointer;
+    }
+    .rs-btn-primary-link:hover {
+        background-color: #8F2924;
+        border-color: #8F2924;
+        color: #FFFFFF !important;
+        transform: translateY(-2px) scale(1.01);
+        box-shadow: 0 8px 22px rgba(185, 54, 47, 0.34);
+    }
+
+    /* Sticky Navbar */
     .lp-navbar {
-        background-color: #FFFFFF;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
         border-bottom: 1.5px solid #F1D5D5;
-        padding: 14px 28px;
+        padding: 12px 28px;
         margin-bottom: 24px;
         display: flex;
         align-items: center;
@@ -97,30 +130,36 @@ def inject_global_css():
         position: sticky;
         top: 0;
         z-index: 999;
-        box-shadow: 0 2px 10px rgba(185, 54, 47, 0.04);
+        box-shadow: 0 2px 14px rgba(185, 54, 47, 0.05);
+        transition: all 0.3s ease;
     }
     .lp-brand-box {
         display: flex;
         align-items: center;
         gap: 12px;
+        text-decoration: none;
     }
     .lp-logo-badge {
-        width: 38px;
-        height: 38px;
-        background: #B9362F;
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #B9362F 0%, #D94841 100%);
         border-radius: 10px;
         display: flex;
         align-items: center;
         justify-content: center;
         color: #FFFFFF;
-        font-size: 1.25rem;
-        box-shadow: 0 2px 8px rgba(185, 54, 47, 0.3);
+        font-size: 1.3rem;
+        box-shadow: 0 3px 10px rgba(185, 54, 47, 0.32);
+        transition: transform 0.2s ease;
+    }
+    .lp-logo-badge:hover {
+        transform: scale(1.05);
     }
     .lp-brand-title {
-        font-size: 1.35rem;
+        font-size: 1.4rem;
         font-weight: 800;
         color: #20283A;
-        letter-spacing: -0.02em;
+        letter-spacing: -0.025em;
         line-height: 1.1;
     }
     .lp-brand-accent {
@@ -129,159 +168,241 @@ def inject_global_css():
     .lp-brand-sub {
         font-size: 0.76rem;
         color: #6B7280;
-        font-weight: 500;
+        font-weight: 600;
+        letter-spacing: 0.02em;
     }
     .lp-nav-links {
         display: flex;
         align-items: center;
-        gap: 26px;
+        gap: 28px;
     }
     .lp-nav-item {
         font-size: 0.92rem;
         font-weight: 600;
         color: #4B5563;
         text-decoration: none;
-        transition: color 0.2s;
+        transition: color 0.2s ease;
+        position: relative;
     }
     .lp-nav-item:hover {
         color: #B9362F;
     }
-
-    /* Hero Section */
-    .lp-hero-wrapper {
-        background: radial-gradient(circle at 85% 30%, #FCEDEC 0%, #FFFFFF 65%);
-        border: 1px solid #F1D5D5;
-        border-radius: 20px;
-        padding: 44px 48px;
-        margin-bottom: 28px;
-        box-shadow: 0 4px 20px rgba(185, 54, 47, 0.04);
-        position: relative;
+    .lp-nav-item::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background-color: #B9362F;
+        transition: width 0.2s ease;
     }
-    .lp-badge {
+    .lp-nav-item:hover::after {
+        width: 100%;
+    }
+
+    /* Cinematic Hero Wrapper with Faint Medical Grid */
+    .lp-hero-wrapper {
+        background-color: #FFFFFF;
+        background-image: 
+            radial-gradient(circle at 82% 24%, rgba(252, 237, 236, 0.95) 0%, rgba(255, 255, 255, 0) 58%),
+            linear-gradient(to right, rgba(241, 213, 213, 0.22) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(241, 213, 213, 0.22) 1px, transparent 1px);
+        background-size: 100% 100%, 36px 36px, 36px 36px;
+        border: 1.5px solid #F1D5D5;
+        border-radius: 24px;
+        padding: 52px 50px 48px 50px;
+        margin-bottom: 32px;
+        box-shadow: 0 8px 32px rgba(185, 54, 47, 0.05);
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Small Animated Hero Badge */
+    .lp-badge-animated {
         display: inline-flex;
         align-items: center;
-        gap: 6px;
+        gap: 8px;
         background-color: #FCEDEC;
-        color: #B9362F;
+        color: #8F2924;
         border: 1px solid #F1D5D5;
         font-size: 0.78rem;
         font-weight: 800;
         letter-spacing: 0.08em;
         text-transform: uppercase;
         border-radius: 20px;
-        padding: 5px 14px;
-        margin-bottom: 16px;
+        padding: 6px 16px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 8px rgba(185, 54, 47, 0.08);
     }
-    .lp-hero-heading {
-        font-size: 2.85rem;
-        font-weight: 800;
-        color: #20283A;
-        line-height: 1.18;
-        letter-spacing: -0.025em;
-        margin-bottom: 16px;
-    }
-    .lp-hero-heading span {
-        color: #B9362F;
-    }
-    .lp-hero-desc {
-        font-size: 1.08rem;
-        color: #4B5563;
-        line-height: 1.6;
-        margin-bottom: 24px;
-        max-width: 580px;
-    }
-    .lp-trust-line {
-        font-size: 0.84rem;
-        color: #6B7280;
-        margin-top: 14px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-weight: 500;
+    .lp-badge-dot {
+        width: 8px;
+        height: 8px;
+        background-color: #B9362F;
+        border-radius: 50%;
+        display: inline-block;
+        animation: pulseRedDot 1.8s infinite ease-in-out;
     }
 
-    /* Sophisticated CT Preview in Hero */
-    .lp-ct-preview-card {
-        background-color: #111827;
-        border: 1px solid #1F2937;
-        border-top: 3px solid #B9362F;
-        border-radius: 16px;
-        padding: 16px;
+    .lp-hero-heading {
+        font-size: 3.2rem;
+        font-weight: 900;
+        color: #20283A;
+        line-height: 1.15;
+        letter-spacing: -0.03em;
+        margin-bottom: 18px;
+    }
+    .lp-hero-heading .red-accent {
+        color: #B9362F;
+        background: linear-gradient(135deg, #B9362F 0%, #D94841 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .lp-hero-desc {
+        font-size: 1.12rem;
+        color: #4B5563;
+        line-height: 1.65;
+        margin-bottom: 28px;
+        max-width: 580px;
+    }
+
+    /* Hero Floating CT Visualization Container */
+    .lp-ct-float-container {
         position: relative;
+        background: #0F131C;
+        border: 1.5px solid #1F2937;
+        border-top: 3.5px solid #B9362F;
+        border-radius: 20px;
+        padding: 16px;
+        box-shadow: 0 16px 44px rgba(0, 0, 0, 0.32);
+        animation: floatHeroCard 6s ease-in-out infinite;
         overflow: hidden;
-        box-shadow: 0 12px 36px rgba(0, 0, 0, 0.28);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
     }
-    .lp-floating-card-1 {
+    @keyframes floatHeroCard {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-8px) rotate(0.4deg); }
+    }
+
+    /* Animated Red Scan Line */
+    .lp-laser-scanner {
         position: absolute;
-        bottom: 24px;
-        left: 20px;
-        background: rgba(255, 255, 255, 0.96);
-        backdrop-filter: blur(8px);
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, transparent 0%, #E53935 30%, #FFFFFF 50%, #E53935 70%, transparent 100%);
+        box-shadow: 0 0 14px #E53935, 0 0 28px rgba(229, 57, 53, 0.6);
+        animation: heroScanLoop 3.6s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+        z-index: 8;
+        pointer-events: none;
+    }
+    @keyframes heroScanLoop {
+        0% { top: 6%; opacity: 0; }
+        15% { opacity: 1; }
+        85% { opacity: 1; }
+        100% { top: 92%; opacity: 0; }
+    }
+
+    /* Floating White Hero Cards */
+    .lp-float-card {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.97);
+        backdrop-filter: blur(10px);
         border: 1px solid #F1D5D5;
-        border-left: 4px solid #B9362F;
-        border-radius: 10px;
-        padding: 10px 14px;
-        box-shadow: 0 4px 18px rgba(0,0,0,0.18);
-        animation: floatCard1 3.5s ease-in-out infinite;
+        border-radius: 12px;
+        padding: 10px 16px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16);
         z-index: 10;
+        pointer-events: none;
     }
-    .lp-floating-card-2 {
-        position: absolute;
+    .lp-float-card-1 {
+        bottom: 22px;
+        left: 20px;
+        border-left: 4px solid #B9362F;
+        animation: floatCard1 4s ease-in-out infinite;
+    }
+    .lp-float-card-2 {
         top: 24px;
         right: 20px;
-        background: rgba(255, 255, 255, 0.96);
-        backdrop-filter: blur(8px);
-        border: 1px solid #F1D5D5;
         border-left: 4px solid #10B981;
-        border-radius: 10px;
-        padding: 8px 12px;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.18);
-        animation: floatCard2 4s ease-in-out infinite;
-        z-index: 10;
+        animation: floatCard2 4.6s ease-in-out infinite;
     }
-    .lp-floating-card-3 {
-        position: absolute;
-        top: 80px;
+    .lp-float-card-3 {
+        top: 90px;
         right: 20px;
-        background: rgba(255, 255, 255, 0.96);
-        backdrop-filter: blur(8px);
-        border: 1px solid #F1D5D5;
         border-left: 4px solid #D94841;
-        border-radius: 10px;
-        padding: 8px 12px;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.18);
-        animation: floatCard1 4.5s ease-in-out infinite;
-        z-index: 10;
+        animation: floatCard1 5.2s ease-in-out infinite;
     }
     @keyframes floatCard1 {
         0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-7px); }
+        50% { transform: translateY(-6px); }
     }
     @keyframes floatCard2 {
         0%, 100% { transform: translateY(0); }
         50% { transform: translateY(6px); }
     }
 
-    /* Trust / Value Bar */
+    /* Detection Pulse Marker */
+    .lp-stone-marker-box {
+        position: absolute;
+        border: 2px dashed #D94841;
+        background: rgba(185, 54, 47, 0.22);
+        border-radius: 6px;
+        animation: boxGlow 2.5s ease-in-out infinite;
+    }
+    @keyframes boxGlow {
+        0%, 100% { box-shadow: 0 0 6px rgba(217, 72, 65, 0.3); border-color: #D94841; }
+        50% { box-shadow: 0 0 16px rgba(217, 72, 65, 0.7); border-color: #B9362F; }
+    }
+
+    /* Scroll Indicator */
+    .lp-scroll-ind-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 14px;
+        cursor: pointer;
+    }
+    .lp-scroll-ind-text {
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #9CA3AF;
+        margin-bottom: 4px;
+    }
+    .lp-scroll-ind-arrow {
+        font-size: 1.1rem;
+        color: #B9362F;
+        animation: bounceDown 1.8s infinite ease-in-out;
+    }
+    @keyframes bounceDown {
+        0%, 100% { transform: translateY(0); opacity: 0.6; }
+        50% { transform: translateY(6px); opacity: 1; }
+    }
+
+    /* Trust Strip */
     .lp-trust-strip {
         background-color: #FFFFFF;
-        border: 1px solid #F1D5D5;
-        border-radius: 12px;
-        padding: 14px 24px;
-        margin-bottom: 44px;
+        border: 1.5px solid #F1D5D5;
+        border-radius: 16px;
+        padding: 16px 28px;
+        margin-bottom: 50px;
         display: flex;
         align-items: center;
         justify-content: space-around;
-        box-shadow: 0 2px 10px rgba(185, 54, 47, 0.03);
+        box-shadow: 0 3px 14px rgba(185, 54, 47, 0.04);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .lp-trust-strip:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(185, 54, 47, 0.08);
     }
     .lp-trust-item {
         display: flex;
         align-items: center;
-        gap: 10px;
-        font-size: 0.82rem;
+        gap: 12px;
+        font-size: 0.84rem;
         font-weight: 800;
         color: #20283A;
         letter-spacing: 0.05em;
@@ -289,93 +410,100 @@ def inject_global_css():
     }
     .lp-trust-icon {
         color: #B9362F;
-        font-size: 1.15rem;
+        font-size: 1.25rem;
     }
     .lp-trust-sep {
         color: #F1D5D5;
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
 
-    /* Section Headings */
+    /* Section Headers */
     .lp-section-header {
         text-align: center;
-        margin-bottom: 30px;
+        margin-bottom: 34px;
     }
     .lp-section-title {
-        font-size: 2.1rem;
-        font-weight: 800;
+        font-size: 2.3rem;
+        font-weight: 900;
         color: #20283A;
         letter-spacing: -0.025em;
-        margin-bottom: 8px;
+        margin-bottom: 10px;
     }
     .lp-section-title span {
         color: #B9362F;
     }
     .lp-section-desc {
-        font-size: 1rem;
+        font-size: 1.05rem;
         color: #6B7280;
         max-width: 680px;
         margin: 0 auto;
-        line-height: 1.55;
+        line-height: 1.6;
     }
 
-    /* Split Section: What is RenalScan */
-    .lp-split-box {
-        background-color: #FFFFFF;
+    /* Numbered Split Feature Cards */
+    .lp-feature-card {
+        background: #FFFFFF;
         border: 1px solid #F1D5D5;
-        border-radius: 18px;
-        padding: 36px 40px;
-        margin-bottom: 48px;
-        box-shadow: 0 4px 18px rgba(185, 54, 47, 0.04);
-    }
-    .lp-editorial-step {
+        border-left: 4px solid #F1D5D5;
+        border-radius: 14px;
+        padding: 20px 24px;
+        margin-bottom: 16px;
         display: flex;
         gap: 20px;
-        margin-bottom: 26px;
+        align-items: flex-start;
+        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
     }
-    .lp-editorial-num {
-        font-size: 2rem;
-        font-weight: 800;
+    .lp-feature-card:hover {
+        border-left-color: #B9362F;
+        border-color: #B9362F;
+        transform: translateX(6px);
+        box-shadow: 0 6px 18px rgba(185, 54, 47, 0.08);
+    }
+    .lp-feature-num {
+        font-size: 1.9rem;
+        font-weight: 900;
         color: #B9362F;
         line-height: 1;
         min-width: 44px;
     }
-    .lp-editorial-title {
+    .lp-feature-title {
         font-size: 1.15rem;
         font-weight: 800;
         color: #20283A;
         margin-bottom: 4px;
     }
-    .lp-editorial-desc {
-        font-size: 0.88rem;
+    .lp-feature-desc {
+        font-size: 0.9rem;
         color: #4B5563;
-        line-height: 1.5;
+        line-height: 1.55;
     }
 
-    /* 6-Step Horizontal Process */
-    .lp-timeline-wrapper {
+    /* Interactive Pipeline (Horizontal on Desktop, Responsive) */
+    .lp-pipeline-container {
         background-color: #FCEDEC;
-        border: 1px solid #F1D5D5;
-        border-radius: 16px;
-        padding: 32px 24px;
-        margin-bottom: 48px;
+        border: 1.5px solid #F1D5D5;
+        border-radius: 20px;
+        padding: 34px 28px;
+        margin-bottom: 52px;
+        box-shadow: 0 4px 20px rgba(185, 54, 47, 0.04);
     }
-    .lp-timeline-steps {
+    .lp-pipeline-steps {
         display: flex;
         align-items: center;
         justify-content: space-between;
         position: relative;
     }
-    .lp-timeline-line {
+    .lp-pipeline-bar {
         position: absolute;
-        top: 22px;
+        top: 24px;
         left: 6%;
         right: 6%;
-        height: 2px;
-        background-color: #F1D5D5;
+        height: 3px;
+        background: #F1D5D5;
         z-index: 1;
     }
-    .lp-timeline-step {
+    .lp-pipe-step {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -383,165 +511,204 @@ def inject_global_css():
         width: 15%;
         position: relative;
         z-index: 2;
+        cursor: pointer;
+        transition: transform 0.2s ease;
     }
-    .lp-step-circle {
-        width: 44px;
-        height: 44px;
+    .lp-pipe-step:hover {
+        transform: translateY(-4px);
+    }
+    .lp-pipe-circle {
+        width: 48px;
+        height: 48px;
         border-radius: 50%;
-        background-color: #B9362F;
-        color: #FFFFFF;
+        background-color: #FFFFFF;
+        border: 2.5px solid #B9362F;
+        color: #B9362F;
         font-weight: 800;
-        font-size: 0.92rem;
+        font-size: 0.95rem;
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 3px 10px rgba(185, 54, 47, 0.25);
-        margin-bottom: 10px;
+        box-shadow: 0 4px 12px rgba(185, 54, 47, 0.16);
+        margin-bottom: 12px;
+        transition: all 0.25s ease;
     }
-    .lp-step-title {
-        font-size: 0.88rem;
+    .lp-pipe-step:hover .lp-pipe-circle {
+        background-color: #B9362F;
+        color: #FFFFFF;
+        box-shadow: 0 6px 18px rgba(185, 54, 47, 0.35);
+    }
+    .lp-pipe-label {
+        font-size: 0.9rem;
         font-weight: 800;
         color: #20283A;
-        margin-bottom: 3px;
+        margin-bottom: 4px;
     }
-    .lp-step-desc {
-        font-size: 0.74rem;
+    .lp-pipe-sub {
+        font-size: 0.75rem;
         color: #6B7280;
         line-height: 1.35;
     }
 
-    /* Capabilities 2x3 Grid */
-    .lp-cap-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        margin-bottom: 48px;
+    /* Big CT Scan Showcase (Deep Charcoal #16181D) */
+    .lp-dark-showcase {
+        background-color: #16181D;
+        border: 1px solid #2A2F3B;
+        border-top: 4px solid #B9362F;
+        border-radius: 24px;
+        padding: 48px 40px;
+        margin-bottom: 50px;
+        color: #FFFFFF;
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+        position: relative;
+        overflow: hidden;
     }
-    .lp-cap-card {
-        background-color: #FFFFFF;
-        border: 1px solid #F1D5D5;
-        border-radius: 14px;
-        padding: 24px;
-        box-shadow: 0 2px 10px rgba(185, 54, 47, 0.03);
-        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    .lp-dark-title {
+        font-size: 2.3rem;
+        font-weight: 900;
+        color: #FFFFFF;
+        letter-spacing: -0.025em;
+        margin-bottom: 8px;
     }
-    .lp-cap-card:hover {
-        transform: translateY(-3px);
-        border-color: #B9362F;
-        box-shadow: 0 6px 18px rgba(185, 54, 47, 0.09);
-    }
-    .lp-cap-icon {
-        width: 38px;
-        height: 38px;
-        background-color: #FCEDEC;
-        color: #B9362F;
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.2rem;
-        margin-bottom: 14px;
-    }
-    .lp-cap-title {
+    .lp-dark-sub {
         font-size: 1.05rem;
-        font-weight: 800;
-        color: #20283A;
-        margin-bottom: 6px;
-    }
-    .lp-cap-desc {
-        font-size: 0.86rem;
-        color: #4B5563;
-        line-height: 1.55;
+        color: #9CA3AF;
+        max-width: 640px;
+        margin-bottom: 32px;
     }
 
-    /* Workstation Preview Box */
-    .lp-preview-box {
+    /* Live Analysis UI Mockup Cards */
+    .lp-live-metric-card {
         background-color: #FFFFFF;
         border: 1px solid #F1D5D5;
-        border-radius: 18px;
-        padding: 36px 40px;
-        margin-bottom: 48px;
-        box-shadow: 0 4px 20px rgba(185, 54, 47, 0.04);
+        border-top: 3.5px solid #B9362F;
+        border-radius: 14px;
+        padding: 18px 14px;
+        text-align: center;
+        box-shadow: 0 3px 12px rgba(185, 54, 47, 0.05);
+        transition: transform 0.2s ease;
+    }
+    .lp-live-metric-card:hover {
+        transform: translateY(-2px);
     }
 
-    /* Analysis Report Showcase Card */
-    .lp-report-card {
+    /* Floating A4 Report Showcase */
+    .lp-a4-report {
         background: #FFFFFF;
         border: 1.5px solid #F1D5D5;
-        border-radius: 16px;
-        padding: 26px;
-        box-shadow: 0 6px 24px rgba(185, 54, 47, 0.06);
+        border-radius: 18px;
+        padding: 32px 36px;
+        box-shadow: 0 14px 40px rgba(185, 54, 47, 0.08), 0 2px 8px rgba(0,0,0,0.04);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .lp-report-header {
-        border-bottom: 2px solid #B9362F;
-        padding-bottom: 12px;
-        margin-bottom: 16px;
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
+    .lp-a4-report:hover {
+        transform: translateY(-4px) perspective(1000px) rotateX(1deg);
+        box-shadow: 0 20px 50px rgba(185, 54, 47, 0.12);
     }
 
-    /* Kidney Health 4 Cards */
+    /* Kidney Health 4 Cards Grid */
     .lp-health-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 18px;
-        margin-bottom: 48px;
+        gap: 20px;
+        margin-bottom: 50px;
     }
     .lp-health-card {
         background-color: #FFFFFF;
         border: 1px solid #F1D5D5;
-        border-radius: 14px;
-        padding: 22px;
-        box-shadow: 0 2px 8px rgba(185, 54, 47, 0.03);
-        transition: transform 0.2s ease, border-color 0.2s ease;
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow: 0 3px 12px rgba(185, 54, 47, 0.03);
+        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
     .lp-health-card:hover {
-        transform: translateY(-2px);
+        transform: translateY(-4px);
         border-color: #B9362F;
+        box-shadow: 0 8px 24px rgba(185, 54, 47, 0.1);
     }
-
-    /* Responsible AI Banner */
-    .lp-safety-banner {
+    .lp-health-icon {
+        width: 44px;
+        height: 44px;
         background-color: #FCEDEC;
-        border: 1px solid #F1D5D5;
-        border-left: 4px solid #B9362F;
-        border-radius: 14px;
-        padding: 24px 28px;
-        margin-bottom: 48px;
-        display: flex;
-        align-items: flex-start;
-        gap: 18px;
-    }
-    .lp-safety-icon {
         color: #B9362F;
-        font-size: 1.7rem;
-        line-height: 1;
-        margin-top: 2px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.35rem;
+        margin-bottom: 16px;
+    }
+    .lp-health-title {
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: #20283A;
+        margin-bottom: 8px;
+    }
+    .lp-health-desc {
+        font-size: 0.88rem;
+        color: #4B5563;
+        line-height: 1.55;
     }
 
-    /* Final CTA - Deep Red Container */
+    /* Responsible AI Shield Section */
+    .lp-shield-section {
+        background-color: #FCEDEC;
+        border: 1.5px solid #F1D5D5;
+        border-left: 5px solid #B9362F;
+        border-radius: 18px;
+        padding: 30px 36px;
+        margin-bottom: 50px;
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        box-shadow: 0 4px 16px rgba(185, 54, 47, 0.04);
+    }
+    .lp-shield-icon-box {
+        width: 64px;
+        height: 64px;
+        min-width: 64px;
+        background-color: #FFFFFF;
+        border: 2px solid #F1D5D5;
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        box-shadow: 0 4px 14px rgba(185, 54, 47, 0.12);
+        animation: pulseShield 3s infinite ease-in-out;
+    }
+    @keyframes pulseShield {
+        0%, 100% { box-shadow: 0 0 10px rgba(185, 54, 47, 0.15); transform: scale(1); }
+        50% { box-shadow: 0 0 22px rgba(185, 54, 47, 0.35); transform: scale(1.04); }
+    }
+
+    /* Final Red CTA */
     .lp-final-cta-wrapper {
-        background: linear-gradient(135deg, #8F2924 0%, #B9362F 100%);
-        border-radius: 20px;
-        padding: 48px 40px;
+        background: linear-gradient(135deg, #8F2924 0%, #B9362F 60%, #D94841 100%);
+        border-radius: 24px;
+        padding: 56px 44px;
         text-align: center;
         color: #FFFFFF;
-        margin-bottom: 48px;
-        box-shadow: 0 8px 30px rgba(143, 41, 36, 0.3);
+        margin-bottom: 50px;
+        box-shadow: 0 14px 40px rgba(143, 41, 36, 0.35);
+        position: relative;
+        overflow: hidden;
     }
     .lp-final-cta-title {
-        font-size: 2.3rem;
-        font-weight: 800;
+        font-size: 2.6rem;
+        font-weight: 900;
         color: #FFFFFF;
-        margin-bottom: 12px;
-        letter-spacing: -0.02em;
+        margin-bottom: 14px;
+        letter-spacing: -0.025em;
     }
     .lp-final-cta-sub {
-        font-size: 1.05rem;
+        font-size: 1.15rem;
         color: #FEE2E2;
-        max-width: 600px;
-        margin: 0 auto 28px auto;
+        max-width: 640px;
+        margin: 0 auto 32px auto;
         line-height: 1.6;
     }
 
@@ -549,18 +716,18 @@ def inject_global_css():
     .lp-footer {
         background-color: #111827;
         color: #E5E7EB;
-        border-top: 3px solid #B9362F;
-        border-radius: 16px 16px 0 0;
-        padding: 40px 36px 26px 36px;
+        border-top: 3.5px solid #B9362F;
+        border-radius: 20px 20px 0 0;
+        padding: 44px 40px 28px 40px;
     }
     .lp-footer-grid {
         display: grid;
         grid-template-columns: 2fr 1fr 1fr;
-        gap: 36px;
-        margin-bottom: 28px;
+        gap: 40px;
+        margin-bottom: 30px;
     }
     .lp-footer-col h4 {
-        font-size: 0.92rem;
+        font-size: 0.95rem;
         font-weight: 800;
         color: #FFFFFF;
         margin-bottom: 14px;
@@ -572,183 +739,46 @@ def inject_global_css():
         margin: 0;
     }
     .lp-footer-col li {
-        font-size: 0.85rem;
+        font-size: 0.88rem;
         color: #9CA3AF;
-        margin-bottom: 8px;
+        margin-bottom: 9px;
     }
     .lp-footer-bottom {
         border-top: 1px solid #1F2937;
-        padding-top: 18px;
+        padding-top: 20px;
         text-align: center;
-        font-size: 0.78rem;
+        font-size: 0.8rem;
         color: #6B7280;
     }
 
-    /* Workstation Specific CSS */
-    .rs-card {
-        background-color: #FFFFFF;
-        border: 1px solid #F1D5D5;
-        border-radius: 14px;
-        padding: 20px;
-        margin-bottom: 18px;
-        box-shadow: 0 2px 10px rgba(185, 54, 47, 0.03);
-    }
-    .rs-card-title {
-        font-size: 1rem;
-        font-weight: 800;
-        color: #20283A;
-        margin-bottom: 12px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-    .rs-card-title-icon {
-        color: #B9362F;
-    }
-    .rs-summary-card {
-        background-color: #FCEDEC;
-        border: 1px solid #F1D5D5;
-        border-left: 5px solid #B9362F;
-        border-radius: 12px;
-        padding: 16px 18px;
-        margin-bottom: 16px;
-    }
-    .rs-metrics-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-        margin-bottom: 18px;
-    }
-    .rs-metric-box {
-        background-color: #FFFFFF;
-        border: 1px solid #F1D5D5;
-        border-top: 3px solid #B9362F;
-        border-radius: 12px;
-        padding: 14px 10px;
-        text-align: center;
-        box-shadow: 0 2px 8px rgba(185, 54, 47, 0.04);
-    }
-    .rs-metric-label {
-        font-size: 0.72rem;
-        font-weight: 700;
-        color: #6B7280;
-        text-transform: uppercase;
-        margin-bottom: 4px;
-    }
-    .rs-metric-value {
-        font-size: 1.55rem;
-        font-weight: 800;
-        color: #B9362F;
-    }
-    .rs-stone-card {
-        background-color: #FFFFFF;
-        border: 1px solid #F1D5D5;
-        border-radius: 12px;
-        padding: 14px 16px;
-        margin-bottom: 10px;
-        box-shadow: 0 2px 6px rgba(185, 54, 47, 0.03);
-    }
-    .rs-stone-card:hover {
-        border-color: #B9362F;
-    }
-    .rs-ct-header {
-        background-color: #111827;
-        border-radius: 14px 14px 0 0;
-        border: 1px solid #1F2937;
-        border-top: 3px solid #B9362F;
-        padding: 12px 18px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-    .rs-meta-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-        background-color: #FCEDEC;
-        border: 1px solid #F1D5D5;
-        border-radius: 10px;
-        padding: 12px 14px;
-        margin-bottom: 14px;
-    }
-    .rs-meta-label {
-        font-size: 0.75rem;
-        color: #6B7280;
-        font-weight: 600;
-    }
-    .rs-meta-val {
-        font-size: 0.88rem;
-        color: #20283A;
-        font-weight: 700;
-    }
-    .rs-meas-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 8px;
-    }
-    .rs-meas-table th {
-        font-size: 0.78rem;
-        color: #6B7280;
-        text-align: left;
-        padding: 10px 14px;
-        border-bottom: 2px solid #F1D5D5;
-    }
-    .rs-meas-table td {
-        font-size: 0.88rem;
-        padding: 12px 14px;
-        border-bottom: 1px solid #F1D5D5;
-        color: #20283A;
-        font-weight: 600;
-    }
-    .rs-meas-val-cell {
-        background-color: #FCEDEC;
-        color: #B9362F !important;
-        font-weight: 800 !important;
-        border-radius: 6px;
-    }
-    .rs-kidney-box {
-        background-color: #FFFFFF;
-        border: 1px solid #F1D5D5;
-        border-radius: 14px;
-        padding: 20px;
-        text-align: center;
-        box-shadow: 0 2px 10px rgba(185, 54, 47, 0.03);
-    }
-    .rs-kidney-flex {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        margin-top: 12px;
-    }
-    .rs-kidney-organ {
-        width: 90px;
-        height: 115px;
-        background-color: #FFF1F1;
-        border: 2px solid #D94841;
-        border-radius: 45% 55% 50% 50% / 60% 40% 60% 40%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        font-weight: 800;
-        color: #B9362F;
-        font-size: 0.85rem;
-    }
-    .rs-stone-pulse-dot {
-        width: 14px;
-        height: 14px;
-        background-color: #B9362F;
-        border: 2px solid #FFFFFF;
-        border-radius: 50%;
-        position: absolute;
-        box-shadow: 0 0 8px #D94841;
-        animation: pulseRedDot 1.5s infinite;
-    }
+    /* Keyframes */
     @keyframes pulseRedDot {
-        0% { transform: scale(0.9); opacity: 0.8; }
-        50% { transform: scale(1.2); opacity: 1; }
-        100% { transform: scale(0.9); opacity: 0.8; }
+        0%, 100% { transform: scale(0.9); opacity: 0.8; }
+        50% { transform: scale(1.3); opacity: 1; }
+    }
+
+    /* Accessibility: Respect Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+        *, ::before, ::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+        }
+    }
+
+    /* Responsive Queries */
+    @media (max-width: 900px) {
+        .lp-health-grid { grid-template-columns: 1fr 1fr; }
+        .lp-footer-grid { grid-template-columns: 1fr; gap: 24px; }
+        .lp-hero-heading { font-size: 2.4rem; }
+    }
+    @media (max-width: 600px) {
+        .lp-health-grid { grid-template-columns: 1fr; }
+        .lp-trust-strip { flex-direction: column; gap: 14px; }
+        .lp-trust-sep { display: none; }
+        .lp-hero-wrapper { padding: 30px 20px; }
+        .lp-hero-heading { font-size: 2rem; }
     }
 </style>
 """, unsafe_allow_html=True)
