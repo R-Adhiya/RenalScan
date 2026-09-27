@@ -1,7 +1,21 @@
 """
-landing_page.py - Premium, Highly Animated RenalScan Landing Page
-Enterprise Healthcare AI Startup Visual Standard
-Brand: Medical Red (#B9362F) & Canvas White (#FFFFFF)
+landing_page.py - Complete, Premium, Highly Animated RenalScan Landing Website
+Follows Enterprise Healthcare AI Startup Visual Standards:
+  1. Sticky Navbar
+  2. Full Animated Hero (Left 50-55% Messaging, Right 45-50% Preserved Animated CT Visual)
+  3. Hero Background Animation (Faint grid & red radial glow)
+  4. Scroll Indicator
+  5. Trust / Capability Strip (6 items)
+  6. Why RenalScan (01 DETECT, 02 SEGMENT, 03 MEASURE, 04 ANALYZE + Animated CT)
+  7. How It Works (01 to 06 Animated Timeline)
+  8. Big Interactive CT Demo (Dark #16181D, 8-step animation sequence)
+  9. Features (6 Premium Cards)
+  10. Workstation Preview (Realistic Workstation UI Preview + Launch CTA)
+  11. Report Preview (Floating A4 Report Card)
+  12. Kidney Health (4 Interactive Cards with Hover Reveals)
+  13. Responsible AI (Pulsing Medical Shield)
+  14. Final CTA (Deep Red Gradient + White Button)
+  15. Minimal Footer
 """
 
 import base64
@@ -23,13 +37,12 @@ def load_sample_images():
         with open(f, "rb") as img_f:
             b64_list.append(base64.b64encode(img_f.read()).decode())
 
-    # Fallbacks if list is short
     while len(b64_list) < 3:
         b64_list.append(b64_list[0] if len(b64_list) > 0 else "")
     return b64_list
 
 def render_landing_page(page_workstation=None):
-    """Renders the complete cinematic, highly animated landing page."""
+    """Renders the complete 15-section product landing website."""
 
     def go_to_workstation():
         if page_workstation is not None:
@@ -41,7 +54,7 @@ def render_landing_page(page_workstation=None):
     s1_b64, s2_b64, s3_b64 = samples_b64[0], samples_b64[1], samples_b64[2]
 
     # =========================================================================
-    # 1. TOP NAVBAR (STICKY, BLURRED BACKDROP, RED BRAND ACCENT)
+    # 1. NAVBAR (STICKY, BLURRED BACKDROP, RED BRAND ACCENT)
     # =========================================================================
     nav_c1, nav_c2, nav_c3 = st.columns([1.5, 2.6, 1], gap="small")
     with nav_c1:
@@ -57,10 +70,11 @@ def render_landing_page(page_workstation=None):
 
     with nav_c2:
         st.markdown("""
-        <div style="display: flex; align-items: center; justify-content: center; height: 100%; gap: 28px; padding-top: 6px;">
+        <div style="display: flex; align-items: center; justify-content: center; height: 100%; gap: 26px; padding-top: 6px;">
             <a href="#how-it-works" class="lp-nav-item">How It Works</a>
             <a href="#why-renalscan" class="lp-nav-item">Why RenalScan</a>
-            <a href="#showcase" class="lp-nav-item">Showcase</a>
+            <a href="#demo" class="lp-nav-item">CT Demo</a>
+            <a href="#features" class="lp-nav-item">Capabilities</a>
             <a href="#kidney-health" class="lp-nav-item">Kidney Health</a>
             <a href="#about" class="lp-nav-item">About</a>
         </div>
@@ -73,10 +87,10 @@ def render_landing_page(page_workstation=None):
     st.write("")
 
     # =========================================================================
-    # 2. CINEMATIC HERO (HIGHLY ANIMATED MEDICAL VISUALIZATION)
+    # 2. FULL ANIMATED HERO (LEFT 50-55% MESSAGING, RIGHT 45-50% CT VISUAL)
     # =========================================================================
     st.markdown("""<div class="lp-hero-wrapper">""", unsafe_allow_html=True)
-    hero_col_left, hero_col_right = st.columns([1.15, 1.25], gap="large")
+    hero_col_left, hero_col_right = st.columns([1.18, 1.22], gap="large")
 
     with hero_col_left:
         st.markdown("""
@@ -85,34 +99,42 @@ def render_landing_page(page_workstation=None):
             AI-POWERED MEDICAL IMAGING
         </div>
         <h1 class="lp-hero-heading">
-            See Beyond the Scan.<br>
-            <span class="red-accent">Understand the Stone.</span>
+            Smarter <span class="red-accent">Kidney Stone</span><br>
+            Analysis with <span class="red-accent">AI.</span>
         </h1>
         <p class="lp-hero-desc">
-            RenalScan uses AI-assisted CT image analysis to detect, visualize, segment, and measure potential kidney stone regions with calibrated millimeter precision.
+            RenalScan transforms CT images into AI-assisted kidney stone insights — helping visualize potential stone regions, estimate measurements, and organize analysis results.
         </p>
         """, unsafe_allow_html=True)
 
-        h_btn1, h_btn2, h_btn_space = st.columns([1, 1.1, 0.1])
+        h_btn1, h_btn2, h_btn_space = st.columns([1, 1.15, 0.1])
         with h_btn1:
             if st.button("Start Analysis →", key="hero_start_btn", use_container_width=True):
                 go_to_workstation()
         with h_btn2:
             st.markdown("""
             <a href="#how-it-works" class="rs-btn-outline" style="width: 100%; box-sizing: border-box;">
-                Explore RenalScan
+                Explore How It Works
             </a>
             """, unsafe_allow_html=True)
 
+        # Three Trust Checkmarks
         st.markdown("""
-        <div style="display: flex; align-items: center; gap: 8px; margin-top: 24px; font-size: 0.84rem; color: #6B7280; font-weight: 500;">
-            <span style="color: #B9362F; font-size: 1.1rem;">🛡️</span>
-            <span>Technical Research Platform • YOLOv8s &amp; Otsu Sub-pixel Sizing</span>
+        <div class="lp-hero-trust-row">
+            <div class="lp-hero-trust-item">
+                <span class="lp-hero-trust-check">✓</span> AI-Assisted Analysis
+            </div>
+            <div class="lp-hero-trust-item">
+                <span class="lp-hero-trust-check">✓</span> CT Visualization
+            </div>
+            <div class="lp-hero-trust-item">
+                <span class="lp-hero-trust-check">✓</span> Stone Measurement
+            </div>
         </div>
         """, unsafe_allow_html=True)
 
     with hero_col_right:
-        # Animated Hero Visual: Floating CT Card + Laser Scanning Line + Floating White Metric Cards
+        # PRESERVED ANIMATED HERO CT VISUALIZATION
         hero_ct_html = f"""
         <div class="lp-ct-float-container">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding: 0 4px;">
@@ -148,7 +170,7 @@ def render_landing_page(page_workstation=None):
 
                     <!-- Real-Time Readout Overlay Tag -->
                     <g transform="translate(295, 126)">
-                        <rect x="0" y="0" width="138" height="26" rx="6" fill="rgba(17, 24, 39, 0.92)" stroke="#B9362F" stroke-width="1.5" />
+                        <rect x="0" y="0" width="144" height="26" rx="6" fill="rgba(17, 24, 39, 0.92)" stroke="#B9362F" stroke-width="1.5" />
                         <text x="8" y="17" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="11" font-weight="700">
                             STONE: 8.19mm | 92%
                         </text>
@@ -160,7 +182,7 @@ def render_landing_page(page_workstation=None):
                     <div style="font-size: 0.68rem; color: #6B7280; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">AI Detection</div>
                     <div style="display: flex; align-items: center; gap: 6px; margin-top: 2px;">
                         <span style="width: 7px; height: 7px; background: #B9362F; border-radius: 50%; display: inline-block;"></span>
-                        <span style="font-size: 0.92rem; font-weight: 800; color: #B9362F;">Stone Detected</span>
+                        <span style="font-size: 0.92rem; font-weight: 800; color: #B9362F;">Stone detected</span>
                     </div>
                 </div>
 
@@ -185,11 +207,11 @@ def render_landing_page(page_workstation=None):
         """
         st.markdown(hero_ct_html, unsafe_allow_html=True)
 
-    # Scroll to Explore Indicator
+    # 4. HERO SCROLL INDICATOR
     st.markdown("""
     <div class="lp-scroll-ind-container">
         <a href="#trust-strip" style="text-decoration: none; display: flex; flex-direction: column; align-items: center;">
-            <span class="lp-scroll-ind-text">Scroll to Explore</span>
+            <span class="lp-scroll-ind-text">SCROLL TO EXPLORE</span>
             <span class="lp-scroll-ind-arrow">↓</span>
         </a>
     </div>
@@ -198,11 +220,13 @@ def render_landing_page(page_workstation=None):
     st.markdown("""</div>""", unsafe_allow_html=True)
 
     # =========================================================================
-    # 3. TRUST STRIP (SEQUENTIAL VALUE BAR)
+    # 5. TRUST / CAPABILITY STRIP (FULL WIDTH)
     # =========================================================================
     st.markdown("""
     <div id="trust-strip" class="lp-trust-strip">
-        <div class="lp-trust-item"><span class="lp-trust-icon">🔬</span> AI-Assisted CT Analysis</div>
+        <div class="lp-trust-item"><span class="lp-trust-icon">🔬</span> AI-Assisted Analysis</div>
+        <div class="lp-trust-sep">|</div>
+        <div class="lp-trust-item"><span class="lp-trust-icon">⚡</span> CT Image Processing</div>
         <div class="lp-trust-sep">|</div>
         <div class="lp-trust-item"><span class="lp-trust-icon">🎯</span> Stone Detection</div>
         <div class="lp-trust-sep">|</div>
@@ -215,49 +239,26 @@ def render_landing_page(page_workstation=None):
     """, unsafe_allow_html=True)
 
     # =========================================================================
-    # 4. "WHY RENALSCAN?" SECTION (SPLIT EDITORIAL WITH DYNAMIC PREVIEW)
+    # 6. WHY RENALSCAN (SPLIT WITH 01-04 AND VERTICAL ANIMATED CT VISUAL)
     # =========================================================================
     st.markdown("""
     <div id="why-renalscan" class="lp-section-header">
-        <h2 class="lp-section-title">From Pixels to <span>Possibilities</span></h2>
+        <h2 class="lp-section-title">From CT Pixels to <span>Meaningful Insights</span></h2>
         <p class="lp-section-desc">
-            Turning complex CT images into structured, AI-assisted insights for rapid clinical evaluation.
+            RenalScan brings AI-assisted image analysis into one focused workspace.
         </p>
     </div>
     """, unsafe_allow_html=True)
 
     why_c1, why_c2 = st.columns([1.1, 1.3], gap="large")
     with why_c1:
-        st.markdown(f"""
-        <div style="background-color: #111827; border-radius: 18px; border: 1.5px solid #1F2937; border-top: 3.5px solid #B9362F; padding: 22px; box-shadow: 0 12px 36px rgba(0,0,0,0.22);">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
-                <span style="color: #FFFFFF; font-size: 0.88rem; font-weight: 800;">DIAGNOSTIC ROI EXTRACTION</span>
-                <span style="background: #FCEDEC; color: #B9362F; font-size: 0.72rem; font-weight: 700; padding: 3px 8px; border-radius: 6px;">
-                    Sub-pixel Otsu
-                </span>
-            </div>
-            <div style="position: relative; border-radius: 10px; overflow: hidden; background: #000;">
-                <img src="data:image/jpeg;base64,{s2_b64}" style="width: 100%; max-height: 290px; object-fit: contain;" alt="Diagnostic ROI" />
-                <svg viewBox="0 0 400 280" style="position: absolute; top:0; left:0; width:100%; height:100%; pointer-events: none;">
-                    <circle cx="210" cy="145" r="32" fill="rgba(185,54,47,0.28)" stroke="#B9362F" stroke-width="2.5" />
-                    <line x1="178" y1="145" x2="242" y2="145" stroke="#FFFFFF" stroke-width="1.8" />
-                    <line x1="210" y1="113" x2="210" y2="177" stroke="#FFFFFF" stroke-width="1.8" />
-                </svg>
-            </div>
-            <div style="margin-top: 14px; background: rgba(255,255,255,0.06); border-radius: 8px; padding: 12px; font-size: 0.82rem; color: #D1D5DB; line-height: 1.5;">
-                <strong style="color: #F87171;">Clinical Precision:</strong> Adaptive segmentation isolates calculus margins from high-density renal cortex and vertebral bone artifacts.
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-
-    with why_c2:
         st.markdown("""
         <div class="lp-feature-card">
             <div class="lp-feature-num">01</div>
             <div>
                 <div class="lp-feature-title">DETECT</div>
                 <div class="lp-feature-desc">
-                    AI identifies potential stone regions within the abdominal CT scan using YOLOv8 trained specifically on non-contrast imaging.
+                    Identify potential stone regions from CT images using a deep convolutional YOLOv8 architecture trained on non-contrast abdominal scans.
                 </div>
             </div>
         </div>
@@ -267,7 +268,7 @@ def render_landing_page(page_workstation=None):
             <div>
                 <div class="lp-feature-title">SEGMENT</div>
                 <div class="lp-feature-desc">
-                    Detected regions are visually isolated through classical sub-pixel Otsu thresholding, separating hyperdense calcifications from surrounding tissue.
+                    Highlight detected regions for clearer visualization through classical sub-pixel Otsu thresholding, separating calculus margins from tissue.
                 </div>
             </div>
         </div>
@@ -277,7 +278,7 @@ def render_landing_page(page_workstation=None):
             <div>
                 <div class="lp-feature-title">MEASURE</div>
                 <div class="lp-feature-desc">
-                    Calibrated physical calipers compute major axis, minor axis, and equivalent circle diameter with standardized millimeter conversions.
+                    Estimate dimensions of detected regions using physical millimeter calipers to compute major axis, minor axis, and equivalent diameter.
                 </div>
             </div>
         </div>
@@ -285,22 +286,45 @@ def render_landing_page(page_workstation=None):
         <div class="lp-feature-card">
             <div class="lp-feature-num">04</div>
             <div>
-                <div class="lp-feature-title">UNDERSTAND</div>
+                <div class="lp-feature-title">ANALYZE</div>
                 <div class="lp-feature-desc">
-                    Results are categorized into established clinical passage triage bands (&lt;4mm, 4–6mm, 6–10mm, &gt;10mm) and structured in an interactive workspace.
+                    Review structured AI-assisted findings mapped into clinical passage probability triage bands (<4mm, 4–6mm, 6–10mm, >10mm).
                 </div>
             </div>
         </div>
         """, unsafe_allow_html=True)
 
+    with why_c2:
+        st.markdown(f"""
+        <div style="background-color: #111827; border-radius: 18px; border: 1.5px solid #1F2937; border-top: 3.5px solid #B9362F; padding: 22px; box-shadow: 0 12px 36px rgba(0,0,0,0.22);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                <span style="color: #FFFFFF; font-size: 0.88rem; font-weight: 800;">VERTICAL CT VISUALIZATION</span>
+                <span style="background: #FCEDEC; color: #B9362F; font-size: 0.72rem; font-weight: 700; padding: 3px 8px; border-radius: 6px;">
+                    Multi-Stage Pipeline
+                </span>
+            </div>
+            <div style="position: relative; border-radius: 10px; overflow: hidden; background: #000;">
+                <img src="data:image/jpeg;base64,{s2_b64}" style="width: 100%; max-height: 310px; object-fit: contain;" alt="Diagnostic ROI" />
+                <svg viewBox="0 0 400 280" style="position: absolute; top:0; left:0; width:100%; height:100%; pointer-events: none;">
+                    <circle cx="210" cy="145" r="32" fill="rgba(185,54,47,0.28)" stroke="#B9362F" stroke-width="2.5" />
+                    <line x1="178" y1="145" x2="242" y2="145" stroke="#FFFFFF" stroke-width="1.8" />
+                    <line x1="210" y1="113" x2="210" y2="177" stroke="#FFFFFF" stroke-width="1.8" />
+                </svg>
+            </div>
+            <div style="margin-top: 14px; background: rgba(255,255,255,0.06); border-radius: 8px; padding: 12px; font-size: 0.82rem; color: #D1D5DB; line-height: 1.5;">
+                <strong style="color: #F87171;">Automated Insight:</strong> Sequential detection, contour segmentation, and caliper measurement occur simultaneously within the active slice.
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
     # =========================================================================
-    # 5. INTERACTIVE HOW IT WORKS (HORIZONTAL ANIMATED PIPELINE)
+    # 7. HOW IT WORKS (01 TO 06 ANIMATED TIMELINE)
     # =========================================================================
     st.markdown("""
-    <div id="how-it-works" class="lp-section-header" style="margin-top: 40px;">
-        <h2 class="lp-section-title">How RenalScan <span>Thinks</span></h2>
+    <div id="how-it-works" class="lp-section-header" style="margin-top: 48px;">
+        <h2 class="lp-section-title">How RenalScan <span>Works</span></h2>
         <p class="lp-section-desc">
-            An automated six-phase pipeline engineered to deliver reproducible, quantitative insights in under two seconds.
+            A disciplined six-phase workflow engineered to deliver reproducible, quantitative insights in under two seconds.
         </p>
     </div>
     """, unsafe_allow_html=True)
@@ -316,7 +340,7 @@ def render_landing_page(page_workstation=None):
             .pipe-wrap {{ background: #FCEDEC; border: 1.5px solid #F1D5D5; border-radius: 20px; padding: 28px 24px; box-shadow: 0 4px 18px rgba(185, 54, 47, 0.04); }}
             .pipe-steps {{ display: flex; align-items: center; justify-content: space-between; position: relative; margin-bottom: 24px; }}
             .pipe-line {{ position: absolute; top: 22px; left: 8%; right: 8%; height: 3px; background: #F1D5D5; z-index: 1; }}
-            .pipe-line-progress {{ position: absolute; top: 22px; left: 8%; width: 60%; height: 3px; background: #B9362F; z-index: 2; transition: width 0.4s ease; }}
+            .pipe-line-progress {{ position: absolute; top: 22px; left: 8%; width: 0%; height: 3px; background: #B9362F; z-index: 2; transition: width 0.4s ease; }}
             .step-node {{ display: flex; flex-direction: column; align-items: center; position: relative; z-index: 3; cursor: pointer; transition: transform 0.2s ease; width: 15%; }}
             .step-node:hover {{ transform: translateY(-3px); }}
             .step-badge {{ width: 44px; height: 44px; border-radius: 50%; background: #FFFFFF; border: 2.5px solid #F1D5D5; color: #6B7280; font-weight: 800; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06); transition: all 0.3s ease; }}
@@ -367,17 +391,17 @@ def render_landing_page(page_workstation=None):
                 <div class="detail-left">
                     <div class="detail-title" id="cardTitle">01 UPLOAD — Ingest CT Scan Slices</div>
                     <div class="detail-desc" id="cardDesc">
-                        Ingests high-resolution abdominal CT images in standard JPG, PNG, or DICOM-derived slices up to 200MB.
+                        Ingests high-resolution abdominal CT images in standard JPG, PNG, or DICOM-derived slices up to 200MB with automated integrity checks.
                     </div>
                 </div>
-                <div class="detail-chip" id="cardChip">STAGE 1 / 6</div>
+                <div class="detail-chip" id="cardChip">STAGE 1 / 6 • INPUT</div>
             </div>
         </div>
 
         <script>
             const steps = [
-                {{ title: "01 UPLOAD — Ingest CT Scan Slices", desc: "Ingests high-resolution abdominal CT images in standard JPG, PNG, or DICOM-derived slices up to 200MB with automated integrity checks.", chip: "STAGE 1 / 6 • INPUT", pct: "0%" }},
-                {{ title: "02 PREPROCESS — Dynamic Contrast & Normalization", desc: "Normalizes dimensions, channels, and window levels to optimize Hounsfield-unit attenuation visibility before deep inference.", chip: "STAGE 2 / 6 • PREP", pct: "20%" }},
+                {{ title: "01 UPLOAD — Ingest CT Scan Slices", desc: "Ingests high-resolution abdominal CT images in standard JPG, PNG, or DICOM-derived slices up to 200MB with automated format and channel validation.", chip: "STAGE 1 / 6 • INPUT", pct: "0%" }},
+                {{ title: "02 PREPROCESS — Window Leveling & Normalization", desc: "Normalizes dimensions, channels, and window levels to optimize Hounsfield-unit attenuation visibility before deep inference.", chip: "STAGE 2 / 6 • PREP", pct: "20%" }},
                 {{ title: "03 DETECT — YOLOv8 Deep Calculus Localization", desc: "Runs fine-tuned YOLOv8s detector to localize candidate stone coordinates and assign probabilistic confidence ratings.", chip: "STAGE 3 / 6 • INFERENCE", pct: "40%" }},
                 {{ title: "04 SEGMENT — Sub-pixel Otsu Contour Isolation", desc: "Executes adaptive local Otsu thresholding on padded detection regions to delineate precise calculus surface perimeters.", chip: "STAGE 4 / 6 • COMPUTER VISION", pct: "60%" }},
                 {{ title: "05 MEASURE — Physical Caliper Geometry", desc: "Applies calibrated millimeter scaling (assumed 0.70 mm/px) to calculate major axis, minor axis, area, and equivalent diameter.", chip: "STAGE 5 / 6 • QUANTIFICATION", pct: "80%" }},
@@ -394,7 +418,6 @@ def render_landing_page(page_workstation=None):
                 document.getElementById('cardDesc').innerText = steps[activeIdx].desc;
                 document.getElementById('cardChip').innerText = steps[activeIdx].chip;
             }}
-            // Auto loop every 4.5 seconds
             setInterval(() => {{
                 activeIdx = (activeIdx + 1) % 6;
                 setStep(activeIdx + 1);
@@ -406,27 +429,27 @@ def render_landing_page(page_workstation=None):
     components.html(pipeline_component_html, height=220, scrolling=False)
 
     # =========================================================================
-    # 6. BIG CT SCAN SHOWCASE (DEEP CHARCOAL #16181D MEDICAL AI DEMONSTRATION)
+    # 8. BIG INTERACTIVE CT DEMO (DARK CHARCOAL #16181D)
     # =========================================================================
     st.markdown("""
-    <div id="showcase" class="lp-dark-showcase">
+    <div id="demo" class="lp-dark-showcase" style="margin-top: 48px;">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px;">
             <div>
                 <div style="color: #D94841; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px;">
-                    MEDICAL COMPUTER VISION SHOWCASE
+                    REAL AI ANALYSIS DEMONSTRATION
                 </div>
-                <div class="lp-dark-title">Watch AI Find What the Eye Might Miss.</div>
+                <div class="lp-dark-title">Watch AI Analyze a CT Scan.</div>
                 <div class="lp-dark-sub">
-                    Visualize potential stone regions directly on CT images with automated multi-layer bounding and millimeter calipers.
+                    Step through the automated sequence from scan line sweep to detection box, pulsing marker, calipers, and AI analysis panel.
                 </div>
             </div>
             <span style="background: rgba(185,54,47,0.25); border: 1.5px solid #B9362F; color: #FFFFFF; font-weight: 700; font-size: 0.82rem; padding: 6px 16px; border-radius: 20px;">
-                ● Multi-Layer Overlay
+                ● Live 8-Step Simulation
             </span>
         </div>
     """, unsafe_allow_html=True)
 
-    showcase_html = f"""
+    demo_html = f"""
     <!DOCTYPE html>
     <html>
     <head>
@@ -434,186 +457,283 @@ def render_landing_page(page_workstation=None):
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
             body {{ font-family: 'Inter', sans-serif; background: transparent; margin: 0; color: #FFFFFF; }}
-            .viewer-card {{ background: #0F131C; border: 1.5px solid #2A2F3B; border-radius: 18px; padding: 20px; display: flex; gap: 24px; }}
-            .ct-frame {{ position: relative; width: 55%; height: 380px; background: #000; border-radius: 12px; overflow: hidden; display: flex; align-items: center; justify-content: center; }}
-            .ct-frame img {{ max-height: 360px; max-width: 100%; object-fit: contain; }}
+            .demo-wrap {{ background: #0F131C; border: 1.5px solid #2A2F3B; border-radius: 18px; padding: 22px; display: flex; gap: 26px; }}
+            .ct-box {{ position: relative; width: 55%; height: 390px; background: #000; border-radius: 12px; overflow: hidden; display: flex; align-items: center; justify-content: center; }}
+            .ct-box img {{ max-height: 370px; max-width: 100%; object-fit: contain; }}
+            .scan-laser {{ position: absolute; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, #E53935, #FFF, #E53935, transparent); box-shadow: 0 0 16px #E53935; transition: top 0.2s ease; opacity: 0; }}
             
-            .scan-bar {{ position: absolute; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, #E53935, #FFF, #E53935, transparent); box-shadow: 0 0 16px #E53935; animation: sweepLoop 3.8s infinite ease-in-out; }}
-            @keyframes sweepLoop {{ 0% {{ top: 4%; opacity: 0; }} 15% {{ opacity: 1; }} 85% {{ opacity: 1; }} 100% {{ top: 94%; opacity: 0; }} }}
+            .side-box {{ width: 45%; display: flex; flex-direction: column; justify-content: space-between; }}
+            .panel-card {{ background: #161B26; border: 1.5px solid #2A2F3B; border-left: 4.5px solid #B9362F; border-radius: 12px; padding: 20px; box-shadow: 0 8px 24px rgba(0,0,0,0.3); opacity: 0; transform: translateX(20px); transition: all 0.5s ease; }}
+            .panel-card.slide-in {{ opacity: 1; transform: translateX(0); }}
             
-            .info-panel {{ width: 45%; display: flex; flex-direction: column; justify-content: space-between; }}
-            .panel-header {{ border-bottom: 1.5px solid #1F2937; padding-bottom: 12px; }}
-            .stat-grid {{ display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }}
-            .stat-box {{ background: #161B26; border: 1px solid #2A2F3B; border-left: 3px solid #B9362F; border-radius: 10px; padding: 12px; }}
-            .stat-lbl {{ font-size: 0.7rem; color: #9CA3AF; font-weight: 700; text-transform: uppercase; }}
-            .stat-val {{ font-size: 1.25rem; font-weight: 800; color: #FFFFFF; margin-top: 2px; }}
-            
-            .tag-row {{ display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }}
-            .tag {{ font-size: 0.75rem; font-weight: 700; padding: 4px 10px; border-radius: 6px; background: rgba(255,255,255,0.06); color: #D1D5DB; }}
-            .tag.active {{ background: #B9362F; color: #FFFFFF; }}
+            .ctrl-btns {{ display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }}
+            .demo-btn {{ background: #1F2937; border: 1px solid #374151; color: #E5E7EB; font-weight: 700; font-size: 0.8rem; padding: 8px 14px; border-radius: 8px; cursor: pointer; transition: all 0.2s; }}
+            .demo-btn:hover, .demo-btn.active {{ background: #B9362F; border-color: #B9362F; color: #FFFFFF; }}
         </style>
     </head>
     <body>
-        <div class="viewer-card">
-            <div class="ct-frame">
-                <div class="scan-bar"></div>
-                <img src="data:image/jpeg;base64,{s1_b64}" alt="CT Analysis Demonstration" />
+        <div class="demo-wrap">
+            <div class="ct-box">
+                <div class="scan-laser" id="laser"></div>
+                <img src="data:image/jpeg;base64,{s1_b64}" id="demoImg" alt="CT Slice Demo" />
                 <svg viewBox="0 0 400 320" style="position: absolute; top:0; left:0; width:100%; height:100%; pointer-events: none;">
-                    <rect x="155" y="115" width="70" height="60" fill="rgba(185,54,47,0.22)" stroke="#B9362F" stroke-width="2" stroke-dasharray="5 3" rx="4"/>
-                    <line x1="145" y1="145" x2="235" y2="145" stroke="#D94841" stroke-width="2" stroke-dasharray="3"/>
-                    <line x1="190" y1="105" x2="190" y2="185" stroke="#D94841" stroke-width="2" stroke-dasharray="3"/>
-                    <circle cx="190" cy="145" r="4" fill="#B9362F"/>
+                    <rect id="dBox" x="160" y="115" width="70" height="60" fill="rgba(185,54,47,0.22)" stroke="#B9362F" stroke-width="2.5" stroke-dasharray="6 3" rx="4" opacity="0"/>
+                    <circle id="dMarker" cx="195" cy="145" r="5" fill="#B9362F" stroke="#FFF" stroke-width="1.5" opacity="0"/>
+                    <circle id="dPulse" cx="195" cy="145" r="14" fill="none" stroke="#D94841" stroke-width="1.5" opacity="0"/>
+                    <line id="dMaj" x1="150" y1="145" x2="240" y2="145" stroke="#D94841" stroke-width="2" stroke-dasharray="3" opacity="0"/>
+                    <line id="dMin" x1="195" y1="105" x2="195" y2="185" stroke="#D94841" stroke-width="2" stroke-dasharray="3" opacity="0"/>
+                    
+                    <g id="dTag" transform="translate(235, 105)" opacity="0">
+                        <rect x="0" y="0" width="150" height="26" rx="6" fill="rgba(17, 24, 39, 0.95)" stroke="#B9362F" stroke-width="1.5" />
+                        <text x="8" y="17" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="11" font-weight="800">
+                            STONE DETECTED: 8.19 mm
+                        </text>
+                    </g>
                 </svg>
             </div>
-            <div class="info-panel">
+
+            <div class="side-box">
                 <div>
-                    <div class="panel-header">
-                        <span style="color: #10B981; font-weight: 800; font-size: 0.78rem;">● ANALYSIS PIPELINE EXECUTED</span>
-                        <div style="font-size: 1.25rem; font-weight: 800; color: #FFFFFF; margin-top: 4px;">Verified Stone Localization</div>
+                    <div style="font-size: 0.78rem; font-weight: 800; color: #10B981; letter-spacing: 0.08em; text-transform: uppercase;">
+                        STAGE: <span id="stageName">STEP 1 — CT IMAGE INGESTION</span>
                     </div>
-                    <div class="stat-grid">
-                        <div class="stat-box">
-                            <div class="stat-lbl">DETECTED CALCULI</div>
-                            <div class="stat-val" style="color: #FFFFFF;">3 Regions</div>
-                        </div>
-                        <div class="stat-box">
-                            <div class="stat-lbl">PRIMARY DIAMETER</div>
-                            <div class="stat-val" style="color: #D94841;">5.27 mm</div>
-                        </div>
-                        <div class="stat-box">
-                            <div class="stat-lbl">PEAK CONFIDENCE</div>
-                            <div class="stat-val" style="color: #10B981;">69.6%</div>
-                        </div>
-                        <div class="stat-box">
-                            <div class="stat-lbl">CLINICAL BAND</div>
-                            <div class="stat-val" style="font-size: 0.95rem; color: #F87171;">4-6mm (Medium)</div>
-                        </div>
+                    <div style="font-size: 1.35rem; font-weight: 900; color: #FFFFFF; margin: 4px 0 16px 0;">
+                        Automated AI Inference Sequence
                     </div>
-                    <div style="font-size: 0.85rem; color: #9CA3AF; line-height: 1.5;">
-                        AI pipeline localized multiple calculi in the renal calyx. Caliper measurements estimate primary axis dimensions with moderate spontaneous passage likelihood (~50%).
+
+                    <div class="panel-card" id="resPanel">
+                        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #2A2F3B; padding-bottom: 8px; margin-bottom: 12px;">
+                            <span style="font-size: 0.85rem; font-weight: 800; color: #FFFFFF;">AI ANALYSIS</span>
+                            <span style="background: rgba(16, 185, 129, 0.2); color: #10B981; font-weight: 800; font-size: 0.72rem; padding: 2px 8px; border-radius: 4px;">Verified</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
+                            <div>
+                                <div style="font-size: 0.7rem; color: #9CA3AF; font-weight: 700;">POTENTIAL STONE</div>
+                                <div style="font-size: 1.15rem; font-weight: 800; color: #FFFFFF;">Detected (1)</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 0.7rem; color: #9CA3AF; font-weight: 700;">CALCULATED SIZE</div>
+                                <div style="font-size: 1.15rem; font-weight: 800; color: #D94841;">8.19 mm</div>
+                            </div>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.7rem; color: #9CA3AF; font-weight: 700;">MODEL CONFIDENCE</div>
+                            <div style="font-size: 1.25rem; font-weight: 800; color: #10B981;">92% Optimal</div>
+                        </div>
                     </div>
                 </div>
-                <div class="tag-row">
-                    <span class="tag active">YOLOv8s Detector</span>
-                    <span class="tag active">Otsu Contour</span>
-                    <span class="tag">0.70 mm/px Calibration</span>
+
+                <div>
+                    <div class="ctrl-btns">
+                        <button class="demo-btn active" onclick="execStep(1)">1. CT Image</button>
+                        <button class="demo-btn" onclick="execStep(2)">2. Scan Laser</button>
+                        <button class="demo-btn" onclick="execStep(4)">4. Detection Box</button>
+                        <button class="demo-btn" onclick="execStep(6)">6. Calipers</button>
+                        <button class="demo-btn" onclick="execStep(8)">8. AI Result</button>
+                        <button class="demo-btn" onclick="runAuto()">🔄 Replay Sequence</button>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </body>
-    </html>
-    """
-    components.html(showcase_html, height=430, scrolling=False)
-    st.markdown("""</div>""", unsafe_allow_html=True)
-
-    # =========================================================================
-    # 7. LIVE ANALYSIS UI (ANIMATED COUNT-UP NUMBERS)
-    # =========================================================================
-    st.markdown("""
-    <div class="lp-section-header">
-        <h2 class="lp-section-title">Automated <span>Quantitative Assessment</span></h2>
-        <p class="lp-section-desc">
-            Instantly extracts numerical metrics, size stratifications, and calibrated geometric boundaries.
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
-
-    countup_html = f"""
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="utf-8">
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-            body {{ font-family: 'Inter', sans-serif; background: transparent; margin: 0; padding: 4px; color: #20283A; }}
-            .metric-grid {{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }}
-            .metric-card {{ background: #FFFFFF; border: 1.5px solid #F1D5D5; border-top: 4px solid #B9362F; border-radius: 16px; padding: 22px 16px; text-align: center; box-shadow: 0 4px 16px rgba(185, 54, 47, 0.05); }}
-            .metric-lbl {{ font-size: 0.78rem; font-weight: 800; color: #6B7280; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }}
-            .metric-val {{ font-size: 2.3rem; font-weight: 900; color: #B9362F; line-height: 1; }}
-            .metric-sub {{ font-size: 0.8rem; color: #4B5563; margin-top: 6px; font-weight: 600; }}
-            
-            .regions-box {{ background: #FFFFFF; border: 1.5px solid #F1D5D5; border-radius: 16px; padding: 22px 26px; box-shadow: 0 4px 16px rgba(185, 54, 47, 0.04); }}
-            .regions-header {{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }}
-            .stone-row {{ display: grid; grid-template-columns: 1fr 1fr 1fr 1.2fr; gap: 12px; padding: 12px 14px; background: #FFF7F7; border: 1px solid #F1D5D5; border-radius: 10px; margin-bottom: 8px; align-items: center; }}
-            .stone-id {{ font-weight: 800; color: #B9362F; font-size: 0.92rem; }}
-            .stone-data {{ font-size: 0.88rem; font-weight: 700; color: #20283A; }}
-        </style>
-    </head>
-    <body>
-        <div class="metric-grid">
-            <div class="metric-card">
-                <div class="metric-lbl">POTENTIAL STONES</div>
-                <div class="metric-val" id="numStones">0</div>
-                <div class="metric-sub">Calculi Localized</div>
-            </div>
-            <div class="metric-card">
-                <div class="metric-lbl">LARGEST SIZE</div>
-                <div class="metric-val"><span id="numSize">0.00</span> <span style="font-size: 1.2rem;">mm</span></div>
-                <div class="metric-sub">Calibrated Diameter</div>
-            </div>
-            <div class="metric-card">
-                <div class="metric-lbl">PEAK CONFIDENCE</div>
-                <div class="metric-val"><span id="numConf">0</span>%</div>
-                <div class="metric-sub">Probability Score</div>
-            </div>
-        </div>
-
-        <div class="regions-box">
-            <div class="regions-header">
-                <div style="font-weight: 800; font-size: 1.05rem; color: #20283A;">Localized Stone Regions (Quantitative Log)</div>
-                <span style="background: #FCEDEC; color: #B9362F; font-weight: 800; font-size: 0.75rem; padding: 4px 10px; border-radius: 8px;">3 DETECTIONS</span>
-            </div>
-            <div class="stone-row">
-                <div class="stone-id">Calculus #01</div>
-                <div class="stone-data">5.27 mm</div>
-                <div class="stone-data" style="color: #10B981;">69.6% Conf</div>
-                <div style="font-size: 0.82rem; color: #B9362F; font-weight: 700;">4–6mm (Medium)</div>
-            </div>
-            <div class="stone-row">
-                <div class="stone-id">Calculus #02</div>
-                <div class="stone-data">3.66 mm</div>
-                <div class="stone-data" style="color: #10B981;">54.9% Conf</div>
-                <div style="font-size: 0.82rem; color: #047857; font-weight: 700;">&lt;4mm (Small)</div>
-            </div>
-            <div class="stone-row">
-                <div class="stone-id">Calculus #03</div>
-                <div class="stone-data">2.16 mm</div>
-                <div class="stone-data" style="color: #6B7280;">44.4% Conf</div>
-                <div style="font-size: 0.82rem; color: #047857; font-weight: 700;">&lt;4mm (Small)</div>
             </div>
         </div>
 
         <script>
-            function animateCount(elemId, target, decimals, duration) {{
-                let start = 0;
-                let startTime = null;
-                function update(now) {{
-                    if (!startTime) startTime = now;
-                    let progress = Math.min((now - startTime) / duration, 1);
-                    let val = start + progress * (target - start);
-                    document.getElementById(elemId).innerText = val.toFixed(decimals);
-                    if (progress < 1) requestAnimationFrame(update);
+            let timer = null;
+            function execStep(step) {{
+                const laser = document.getElementById('laser');
+                const box = document.getElementById('dBox');
+                const marker = document.getElementById('dMarker');
+                const pulse = document.getElementById('dPulse');
+                const maj = document.getElementById('dMaj');
+                const min = document.getElementById('dMin');
+                const tag = document.getElementById('dTag');
+                const panel = document.getElementById('resPanel');
+                const stName = document.getElementById('stageName');
+
+                if (step === 1) {{
+                    stName.innerText = "STEP 1 — CT IMAGE INGESTED";
+                    laser.style.opacity = '0'; box.setAttribute('opacity', '0');
+                    marker.setAttribute('opacity', '0'); pulse.setAttribute('opacity', '0');
+                    maj.setAttribute('opacity', '0'); min.setAttribute('opacity', '0');
+                    tag.setAttribute('opacity', '0'); panel.classList.remove('slide-in');
+                }} else if (step === 2) {{
+                    stName.innerText = "STEP 2 — LASER SCAN LINE SWEEPS";
+                    laser.style.opacity = '1'; laser.style.top = '45%';
+                }} else if (step === 4) {{
+                    stName.innerText = "STEP 4 — DETECTION BOX & MARKER";
+                    laser.style.opacity = '0';
+                    box.setAttribute('opacity', '1'); marker.setAttribute('opacity', '1');
+                    pulse.setAttribute('opacity', '1');
+                }} else if (step === 6) {{
+                    stName.innerText = "STEP 6 — CALIPER MEASUREMENT DRAWN";
+                    box.setAttribute('opacity', '1'); marker.setAttribute('opacity', '1');
+                    pulse.setAttribute('opacity', '1');
+                    maj.setAttribute('opacity', '1'); min.setAttribute('opacity', '1');
+                    tag.setAttribute('opacity', '1');
+                }} else if (step >= 8) {{
+                    stName.innerText = "STEP 8 — AI RESULT PANEL SLIDES IN";
+                    box.setAttribute('opacity', '1'); marker.setAttribute('opacity', '1');
+                    pulse.setAttribute('opacity', '1');
+                    maj.setAttribute('opacity', '1'); min.setAttribute('opacity', '1');
+                    tag.setAttribute('opacity', '1');
+                    panel.classList.add('slide-in');
                 }}
-                requestAnimationFrame(update);
             }}
-            // Trigger count up animations smoothly
-            setTimeout(() => {{
-                animateCount('numStones', 3, 0, 1200);
-                animateCount('numSize', 5.27, 2, 1400);
-                animateCount('numConf', 70, 0, 1600);
-            }}, 200);
+            function runAuto() {{
+                clearInterval(timer);
+                execStep(1);
+                timer = setTimeout(() => {{
+                    execStep(2);
+                    timer = setTimeout(() => {{
+                        execStep(4);
+                        timer = setTimeout(() => {{
+                            execStep(6);
+                            timer = setTimeout(() => {{
+                                execStep(8);
+                            }}, 1200);
+                        }}, 1200);
+                    }}, 1200);
+                }}, 800);
+            }}
+            runAuto();
         </script>
     </body>
     </html>
     """
-    components.html(countup_html, height=320, scrolling=False)
+    components.html(demo_html, height=440, scrolling=False)
+    st.markdown("""</div>""", unsafe_allow_html=True)
 
     # =========================================================================
-    # 8. REPORT PREVIEW (FLOATING A4 REPORT WITH 3D TILT EFFECT)
+    # 9. FEATURES (6 PREMIUM CARDS)
     # =========================================================================
     st.markdown("""
-    <div class="lp-section-header" style="margin-top: 40px;">
-        <h2 class="lp-section-title">From Analysis to a <span>Professional Report</span></h2>
+    <div id="features" class="lp-section-header" style="margin-top: 48px;">
+        <h2 class="lp-section-title">Built Around the <span>Complete Analysis Workflow</span></h2>
+        <p class="lp-section-desc">
+            Every capability designed specifically for rapid, reliable nephrolithiasis CT assessment.
+        </p>
+    </div>
+    <div class="lp-cap-grid">
+        <div class="lp-cap-card">
+            <div class="lp-cap-icon">🎯</div>
+            <div class="lp-cap-title">AI STONE DETECTION</div>
+            <div class="lp-cap-desc">
+                High-sensitivity YOLOv8s model localizes candidate calculi across complex soft tissue and bone attenuations.
+            </div>
+        </div>
+        <div class="lp-cap-card">
+            <div class="lp-cap-icon">✂️</div>
+            <div class="lp-cap-title">IMAGE SEGMENTATION</div>
+            <div class="lp-cap-desc">
+                Sub-pixel Otsu segmentation isolates true stone perimeters, preventing overestimation from beam hardening.
+            </div>
+        </div>
+        <div class="lp-cap-card">
+            <div class="lp-cap-icon">📐</div>
+            <div class="lp-cap-title">STONE MEASUREMENT</div>
+            <div class="lp-cap-desc">
+                Calibrated physical calipers compute major axis, minor axis, and equivalent spherical diameter in millimeters.
+            </div>
+        </div>
+        <div class="lp-cap-card">
+            <div class="lp-cap-icon">📈</div>
+            <div class="lp-cap-title">CONFIDENCE ANALYSIS</div>
+            <div class="lp-cap-desc">
+                Probabilistic confidence calibration indicates certainty, alerting clinicians to borderline or faint calcifications.
+            </div>
+        </div>
+        <div class="lp-cap-card">
+            <div class="lp-cap-icon">🖼️</div>
+            <div class="lp-cap-title">CT VISUALIZATION</div>
+            <div class="lp-cap-desc">
+                Multi-layer toggle overlays between raw CT, detection bounding boxes, binary masks, and caliper axes.
+            </div>
+        </div>
+        <div class="lp-cap-card">
+            <div class="lp-cap-icon">📄</div>
+            <div class="lp-cap-title">STRUCTURED REPORTING</div>
+            <div class="lp-cap-desc">
+                Instant clinical summary text reports and tabular CSV export for documentation, audits, and research.
+            </div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # =========================================================================
+    # 10. WORKSTATION PREVIEW (REALISTIC UI PREVIEW + LAUNCH CTA)
+    # =========================================================================
+    st.markdown("""
+    <div class="lp-section-header" style="margin-top: 48px;">
+        <h2 class="lp-section-title">Your Complete <span>Analysis Workspace</span></h2>
+        <p class="lp-section-desc">
+            Upload a CT scan, visualize AI detections, review measurements, and explore structured analysis results in one workspace.
+        </p>
+    </div>
+    <div class="lp-ws-preview-container">
+    """, unsafe_allow_html=True)
+
+    ws_p_col1, ws_p_col2 = st.columns([1.1, 1], gap="large")
+    with ws_p_col1:
+        st.markdown(f"""
+        <div style="background-color: #111827; border-radius: 14px; border: 1.5px solid #1F2937; border-top: 3.5px solid #B9362F; padding: 18px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <span style="color: #FFFFFF; font-size: 0.85rem; font-weight: 800;">WORKSPACE INTERACTION PREVIEW</span>
+                <span style="font-size: 0.72rem; background: #FCEDEC; color: #B9362F; font-weight: 800; padding: 3px 8px; border-radius: 8px;">Slice 034 / 128</span>
+            </div>
+            <img src="data:image/jpeg;base64,{s1_b64}" style="width: 100%; max-height: 230px; object-fit: contain; border-radius: 8px; margin-bottom: 12px;" alt="Workstation CT Preview" />
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; text-align: center;">
+                <div style="background: rgba(255,255,255,0.06); padding: 8px; border-radius: 6px;">
+                    <div style="color: #9CA3AF; font-size: 0.68rem; font-weight: 700;">STONES</div>
+                    <div style="color: #FFFFFF; font-size: 1.15rem; font-weight: 800;">3</div>
+                </div>
+                <div style="background: rgba(255,255,255,0.06); padding: 8px; border-radius: 6px;">
+                    <div style="color: #9CA3AF; font-size: 0.68rem; font-weight: 700;">LARGEST</div>
+                    <div style="color: #D94841; font-size: 1.15rem; font-weight: 800;">5.27 mm</div>
+                </div>
+                <div style="background: rgba(255,255,255,0.06); padding: 8px; border-radius: 6px;">
+                    <div style="color: #9CA3AF; font-size: 0.68rem; font-weight: 700;">CONFIDENCE</div>
+                    <div style="color: #10B981; font-size: 1.15rem; font-weight: 800;">70%</div>
+                </div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with ws_p_col2:
+        st.markdown("""
+        <div style="padding-top: 8px;">
+            <div style="display: inline-flex; align-items: center; gap: 8px; background: #FCEDEC; color: #B9362F; font-size: 0.78rem; font-weight: 800; padding: 4px 12px; border-radius: 6px; margin-bottom: 12px;">
+                ● LIVE INTERACTIVE WORKSPACE
+            </div>
+            <div style="font-size: 1.45rem; font-weight: 900; color: #20283A; margin-bottom: 12px; line-height: 1.25;">
+                Full-Featured Diagnostic Workstation
+            </div>
+            <p style="font-size: 0.95rem; color: #4B5563; line-height: 1.6; margin-bottom: 20px;">
+                Experience the real RenalScan analysis environment. Adjust model thresholds, toggle visualization layers, inspect sub-pixel contour masks, and export clinical reports.
+            </p>
+            <ul style="list-style: none; padding: 0; margin-bottom: 26px;">
+                <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-weight: 600; color: #20283A; font-size: 0.9rem;">
+                    <span style="color: #B9362F; font-weight: 900;">✓</span> Multi-layer visualization overlays (YOLO, Otsu, Calipers)
+                </li>
+                <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-weight: 600; color: #20283A; font-size: 0.9rem;">
+                    <span style="color: #B9362F; font-weight: 900;">✓</span> Spatial anatomical kidney left/right distribution mapping
+                </li>
+                <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-weight: 600; color: #20283A; font-size: 0.9rem;">
+                    <span style="color: #B9362F; font-weight: 900;">✓</span> One-click clinical report (.txt) &amp; measurement (.csv) downloads
+                </li>
+            </ul>
+        </div>
+        """, unsafe_allow_html=True)
+
+        if st.button("Launch Workstation →", key="ws_prev_launch_btn", use_container_width=True):
+            go_to_workstation()
+
+    st.markdown("""</div>""", unsafe_allow_html=True)
+
+    # =========================================================================
+    # 11. REPORT PREVIEW (ANIMATED A4 REPORT CARD)
+    # =========================================================================
+    st.markdown("""
+    <div class="lp-section-header" style="margin-top: 48px;">
+        <h2 class="lp-section-title">Turn Analysis Into a <span>Structured Report</span></h2>
         <p class="lp-section-desc">
             Standardized clinical findings generated automatically in printable text and structured CSV formats.
         </p>
@@ -638,30 +758,42 @@ def render_landing_page(page_workstation=None):
                 </div>
             </div>
 
-            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 18px; background: #FFF7F7; border: 1px solid #F1D5D5; border-radius: 10px; padding: 14px;">
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 18px; background: #FFF7F7; border: 1px solid #F1D5D5; border-radius: 10px; padding: 14px; text-align: center;">
                 <div>
-                    <div style="font-size: 0.7rem; color: #6B7280; font-weight: 700;">SCAN ID</div>
-                    <div style="font-size: 0.88rem; font-weight: 800; color: #20283A;">RS-2026-001</div>
+                    <div style="font-size: 0.72rem; color: #6B7280; font-weight: 700;">TOTAL STONES</div>
+                    <div style="font-size: 1.25rem; font-weight: 900; color: #B9362F;">3 Detected</div>
                 </div>
                 <div>
-                    <div style="font-size: 0.7rem; color: #6B7280; font-weight: 700;">TOTAL STONES</div>
-                    <div style="font-size: 0.88rem; font-weight: 800; color: #B9362F;">3 Detected</div>
+                    <div style="font-size: 0.72rem; color: #6B7280; font-weight: 700;">LARGEST SIZE</div>
+                    <div style="font-size: 1.25rem; font-weight: 900; color: #B9362F;">5.27 mm</div>
                 </div>
                 <div>
-                    <div style="font-size: 0.7rem; color: #6B7280; font-weight: 700;">MAX DIAMETER</div>
-                    <div style="font-size: 0.88rem; font-weight: 800; color: #B9362F;">5.27 mm</div>
-                </div>
-                <div>
-                    <div style="font-size: 0.7rem; color: #6B7280; font-weight: 700;">CONFIDENCE</div>
-                    <div style="font-size: 0.88rem; font-weight: 800; color: #10B981;">70% Mean</div>
+                    <div style="font-size: 0.72rem; color: #6B7280; font-weight: 700;">CONFIDENCE</div>
+                    <div style="font-size: 1.25rem; font-weight: 900; color: #10B981;">70% Mean</div>
                 </div>
             </div>
 
-            <div style="font-size: 0.88rem; color: #4B5563; line-height: 1.6; margin-bottom: 16px;">
-                <strong>Clinical Evaluation Summary:</strong> Axial non-contrast CT abdominal scan demonstrates three hyperdense calcifications within the renal parenchyma. Primary calculus measures 5.27 mm (4–6mm Medium Band), indicating moderate spontaneous passage likelihood (~50%). Secondary calculi measure 3.66 mm and 2.16 mm.
+            <div style="margin-bottom: 16px;">
+                <div style="font-size: 0.82rem; font-weight: 800; color: #20283A; margin-bottom: 8px;">
+                    DETECTED STONE FINDINGS
+                </div>
+                <div style="font-size: 0.84rem; color: #4B5563; line-height: 1.6;">
+                    • <strong>Stone #1:</strong> 5.27 mm (Major: 5.4mm, Minor: 3.8mm) — 4–6mm Medium Band (Moderate passage likelihood)<br>
+                    • <strong>Stone #2:</strong> 3.66 mm (Major: 4.1mm, Minor: 2.9mm) — &lt;4mm Small Band (High passage likelihood)<br>
+                    • <strong>Stone #3:</strong> 2.16 mm (Major: 2.6mm, Minor: 1.8mm) — &lt;4mm Small Band (High passage likelihood)
+                </div>
             </div>
 
-            <div style="border-top: 1px dashed #F1D5D5; padding-top: 14px; display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: #9CA3AF;">
+            <div style="margin-bottom: 16px; background: #FCEDEC; border-radius: 8px; padding: 10px 14px;">
+                <div style="font-size: 0.8rem; font-weight: 800; color: #8F2924; margin-bottom: 4px;">
+                    AI ANALYSIS IMPRESSION
+                </div>
+                <div style="font-size: 0.82rem; color: #4B5563; line-height: 1.5;">
+                    Axial non-contrast CT abdominal scan demonstrates three hyperdense calcifications within the renal parenchyma. Moderate passage likelihood for primary calculus with expectant medical therapy.
+                </div>
+            </div>
+
+            <div style="border-top: 1px dashed #F1D5D5; padding-top: 12px; display: flex; justify-content: space-between; align-items: center; font-size: 0.76rem; color: #9CA3AF;">
                 <span>Verified by RenalScan AI Model v2.0</span>
                 <span>Assumed Spacing: 0.70 mm/px</span>
             </div>
@@ -674,20 +806,20 @@ def render_landing_page(page_workstation=None):
             <div style="display: inline-flex; align-items: center; gap: 8px; background: #FCEDEC; color: #B9362F; font-size: 0.78rem; font-weight: 800; padding: 4px 12px; border-radius: 6px; margin-bottom: 12px;">
                 📄 ONE-CLICK EXPORT
             </div>
-            <div style="font-size: 1.4rem; font-weight: 900; color: #20283A; margin-bottom: 12px; line-height: 1.2;">
-                Seamless Documentation for Clinical Workflows
+            <div style="font-size: 1.45rem; font-weight: 900; color: #20283A; margin-bottom: 12px; line-height: 1.25;">
+                From Raw CT Slices to Diagnostic Reports
             </div>
             <p style="font-size: 0.95rem; color: #4B5563; line-height: 1.6; margin-bottom: 22px;">
-                Export comprehensive summaries including calculus counts, physical caliper dimensions, Otsu contour perimeters, and clinical passage predictions.
+                Review the complete analysis workflow in the interactive workstation and generate audit-ready clinical exports.
             </p>
         </div>
         """, unsafe_allow_html=True)
 
-        if st.button("Explore Analysis →", key="rep_explore_btn", use_container_width=True):
+        if st.button("View Analysis Workflow →", key="rep_explore_btn", use_container_width=True):
             go_to_workstation()
 
     # =========================================================================
-    # 9. KIDNEY HEALTH (4 LARGE CARDS)
+    # 12. KIDNEY HEALTH (4 INTERACTIVE CARDS)
     # =========================================================================
     st.markdown("""
     <div id="kidney-health" class="lp-section-header" style="margin-top: 50px;">
@@ -698,61 +830,84 @@ def render_landing_page(page_workstation=None):
     </div>
     <div class="lp-health-grid">
         <div class="lp-health-card">
-            <div class="lp-health-icon">🫘</div>
-            <div class="lp-health-title">KIDNEY STONES</div>
-            <div class="lp-health-desc">
-                Hard mineral and salt deposits (calcium oxalate, uric acid, struvite, cystine) that crystallize inside the renal pelvis and calyces.
+            <div>
+                <div class="lp-health-icon">🫘</div>
+                <div class="lp-health-title">KIDNEY STONES</div>
+                <div class="lp-health-desc">
+                    Hard mineral and salt deposits (calcium oxalate, uric acid, struvite, cystine) that crystallize inside the renal pelvis and calyces when urine becomes supersaturated.
+                </div>
+            </div>
+            <div style="margin-top: 14px; font-size: 0.8rem; font-weight: 700; color: #B9362F;">
+                Learn Formation Path →
             </div>
         </div>
+
         <div class="lp-health-card">
-            <div class="lp-health-icon">⚡</div>
-            <div class="lp-health-title">SYMPTOMS</div>
-            <div class="lp-health-desc">
-                Severe radiating flank and lower abdominal pain, visible hematuria (blood in urine), painful dysuria, urinary urgency, and nausea.
+            <div>
+                <div class="lp-health-icon">⚡</div>
+                <div class="lp-health-title">SYMPTOMS</div>
+                <div class="lp-health-desc">
+                    Severe radiating flank and lower abdominal pain, visible hematuria (blood in urine), painful dysuria, urinary urgency, chills, and intermittent nausea.
+                </div>
+            </div>
+            <div style="margin-top: 14px; font-size: 0.8rem; font-weight: 700; color: #B9362F;">
+                Triage Indicators →
             </div>
         </div>
+
         <div class="lp-health-card">
-            <div class="lp-health-icon">⚠️</div>
-            <div class="lp-health-title">RISK FACTORS</div>
-            <div class="lp-health-desc">
-                Chronic dehydration, high sodium and animal protein intake, familial history, metabolic disorders, hyperparathyroidism, and obesity.
+            <div>
+                <div class="lp-health-icon">⚠️</div>
+                <div class="lp-health-title">RISK FACTORS</div>
+                <div class="lp-health-desc">
+                    Chronic dehydration, excessive dietary sodium and animal protein intake, familial history, metabolic disorders, hyperparathyroidism, and obesity.
+                </div>
+            </div>
+            <div style="margin-top: 14px; font-size: 0.8rem; font-weight: 700; color: #B9362F;">
+                Etiology Factors →
             </div>
         </div>
+
         <div class="lp-health-card">
-            <div class="lp-health-icon">💧</div>
-            <div class="lp-health-title">PREVENTION</div>
-            <div class="lp-health-desc">
-                Consistently drinking sufficient fluids to generate &gt;2.5L daily urine volume, reducing dietary sodium, and balancing calcium intake.
+            <div>
+                <div class="lp-health-icon">💧</div>
+                <div class="lp-health-title">PREVENTION</div>
+                <div class="lp-health-desc">
+                    Consistently drinking sufficient fluids to generate &gt;2.5L daily urine volume, reducing dietary sodium, and maintaining adequate dietary calcium intake.
+                </div>
+            </div>
+            <div style="margin-top: 14px; font-size: 0.8rem; font-weight: 700; color: #B9362F;">
+                Lifestyle Guidance →
             </div>
         </div>
     </div>
     """, unsafe_allow_html=True)
 
     # =========================================================================
-    # 10. RESPONSIBLE AI (SHIELD PULSE SECTION)
+    # 13. RESPONSIBLE AI (ANIMATED PULSING MEDICAL SHIELD)
     # =========================================================================
     st.markdown("""
-    <div id="about" class="lp-shield-section">
+    <div id="about" class="lp-shield-section" style="margin-top: 48px;">
         <div class="lp-shield-icon-box">🛡️</div>
         <div>
             <div style="font-size: 1.25rem; font-weight: 900; color: #20283A; margin-bottom: 6px;">
                 AI-Assisted. Human-Centered.
             </div>
             <div style="font-size: 0.92rem; color: #4B5563; line-height: 1.65;">
-                RenalScan is designed as an assistive computer vision system for technical research and medical imaging education. AI-generated findings provide supportive quantification and must be reviewed by certified medical specialists. This application is not a standalone diagnostic device.
+                RenalScan provides AI-assisted image analysis to support the interpretation of CT images. AI-generated findings should be reviewed by qualified healthcare professionals. This prototype is designed for computer vision research and technical demonstration.
             </div>
         </div>
     </div>
     """, unsafe_allow_html=True)
 
     # =========================================================================
-    # 11. FINAL CTA (DEEP RED / DARK RED CONTAINER)
+    # 14. FINAL CTA (FULL WIDTH DARK RED CONTAINER + WHITE BUTTON)
     # =========================================================================
     st.markdown("""
     <div class="lp-final-cta-wrapper">
-        <h2 class="lp-final-cta-title">Your Scan. A Smarter Way to Analyze It.</h2>
+        <h2 class="lp-final-cta-title">Ready to Explore RenalScan?</h2>
         <p class="lp-final-cta-sub">
-            Experience the automated detection, segmentation, and sizing pipeline inside the RenalScan Analysis Workstation.
+            Experience AI-assisted kidney stone analysis from CT images.
         </p>
     """, unsafe_allow_html=True)
 
@@ -771,7 +926,7 @@ def render_landing_page(page_workstation=None):
     """, unsafe_allow_html=True)
 
     # =========================================================================
-    # 12. FOOTER (DARK CHARCOAL WITH RED ACCENT)
+    # 15. FOOTER (MINIMAL, PREMIUM DARK CHARCOAL)
     # =========================================================================
     st.markdown("""
     <div class="lp-footer">
@@ -784,7 +939,7 @@ def render_landing_page(page_workstation=None):
                     AI Kidney Stone Analysis
                 </div>
                 <div style="font-size: 0.85rem; color: #6B7280; line-height: 1.6; max-width: 320px;">
-                    AI-assisted kidney stone analysis from abdominal CT scans. Built for medical imaging innovation, portfolio evaluation, and computer vision research.
+                    AI-assisted kidney stone analysis from abdominal CT images. Built for technical portfolio evaluation and medical computer vision research.
                 </div>
             </div>
             <div class="lp-footer-col">
@@ -793,15 +948,16 @@ def render_landing_page(page_workstation=None):
                     <li><a href="#" style="color: #9CA3AF; text-decoration: none;">Home</a></li>
                     <li><a href="#how-it-works" style="color: #9CA3AF; text-decoration: none;">How It Works</a></li>
                     <li><a href="#why-renalscan" style="color: #9CA3AF; text-decoration: none;">Why RenalScan</a></li>
-                    <li><a href="#showcase" style="color: #9CA3AF; text-decoration: none;">Showcase</a></li>
+                    <li><a href="#demo" style="color: #9CA3AF; text-decoration: none;">CT Demo</a></li>
                 </ul>
             </div>
             <div class="lp-footer-col">
                 <h4>Resources</h4>
                 <ul>
+                    <li><a href="#features" style="color: #9CA3AF; text-decoration: none;">Capabilities</a></li>
                     <li><a href="#kidney-health" style="color: #9CA3AF; text-decoration: none;">Kidney Health</a></li>
-                    <li><a href="#about" style="color: #9CA3AF; text-decoration: none;">About Responsible AI</a></li>
-                    <li><a href="/workstation" style="color: #9CA3AF; text-decoration: none;">Live Workstation</a></li>
+                    <li><a href="#about" style="color: #9CA3AF; text-decoration: none;">Responsible AI</a></li>
+                    <li><a href="/workstation" style="color: #9CA3AF; text-decoration: none;">Workstation</a></li>
                 </ul>
             </div>
         </div>

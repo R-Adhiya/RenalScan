@@ -37,7 +37,7 @@ def inject_global_css():
     }
 
     .block-container {
-        padding-top: 0.5rem;
+        padding-top: 0.25rem;
         padding-bottom: 2.5rem;
         max-width: 1400px;
         margin: 0 auto;
@@ -53,7 +53,7 @@ def inject_global_css():
         font-size: 0.93rem !important;
         padding: 10px 24px !important;
         transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
-        box-shadow: 0 4px 12px rgba(185, 54, 47, 0.22) !important;
+        box-shadow: 0 4px 14px rgba(185, 54, 47, 0.22) !important;
         cursor: pointer !important;
     }
     .stButton > button:hover {
@@ -69,12 +69,14 @@ def inject_global_css():
 
     /* Secondary White Button Style */
     .rs-btn-outline {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         background-color: #FFFFFF;
-        color: #B9362F;
+        color: #B9362F !important;
         border: 1.5px solid #B9362F;
         border-radius: 9px;
-        padding: 9px 22px;
+        padding: 10px 22px;
         font-weight: 700;
         font-size: 0.92rem;
         text-decoration: none;
@@ -84,13 +86,13 @@ def inject_global_css():
     }
     .rs-btn-outline:hover {
         background-color: #FCEDEC;
-        color: #8F2924;
+        color: #8F2924 !important;
         border-color: #8F2924;
         transform: translateY(-2px);
         box-shadow: 0 4px 14px rgba(185, 54, 47, 0.14);
     }
 
-    /* Primary HTML Link Button (for zero-latency routing) */
+    /* Primary Red Link Button */
     .rs-btn-primary-link {
         display: inline-flex;
         align-items: center;
@@ -118,7 +120,7 @@ def inject_global_css():
 
     /* Sticky Navbar */
     .lp-navbar {
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(255, 255, 255, 0.96);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         border-bottom: 1.5px solid #F1D5D5;
@@ -205,14 +207,14 @@ def inject_global_css():
     .lp-hero-wrapper {
         background-color: #FFFFFF;
         background-image: 
-            radial-gradient(circle at 82% 24%, rgba(252, 237, 236, 0.95) 0%, rgba(255, 255, 255, 0) 58%),
-            linear-gradient(to right, rgba(241, 213, 213, 0.22) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(241, 213, 213, 0.22) 1px, transparent 1px);
-        background-size: 100% 100%, 36px 36px, 36px 36px;
+            radial-gradient(circle at 82% 24%, rgba(252, 237, 236, 0.95) 0%, rgba(255, 255, 255, 0) 62%),
+            linear-gradient(to right, rgba(241, 213, 213, 0.24) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(241, 213, 213, 0.24) 1px, transparent 1px);
+        background-size: 100% 100%, 38px 38px, 38px 38px;
         border: 1.5px solid #F1D5D5;
         border-radius: 24px;
-        padding: 52px 50px 48px 50px;
-        margin-bottom: 32px;
+        padding: 50px 48px 44px 48px;
+        margin-bottom: 34px;
         box-shadow: 0 8px 32px rgba(185, 54, 47, 0.05);
         position: relative;
         overflow: hidden;
@@ -264,6 +266,26 @@ def inject_global_css():
         line-height: 1.65;
         margin-bottom: 28px;
         max-width: 580px;
+    }
+
+    /* Hero Checkmark Trust Points */
+    .lp-hero-trust-row {
+        display: flex;
+        gap: 22px;
+        margin-top: 24px;
+        font-size: 0.85rem;
+        color: #4B5563;
+        font-weight: 600;
+    }
+    .lp-hero-trust-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+    .lp-hero-trust-check {
+        color: #B9362F;
+        font-weight: 900;
+        font-size: 0.95rem;
     }
 
     /* Hero Floating CT Visualization Container */
@@ -341,26 +363,13 @@ def inject_global_css():
         50% { transform: translateY(6px); }
     }
 
-    /* Detection Pulse Marker */
-    .lp-stone-marker-box {
-        position: absolute;
-        border: 2px dashed #D94841;
-        background: rgba(185, 54, 47, 0.22);
-        border-radius: 6px;
-        animation: boxGlow 2.5s ease-in-out infinite;
-    }
-    @keyframes boxGlow {
-        0%, 100% { box-shadow: 0 0 6px rgba(217, 72, 65, 0.3); border-color: #D94841; }
-        50% { box-shadow: 0 0 16px rgba(217, 72, 65, 0.7); border-color: #B9362F; }
-    }
-
     /* Scroll Indicator */
     .lp-scroll-ind-container {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin-top: 14px;
+        margin-top: 18px;
         cursor: pointer;
     }
     .lp-scroll-ind-text {
@@ -372,7 +381,7 @@ def inject_global_css():
         margin-bottom: 4px;
     }
     .lp-scroll-ind-arrow {
-        font-size: 1.1rem;
+        font-size: 1.15rem;
         color: #B9362F;
         animation: bounceDown 1.8s infinite ease-in-out;
     }
@@ -386,7 +395,7 @@ def inject_global_css():
         background-color: #FFFFFF;
         border: 1.5px solid #F1D5D5;
         border-radius: 16px;
-        padding: 16px 28px;
+        padding: 18px 28px;
         margin-bottom: 50px;
         display: flex;
         align-items: center;
@@ -440,11 +449,11 @@ def inject_global_css():
         line-height: 1.6;
     }
 
-    /* Numbered Split Feature Cards */
+    /* Why RenalScan Feature Cards */
     .lp-feature-card {
         background: #FFFFFF;
         border: 1px solid #F1D5D5;
-        border-left: 4px solid #F1D5D5;
+        border-left: 4.5px solid #F1D5D5;
         border-radius: 14px;
         padding: 20px 24px;
         margin-bottom: 16px;
@@ -461,7 +470,7 @@ def inject_global_css():
         box-shadow: 0 6px 18px rgba(185, 54, 47, 0.08);
     }
     .lp-feature-num {
-        font-size: 1.9rem;
+        font-size: 2rem;
         font-weight: 900;
         color: #B9362F;
         line-height: 1;
@@ -477,77 +486,6 @@ def inject_global_css():
         font-size: 0.9rem;
         color: #4B5563;
         line-height: 1.55;
-    }
-
-    /* Interactive Pipeline (Horizontal on Desktop, Responsive) */
-    .lp-pipeline-container {
-        background-color: #FCEDEC;
-        border: 1.5px solid #F1D5D5;
-        border-radius: 20px;
-        padding: 34px 28px;
-        margin-bottom: 52px;
-        box-shadow: 0 4px 20px rgba(185, 54, 47, 0.04);
-    }
-    .lp-pipeline-steps {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        position: relative;
-    }
-    .lp-pipeline-bar {
-        position: absolute;
-        top: 24px;
-        left: 6%;
-        right: 6%;
-        height: 3px;
-        background: #F1D5D5;
-        z-index: 1;
-    }
-    .lp-pipe-step {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        width: 15%;
-        position: relative;
-        z-index: 2;
-        cursor: pointer;
-        transition: transform 0.2s ease;
-    }
-    .lp-pipe-step:hover {
-        transform: translateY(-4px);
-    }
-    .lp-pipe-circle {
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        background-color: #FFFFFF;
-        border: 2.5px solid #B9362F;
-        color: #B9362F;
-        font-weight: 800;
-        font-size: 0.95rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 4px 12px rgba(185, 54, 47, 0.16);
-        margin-bottom: 12px;
-        transition: all 0.25s ease;
-    }
-    .lp-pipe-step:hover .lp-pipe-circle {
-        background-color: #B9362F;
-        color: #FFFFFF;
-        box-shadow: 0 6px 18px rgba(185, 54, 47, 0.35);
-    }
-    .lp-pipe-label {
-        font-size: 0.9rem;
-        font-weight: 800;
-        color: #20283A;
-        margin-bottom: 4px;
-    }
-    .lp-pipe-sub {
-        font-size: 0.75rem;
-        color: #6B7280;
-        line-height: 1.35;
     }
 
     /* Big CT Scan Showcase (Deep Charcoal #16181D) */
@@ -574,22 +512,65 @@ def inject_global_css():
         font-size: 1.05rem;
         color: #9CA3AF;
         max-width: 640px;
-        margin-bottom: 32px;
+        margin-bottom: 30px;
     }
 
-    /* Live Analysis UI Mockup Cards */
-    .lp-live-metric-card {
+    /* 6 Capabilities / Features Grid */
+    .lp-cap-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-bottom: 50px;
+    }
+    .lp-cap-card {
         background-color: #FFFFFF;
-        border: 1px solid #F1D5D5;
-        border-top: 3.5px solid #B9362F;
-        border-radius: 14px;
-        padding: 18px 14px;
-        text-align: center;
-        box-shadow: 0 3px 12px rgba(185, 54, 47, 0.05);
+        border: 1.5px solid #F1D5D5;
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow: 0 3px 12px rgba(185, 54, 47, 0.03);
+        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .lp-cap-card:hover {
+        transform: translateY(-4px);
+        border-color: #B9362F;
+        box-shadow: 0 8px 24px rgba(185, 54, 47, 0.1);
+    }
+    .lp-cap-icon {
+        width: 44px;
+        height: 44px;
+        background-color: #FCEDEC;
+        color: #B9362F;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.35rem;
+        margin-bottom: 16px;
         transition: transform 0.2s ease;
     }
-    .lp-live-metric-card:hover {
-        transform: translateY(-2px);
+    .lp-cap-card:hover .lp-cap-icon {
+        transform: scale(1.1);
+    }
+    .lp-cap-title {
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: #20283A;
+        margin-bottom: 8px;
+    }
+    .lp-cap-desc {
+        font-size: 0.88rem;
+        color: #4B5563;
+        line-height: 1.55;
+    }
+
+    /* Workstation Preview Container */
+    .lp-ws-preview-container {
+        background: #FFFFFF;
+        border: 1.5px solid #F1D5D5;
+        border-radius: 20px;
+        padding: 36px 40px;
+        margin-bottom: 50px;
+        box-shadow: 0 6px 24px rgba(185, 54, 47, 0.05);
     }
 
     /* Floating A4 Report Showcase */
@@ -615,7 +596,7 @@ def inject_global_css():
     }
     .lp-health-card {
         background-color: #FFFFFF;
-        border: 1px solid #F1D5D5;
+        border: 1.5px solid #F1D5D5;
         border-radius: 16px;
         padding: 24px;
         box-shadow: 0 3px 12px rgba(185, 54, 47, 0.03);
@@ -770,15 +751,18 @@ def inject_global_css():
     /* Responsive Queries */
     @media (max-width: 900px) {
         .lp-health-grid { grid-template-columns: 1fr 1fr; }
+        .lp-cap-grid { grid-template-columns: 1fr 1fr; }
         .lp-footer-grid { grid-template-columns: 1fr; gap: 24px; }
         .lp-hero-heading { font-size: 2.4rem; }
     }
     @media (max-width: 600px) {
         .lp-health-grid { grid-template-columns: 1fr; }
+        .lp-cap-grid { grid-template-columns: 1fr; }
         .lp-trust-strip { flex-direction: column; gap: 14px; }
         .lp-trust-sep { display: none; }
         .lp-hero-wrapper { padding: 30px 20px; }
         .lp-hero-heading { font-size: 2rem; }
+        .lp-hero-trust-row { flex-direction: column; gap: 8px; }
     }
 </style>
 """, unsafe_allow_html=True)
