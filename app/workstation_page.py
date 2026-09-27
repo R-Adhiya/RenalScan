@@ -39,7 +39,6 @@ def render_workstation_page(page_landing=None):
             st.switch_page(page_landing)
         else:
             st.switch_page("")
-        st.stop()
 
     # Session State for Images
     if 'active_image' not in st.session_state:
@@ -232,13 +231,27 @@ def render_workstation_page(page_landing=None):
             if brightness != 0 or contrast != 0:
                 processed_img = cv2.convertScaleAbs(processed_img, alpha=1.0 + (contrast/100.0), beta=brightness)
 
-            # Pipeline Execution
-            try:
-                with st.spinner("Executing AI pipeline — detection, segmentation, and stone measurement..."):
-                    result = pipeline.analyze(processed_img, conf_thresh=conf_thresh)
-            except Exception as exc:
-                st.error(f"⚠️ Analysis error occurred ({type(exc).__name__}: {str(exc)}). Please select a sample scan or re-upload.")
-                st.stop()
+            # Smart Result Caching: Avoid re-running model when toggling tabs or overlay radios
+            img_hash = hash(processed_img.tobytes()) if processed_img is not None else 0
+            analysis_cache_key = (
+                st.session_state.get('active_sample_name'),
+                round(float(conf_thresh), 3),
+                brightness,
+                contrast,
+                img_hash
+            )
+
+            if st.session_state.get('cached_analysis_key') == analysis_cache_key and 'cached_analysis_result' in st.session_state:
+                result = st.session_state['cached_analysis_result']
+            else:
+                try:
+                    with st.spinner("Executing AI pipeline — detection, segmentation, and stone measurement..."):
+                        result = pipeline.analyze(processed_img, conf_thresh=conf_thresh)
+                        st.session_state['cached_analysis_key'] = analysis_cache_key
+                        st.session_state['cached_analysis_result'] = result
+                except Exception as exc:
+                    st.error(f"⚠️ Analysis error occurred ({type(exc).__name__}: {str(exc)}). Please select a sample scan or re-upload.")
+                    st.stop()
 
             summary = result['summary']
             stones = result['stones']

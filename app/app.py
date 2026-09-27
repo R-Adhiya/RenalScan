@@ -46,9 +46,6 @@ inject_global_css()
 # -----------------------------------------------------------------------------
 # APPLICATION MULTI-PAGE ROUTING SYSTEM
 # -----------------------------------------------------------------------------
-if "current_page" not in st.session_state:
-    st.session_state["current_page"] = "landing"
-
 def landing_view():
     st.session_state["current_page"] = "landing"
     render_landing_page(page_workstation=page_workstation)
@@ -75,20 +72,15 @@ page_workstation = st.Page(
     url_path="workstation"
 )
 
-pg = st.navigation([page_landing, page_workstation], position="hidden")
-
 # Synchronize query parameters if provided (?page=workstation or ?page=landing)
 if "page" in st.query_params:
-    st.session_state["current_page"] = st.query_params.get("page")
-    del st.query_params["page"]
+    target = st.query_params.pop("page")
+    if target == "workstation":
+        st.switch_page(page_workstation)
+    elif target == "landing":
+        st.switch_page(page_landing)
 
-# Route to session state requested page
-if st.session_state.get("current_page") == "workstation" and pg != page_workstation:
-    st.switch_page(page_workstation)
-    st.stop()
-elif st.session_state.get("current_page") == "landing" and pg != page_landing:
-    st.switch_page(page_landing)
-    st.stop()
+pg = st.navigation([page_landing, page_workstation], position="hidden")
 
 # Execute the routed page
 pg.run()
