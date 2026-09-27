@@ -185,6 +185,7 @@ def inject_global_css():
         text-decoration: none;
         transition: color 0.2s ease;
         position: relative;
+        white-space: nowrap;
     }
     .lp-nav-item:hover {
         color: #B9362F;

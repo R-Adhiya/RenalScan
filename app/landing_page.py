@@ -57,7 +57,7 @@ def render_landing_page(page_workstation=None):
     # =========================================================================
     # 1. NAVBAR (STICKY, BLURRED BACKDROP, RED BRAND ACCENT)
     # =========================================================================
-    nav_c1, nav_c2, nav_c3 = st.columns([1.5, 2.6, 1], gap="small")
+    nav_c1, nav_c2, nav_c3 = st.columns([1.3, 3.7, 1.2], gap="small")
     with nav_c1:
         st.markdown("""
         <div class="lp-brand-box">
@@ -90,7 +90,6 @@ def render_landing_page(page_workstation=None):
     # =========================================================================
     # 2. FULL ANIMATED HERO (LEFT 50-55% MESSAGING, RIGHT 45-50% CT VISUAL)
     # =========================================================================
-    st.markdown("""<div class="lp-hero-wrapper">""", unsafe_allow_html=True)
     hero_col_left, hero_col_right = st.columns([1.18, 1.22], gap="large")
 
     with hero_col_left:
@@ -206,7 +205,7 @@ def render_landing_page(page_workstation=None):
             </div>
         </div>
         """
-        st.markdown(hero_ct_html, unsafe_allow_html=True)
+        st.html(hero_ct_html)
 
     # 4. HERO SCROLL INDICATOR
     st.markdown("""
@@ -217,8 +216,6 @@ def render_landing_page(page_workstation=None):
         </a>
     </div>
     """, unsafe_allow_html=True)
-
-    st.markdown("""</div>""", unsafe_allow_html=True)
 
     # =========================================================================
     # 5. TRUST / CAPABILITY STRIP (FULL WIDTH)
@@ -296,7 +293,7 @@ def render_landing_page(page_workstation=None):
         """, unsafe_allow_html=True)
 
     with why_c2:
-        st.markdown(f"""
+        st.html(f"""
         <div style="background-color: #111827; border-radius: 18px; border: 1.5px solid #1F2937; border-top: 3.5px solid #B9362F; padding: 22px; box-shadow: 0 12px 36px rgba(0,0,0,0.22);">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
                 <span style="color: #FFFFFF; font-size: 0.88rem; font-weight: 800;">VERTICAL CT VISUALIZATION</span>
@@ -316,7 +313,7 @@ def render_landing_page(page_workstation=None):
                 <strong style="color: #F87171;">Automated Insight:</strong> Sequential detection, contour segmentation, and caliper measurement occur simultaneously within the active slice.
             </div>
         </div>
-        """, unsafe_allow_html=True)
+        """)
 
     # =========================================================================
     # 7. HOW IT WORKS (01 TO 06 ANIMATED TIMELINE)
@@ -433,21 +430,22 @@ def render_landing_page(page_workstation=None):
     # 8. BIG INTERACTIVE CT DEMO (DARK CHARCOAL #16181D)
     # =========================================================================
     st.markdown("""
-    <div id="demo" class="lp-dark-showcase" style="margin-top: 48px;">
+    <div id="demo" class="lp-section-header" style="margin-top: 48px;">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px;">
             <div>
                 <div style="color: #D94841; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px;">
                     REAL AI ANALYSIS DEMONSTRATION
                 </div>
-                <div class="lp-dark-title">Watch AI Analyze a CT Scan.</div>
-                <div class="lp-dark-sub">
+                <div class="lp-dark-title" style="color: #20283A;">Watch AI Analyze a CT Scan.</div>
+                <div class="lp-dark-sub" style="color: #6B7280;">
                     Step through the automated sequence from scan line sweep to detection box, pulsing marker, calipers, and AI analysis panel.
                 </div>
             </div>
-            <span style="background: rgba(185,54,47,0.25); border: 1.5px solid #B9362F; color: #FFFFFF; font-weight: 700; font-size: 0.82rem; padding: 6px 16px; border-radius: 20px;">
+            <span style="background: rgba(185,54,47,0.12); border: 1.5px solid #B9362F; color: #B9362F; font-weight: 700; font-size: 0.82rem; padding: 6px 16px; border-radius: 20px;">
                 ● Live 8-Step Simulation
             </span>
         </div>
+    </div>
     """, unsafe_allow_html=True)
 
     demo_html = f"""
@@ -601,7 +599,6 @@ def render_landing_page(page_workstation=None):
     </html>
     """
     components.html(demo_html, height=440, scrolling=False)
-    st.markdown("""</div>""", unsafe_allow_html=True)
 
     # =========================================================================
     # 9. FEATURES (6 PREMIUM CARDS)
@@ -669,12 +666,11 @@ def render_landing_page(page_workstation=None):
             Upload a CT scan, visualize AI detections, review measurements, and explore structured analysis results in one workspace.
         </p>
     </div>
-    <div class="lp-ws-preview-container">
     """, unsafe_allow_html=True)
 
     ws_p_col1, ws_p_col2 = st.columns([1.1, 1], gap="large")
     with ws_p_col1:
-        st.markdown(f"""
+        st.html(f"""
         <div style="background-color: #111827; border-radius: 14px; border: 1.5px solid #1F2937; border-top: 3.5px solid #B9362F; padding: 18px;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
                 <span style="color: #FFFFFF; font-size: 0.85rem; font-weight: 800;">WORKSPACE INTERACTION PREVIEW</span>
@@ -696,7 +692,7 @@ def render_landing_page(page_workstation=None):
                 </div>
             </div>
         </div>
-        """, unsafe_allow_html=True)
+        """)
 
     with ws_p_col2:
         st.markdown("""
@@ -726,8 +722,6 @@ def render_landing_page(page_workstation=None):
 
         if st.button("Launch Workstation →", key="ws_prev_launch_btn", use_container_width=True):
             go_to_workstation()
-
-    st.markdown("""</div>""", unsafe_allow_html=True)
 
     # =========================================================================
     # 11. REPORT PREVIEW (ANIMATED A4 REPORT CARD)

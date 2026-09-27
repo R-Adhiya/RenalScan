@@ -72,14 +72,6 @@ page_workstation = st.Page(
     url_path="workstation"
 )
 
-# Synchronize query parameters if provided (?page=workstation or ?page=landing)
-if "page" in st.query_params:
-    target = st.query_params.pop("page")
-    if target == "workstation":
-        st.switch_page(page_workstation)
-    elif target == "landing":
-        st.switch_page(page_landing)
-
 pg = st.navigation([page_landing, page_workstation], position="hidden")
 
 # Execute the routed page
