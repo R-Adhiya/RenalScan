@@ -16,6 +16,11 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 from src.pipeline.pipeline import RenalScanPipeline
 from src.measurement.measure import ASSUMED_MM_PER_PIXEL, NON_CLINICAL_DISCLAIMER
 
+try:
+    from app.report_generator import generate_pdf_report
+except ImportError:
+    from report_generator import generate_pdf_report
+
 @st.cache_resource
 def get_pipeline():
     model_path = PROJECT_ROOT / "models" / "detection_best.pt"
@@ -461,39 +466,64 @@ def render_workstation_page(page_landing=None):
         st.markdown("---")
         st.markdown("### 📄 Export & Clinical Reports")
 
-        if summary['has_stones']:
-            exp_c1, exp_c2 = st.columns(2)
-            with exp_c1:
-                report_text = f"RenalScan AI Analysis Report\nScan: {st.session_state['active_sample_name']}\nStones: {summary['stone_count']}\nLargest: {summary['largest_stone_diameter_mm']} mm\n"
-                for s in stones:
-                    report_text += f"- Stone #{s['stone_id']}: {s['estimated_diameter_mm']:.2f}mm ({s['clinical_size_band']})\n"
-                report_text += f"\nDISCLAIMER: {NON_CLINICAL_DISCLAIMER}\n"
-                
-                st.download_button(
-                    "📄 Download Analysis Report (.txt)",
-                    data=report_text,
-                    file_name="RenalScan_Clinical_Report.txt",
-                    mime="text/plain",
-                    use_container_width=True
-                )
-            with exp_c2:
+        exp_c1, exp_c2 = st.columns(2)
+        scan_label = st.session_state.get('active_sample_name') or "RS-2026-001"
+        safe_scan_name = scan_label.replace(" ", "_").replace("(", "").replace(")", "").replace("/", "_")
+
+        # Determine annotated image to embed in the PDF
+        annotated_for_pdf = result.get('annotated_measurement')
+        if annotated_for_pdf is None:
+            annotated_for_pdf = result.get('annotated_detection', result.get('original_image'))
+
+        pdf_bytes = generate_pdf_report(
+            scan_id=scan_label,
+            summary=summary,
+            stones=stones,
+            annotated_image=annotated_for_pdf,
+            image_format="CT Abdominal (Axial Non-Contrast)",
+            assumed_mm_per_px=ASSUMED_MM_PER_PIXEL
+        )
+
+        with exp_c1:
+            st.download_button(
+                "📄 Download Analysis Report",
+                data=pdf_bytes,
+                file_name=f"RenalScan_Analysis_Report_{safe_scan_name}.pdf",
+                mime="application/pdf",
+                use_container_width=True,
+                help="Download publication-grade medical PDF diagnostic report."
+            )
+
+        with exp_c2:
+            if summary.get('has_stones') and len(stones) > 0:
                 df_export = pd.DataFrame([{
                     'Stone ID': f"Stone #{s['stone_id']}",
-                    'Confidence': s['confidence'],
-                    'Area_px': s['area_px'],
-                    'Major_mm': s['estimated_major_mm'],
-                    'Minor_mm': s['estimated_minor_mm'],
-                    'Diameter_mm': s['estimated_diameter_mm'],
+                    'Confidence': round(float(s['confidence']), 4),
+                    'Area_px': round(float(s['area_px']), 1),
+                    'Major_mm': round(float(s['estimated_major_mm']), 2),
+                    'Minor_mm': round(float(s['estimated_minor_mm']), 2),
+                    'Diameter_mm': round(float(s['estimated_diameter_mm']), 2),
                     'Category': s['clinical_size_band']
                 } for s in stones if s.get('status') == 'Success'])
-                
-                st.download_button(
-                    "📊 Export Measurements (.csv)",
-                    data=df_export.to_csv(index=False),
-                    file_name="RenalScan_Measurements.csv",
-                    mime="text/csv",
-                    use_container_width=True
-                )
+            else:
+                df_export = pd.DataFrame([{
+                    'Stone ID': 'None',
+                    'Confidence': 0.0,
+                    'Area_px': 0.0,
+                    'Major_mm': 0.0,
+                    'Minor_mm': 0.0,
+                    'Diameter_mm': 0.0,
+                    'Category': 'Negative (Clear Scan)'
+                }])
+
+            st.download_button(
+                "📊 Download Raw Measurements (.csv)",
+                data=df_export.to_csv(index=False),
+                file_name=f"RenalScan_Measurements_{safe_scan_name}.csv",
+                mime="text/csv",
+                use_container_width=True,
+                help="Export structured tabular geometry and clinical sizing data."
+            )
 
     # -------------------------------------------------------------------------
     # SUB-TAB 2: HOW IT WORKS ANIMATION
