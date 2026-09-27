@@ -1,15 +1,17 @@
 """
-styles.py - Global CSS Design System for RenalScan (Medical Red + White)
+styles.py - Global CSS Design System for RenalScan (Dark Medical AI Theme)
 Official Brand Identity:
   Primary Brand Color: #B9362F
-  Primary Accent: #D94841
+  Bright Red: #D94841
+  Light Red Accent: #FF6B63
   Dark Red: #8F2924
-  Light Red: #FCEDEC
-  Background Canvas: #FFFFFF
-  Secondary Surface: #FFF7F7
-  Text Primary: #20283A
-  Text Secondary: #6B7280
-  Border: #F1D5D5
+  Main Background: #0D1117
+  Secondary Section: #111820
+  Card Background: #151C24
+  Elevated Card: #1B232D
+  Text Primary: #F8FAFC
+  Text Secondary: #AAB4C0
+  Border: rgba(255, 255, 255, 0.10)
 """
 
 import streamlit as st
@@ -30,10 +32,10 @@ def inject_global_css():
     footer {visibility: hidden;}
     header {visibility: hidden;}
 
-    /* Global Canvas */
+    /* Global Dark Canvas */
     .stApp {
-        background-color: #FFFFFF;
-        color: #20283A;
+        background-color: #0D1117 !important;
+        color: #F8FAFC !important;
     }
 
     .block-container {
@@ -47,33 +49,33 @@ def inject_global_css():
     .stButton > button {
         background-color: #B9362F !important;
         color: #FFFFFF !important;
-        border: 1.5px solid #B9362F !important;
+        border: 1px solid #D94841 !important;
         border-radius: 9px !important;
         font-weight: 700 !important;
         font-size: 0.93rem !important;
         padding: 10px 24px !important;
         transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
-        box-shadow: 0 4px 14px rgba(185, 54, 47, 0.22) !important;
+        box-shadow: 0 4px 16px rgba(185, 54, 47, 0.35) !important;
         cursor: pointer !important;
     }
     .stButton > button:hover {
-        background-color: #8F2924 !important;
-        border-color: #8F2924 !important;
+        background-color: #D94841 !important;
+        border-color: #FF6B63 !important;
         color: #FFFFFF !important;
-        transform: translateY(-2px) scale(1.01) !important;
-        box-shadow: 0 8px 22px rgba(185, 54, 47, 0.32) !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 8px 26px rgba(217, 72, 65, 0.5) !important;
     }
     .stButton > button:active {
         transform: translateY(0) scale(0.99) !important;
     }
 
-    /* Secondary White Button Style */
+    /* Secondary Transparent / Dark Outline Button Style */
     .rs-btn-outline {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        background-color: #FFFFFF;
-        color: #B9362F !important;
+        background-color: rgba(255, 255, 255, 0.04);
+        color: #F8FAFC !important;
         border: 1.5px solid #B9362F;
         border-radius: 9px;
         padding: 10px 22px;
@@ -85,11 +87,11 @@ def inject_global_css():
         cursor: pointer;
     }
     .rs-btn-outline:hover {
-        background-color: #FCEDEC;
-        color: #8F2924 !important;
-        border-color: #8F2924;
+        background-color: rgba(185, 54, 47, 0.18);
+        color: #FF6B63 !important;
+        border-color: #D94841;
         transform: translateY(-2px);
-        box-shadow: 0 4px 14px rgba(185, 54, 47, 0.14);
+        box-shadow: 0 4px 16px rgba(185, 54, 47, 0.25);
     }
 
     /* Primary Red Link Button */
@@ -100,30 +102,30 @@ def inject_global_css():
         gap: 8px;
         background-color: #B9362F;
         color: #FFFFFF !important;
-        border: 1.5px solid #B9362F;
+        border: 1.5px solid #D94841;
         border-radius: 9px;
         padding: 10px 24px;
         font-weight: 700;
         font-size: 0.93rem;
         text-decoration: none;
         transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-        box-shadow: 0 4px 14px rgba(185, 54, 47, 0.24);
+        box-shadow: 0 4px 16px rgba(185, 54, 47, 0.35);
         cursor: pointer;
     }
     .rs-btn-primary-link:hover {
-        background-color: #8F2924;
-        border-color: #8F2924;
+        background-color: #D94841;
+        border-color: #FF6B63;
         color: #FFFFFF !important;
         transform: translateY(-2px) scale(1.01);
-        box-shadow: 0 8px 22px rgba(185, 54, 47, 0.34);
+        box-shadow: 0 8px 24px rgba(217, 72, 65, 0.45);
     }
 
-    /* Sticky Navbar */
+    /* Sticky Dark Navbar */
     .lp-navbar {
-        background: rgba(255, 255, 255, 0.96);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border-bottom: 1.5px solid #F1D5D5;
+        background: rgba(13, 17, 23, 0.88);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.10);
         padding: 12px 28px;
         margin-bottom: 24px;
         display: flex;
@@ -132,7 +134,7 @@ def inject_global_css():
         position: sticky;
         top: 0;
         z-index: 999;
-        box-shadow: 0 2px 14px rgba(185, 54, 47, 0.05);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
         transition: all 0.3s ease;
     }
     .lp-brand-box {
@@ -151,7 +153,7 @@ def inject_global_css():
         justify-content: center;
         color: #FFFFFF;
         font-size: 1.3rem;
-        box-shadow: 0 3px 10px rgba(185, 54, 47, 0.32);
+        box-shadow: 0 0 16px rgba(185, 54, 47, 0.45);
         transition: transform 0.2s ease;
     }
     .lp-logo-badge:hover {
@@ -160,16 +162,16 @@ def inject_global_css():
     .lp-brand-title {
         font-size: 1.4rem;
         font-weight: 800;
-        color: #20283A;
+        color: #F8FAFC;
         letter-spacing: -0.025em;
         line-height: 1.1;
     }
     .lp-brand-accent {
-        color: #B9362F;
+        color: #FF6B63;
     }
     .lp-brand-sub {
         font-size: 0.76rem;
-        color: #6B7280;
+        color: #AAB4C0;
         font-weight: 600;
         letter-spacing: 0.02em;
     }
@@ -179,16 +181,16 @@ def inject_global_css():
         gap: 28px;
     }
     .lp-nav-item {
+        color: #AAB4C0;
         font-size: 0.92rem;
         font-weight: 600;
-        color: #4B5563;
         text-decoration: none;
         transition: color 0.2s ease;
         position: relative;
         white-space: nowrap;
     }
     .lp-nav-item:hover {
-        color: #B9362F;
+        color: #FF6B63;
     }
     .lp-nav-item::after {
         content: '';
@@ -197,28 +199,11 @@ def inject_global_css():
         left: 0;
         width: 0%;
         height: 2px;
-        background-color: #B9362F;
+        background-color: #D94841;
         transition: width 0.2s ease;
     }
     .lp-nav-item:hover::after {
         width: 100%;
-    }
-
-    /* Cinematic Hero Wrapper with Faint Medical Grid */
-    .lp-hero-wrapper {
-        background-color: #FFFFFF;
-        background-image: 
-            radial-gradient(circle at 82% 24%, rgba(252, 237, 236, 0.95) 0%, rgba(255, 255, 255, 0) 62%),
-            linear-gradient(to right, rgba(241, 213, 213, 0.24) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(241, 213, 213, 0.24) 1px, transparent 1px);
-        background-size: 100% 100%, 38px 38px, 38px 38px;
-        border: 1.5px solid #F1D5D5;
-        border-radius: 24px;
-        padding: 50px 48px 44px 48px;
-        margin-bottom: 34px;
-        box-shadow: 0 8px 32px rgba(185, 54, 47, 0.05);
-        position: relative;
-        overflow: hidden;
     }
 
     /* Small Animated Hero Badge */
@@ -226,9 +211,9 @@ def inject_global_css():
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        background-color: #FCEDEC;
-        color: #8F2924;
-        border: 1px solid #F1D5D5;
+        background-color: rgba(185, 54, 47, 0.14);
+        color: #FF6B63;
+        border: 1px solid rgba(185, 54, 47, 0.35);
         font-size: 0.78rem;
         font-weight: 800;
         letter-spacing: 0.08em;
@@ -236,12 +221,13 @@ def inject_global_css():
         border-radius: 20px;
         padding: 6px 16px;
         margin-bottom: 20px;
-        box-shadow: 0 2px 8px rgba(185, 54, 47, 0.08);
+        box-shadow: 0 2px 10px rgba(185, 54, 47, 0.15);
     }
     .lp-badge-dot {
         width: 8px;
         height: 8px;
-        background-color: #B9362F;
+        background-color: #D94841;
+        box-shadow: 0 0 8px #D94841;
         border-radius: 50%;
         display: inline-block;
         animation: pulseRedDot 1.8s infinite ease-in-out;
@@ -250,20 +236,20 @@ def inject_global_css():
     .lp-hero-heading {
         font-size: 3.2rem;
         font-weight: 900;
-        color: #20283A;
+        color: #F8FAFC;
         line-height: 1.15;
         letter-spacing: -0.03em;
         margin-bottom: 18px;
     }
     .lp-hero-heading .red-accent {
-        color: #B9362F;
-        background: linear-gradient(135deg, #B9362F 0%, #D94841 100%);
+        color: #FF6B63;
+        background: linear-gradient(135deg, #FF6B63 0%, #D94841 50%, #B9362F 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
     .lp-hero-desc {
         font-size: 1.12rem;
-        color: #4B5563;
+        color: #AAB4C0;
         line-height: 1.65;
         margin-bottom: 28px;
         max-width: 580px;
@@ -275,7 +261,7 @@ def inject_global_css():
         gap: 22px;
         margin-top: 24px;
         font-size: 0.85rem;
-        color: #4B5563;
+        color: #CBD5E1;
         font-weight: 600;
     }
     .lp-hero-trust-item {
@@ -284,20 +270,20 @@ def inject_global_css():
         gap: 6px;
     }
     .lp-hero-trust-check {
-        color: #B9362F;
+        color: #FF6B63;
         font-weight: 900;
         font-size: 0.95rem;
     }
 
-    /* Hero Floating CT Visualization Container */
+    /* Hero Floating CT Visualization Container with Ambient Red Glow */
     .lp-ct-float-container {
         position: relative;
-        background: #0F131C;
-        border: 1.5px solid #1F2937;
+        background: radial-gradient(circle at 50% 50%, rgba(185, 54, 47, 0.12) 0%, #0B0E14 75%);
+        border: 1.5px solid rgba(255, 255, 255, 0.10);
         border-top: 3.5px solid #B9362F;
         border-radius: 20px;
         padding: 16px;
-        box-shadow: 0 16px 44px rgba(0, 0, 0, 0.32);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 35px rgba(185, 54, 47, 0.15);
         animation: floatHeroCard 6s ease-in-out infinite;
         overflow: hidden;
     }
@@ -325,22 +311,23 @@ def inject_global_css():
         100% { top: 92%; opacity: 0; }
     }
 
-    /* Floating White Hero Cards */
+    /* Floating Dark Glass Hero Cards */
     .lp-float-card {
         position: absolute;
-        background: rgba(255, 255, 255, 0.97);
-        backdrop-filter: blur(10px);
-        border: 1px solid #F1D5D5;
+        background: rgba(21, 28, 36, 0.92);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.12);
         border-radius: 12px;
         padding: 10px 16px;
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
         z-index: 10;
         pointer-events: none;
+        color: #F8FAFC;
     }
     .lp-float-card-1 {
         bottom: 22px;
         left: 20px;
-        border-left: 4px solid #B9362F;
+        border-left: 4px solid #FF6B63;
         animation: floatCard1 4s ease-in-out infinite;
     }
     .lp-float-card-2 {
@@ -378,12 +365,12 @@ def inject_global_css():
         font-weight: 800;
         letter-spacing: 0.12em;
         text-transform: uppercase;
-        color: #9CA3AF;
+        color: #AAB4C0;
         margin-bottom: 4px;
     }
     .lp-scroll-ind-arrow {
         font-size: 1.15rem;
-        color: #B9362F;
+        color: #FF6B63;
         animation: bounceDown 1.8s infinite ease-in-out;
     }
     @keyframes bounceDown {
@@ -391,22 +378,23 @@ def inject_global_css():
         50% { transform: translateY(6px); opacity: 1; }
     }
 
-    /* Trust Strip */
+    /* Capability Strip (Dark #151C24) */
     .lp-trust-strip {
-        background-color: #FFFFFF;
-        border: 1.5px solid #F1D5D5;
+        background-color: #151C24;
+        border: 1px solid rgba(255, 255, 255, 0.10);
         border-radius: 16px;
         padding: 18px 28px;
         margin-bottom: 50px;
         display: flex;
         align-items: center;
         justify-content: space-around;
-        box-shadow: 0 3px 14px rgba(185, 54, 47, 0.04);
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     }
     .lp-trust-strip:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(185, 54, 47, 0.08);
+        transform: translateY(-3px);
+        border-color: rgba(217, 72, 65, 0.5);
+        box-shadow: 0 10px 28px rgba(185, 54, 47, 0.22);
     }
     .lp-trust-item {
         display: flex;
@@ -414,16 +402,16 @@ def inject_global_css():
         gap: 12px;
         font-size: 0.84rem;
         font-weight: 800;
-        color: #20283A;
+        color: #F8FAFC;
         letter-spacing: 0.05em;
         text-transform: uppercase;
     }
     .lp-trust-icon {
-        color: #B9362F;
+        color: #FF6B63;
         font-size: 1.25rem;
     }
     .lp-trust-sep {
-        color: #F1D5D5;
+        color: rgba(255, 255, 255, 0.12);
         font-size: 1.2rem;
     }
 
@@ -435,26 +423,26 @@ def inject_global_css():
     .lp-section-title {
         font-size: 2.3rem;
         font-weight: 900;
-        color: #20283A;
+        color: #F8FAFC;
         letter-spacing: -0.025em;
         margin-bottom: 10px;
     }
     .lp-section-title span {
-        color: #B9362F;
+        color: #FF6B63;
     }
     .lp-section-desc {
         font-size: 1.05rem;
-        color: #6B7280;
+        color: #AAB4C0;
         max-width: 680px;
         margin: 0 auto;
         line-height: 1.6;
     }
 
-    /* Why RenalScan Feature Cards */
+    /* Why RenalScan Feature Cards (Elevated Surface #1B232D) */
     .lp-feature-card {
-        background: #FFFFFF;
-        border: 1px solid #F1D5D5;
-        border-left: 4.5px solid #F1D5D5;
+        background: #1B232D;
+        border: 1px solid rgba(255, 255, 255, 0.10);
+        border-left: 4.5px solid #B9362F;
         border-radius: 14px;
         padding: 20px 24px;
         margin-bottom: 16px;
@@ -462,56 +450,57 @@ def inject_global_css():
         gap: 20px;
         align-items: flex-start;
         transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
     }
     .lp-feature-card:hover {
-        border-left-color: #B9362F;
-        border-color: #B9362F;
+        border-left-color: #FF6B63;
+        border-color: rgba(255, 255, 255, 0.22);
         transform: translateX(6px);
-        box-shadow: 0 6px 18px rgba(185, 54, 47, 0.08);
+        box-shadow: 0 8px 24px rgba(185, 54, 47, 0.2);
     }
     .lp-feature-num {
         font-size: 2rem;
         font-weight: 900;
-        color: #B9362F;
+        color: #FF6B63;
         line-height: 1;
         min-width: 44px;
+        text-shadow: 0 0 12px rgba(255, 107, 99, 0.35);
     }
     .lp-feature-title {
         font-size: 1.15rem;
         font-weight: 800;
-        color: #20283A;
+        color: #F8FAFC;
         margin-bottom: 4px;
     }
     .lp-feature-desc {
         font-size: 0.9rem;
-        color: #4B5563;
+        color: #AAB4C0;
         line-height: 1.55;
     }
 
-    /* Big CT Scan Showcase (Deep Charcoal #16181D) */
+    /* Big CT Scan Showcase (Deepest Charcoal #080B10) */
     .lp-dark-showcase {
-        background-color: #16181D;
-        border: 1px solid #2A2F3B;
+        background-color: #080B10;
+        border: 1px solid rgba(255, 255, 255, 0.10);
         border-top: 4px solid #B9362F;
         border-radius: 24px;
         padding: 48px 40px;
         margin-bottom: 50px;
-        color: #FFFFFF;
-        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+        color: #F8FAFC;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(185, 54, 47, 0.12);
         position: relative;
         overflow: hidden;
     }
     .lp-dark-title {
         font-size: 2.3rem;
         font-weight: 900;
-        color: #FFFFFF;
+        color: #F8FAFC;
         letter-spacing: -0.025em;
         margin-bottom: 8px;
     }
     .lp-dark-sub {
         font-size: 1.05rem;
-        color: #9CA3AF;
+        color: #AAB4C0;
         max-width: 640px;
         margin-bottom: 30px;
     }
@@ -524,23 +513,23 @@ def inject_global_css():
         margin-bottom: 50px;
     }
     .lp-cap-card {
-        background-color: #FFFFFF;
-        border: 1.5px solid #F1D5D5;
+        background-color: #151C24;
+        border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: 16px;
         padding: 24px;
-        box-shadow: 0 3px 12px rgba(185, 54, 47, 0.03);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
         transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .lp-cap-card:hover {
         transform: translateY(-4px);
         border-color: #B9362F;
-        box-shadow: 0 8px 24px rgba(185, 54, 47, 0.1);
+        box-shadow: 0 10px 30px rgba(185, 54, 47, 0.22);
     }
     .lp-cap-icon {
         width: 44px;
         height: 44px;
-        background-color: #FCEDEC;
-        color: #B9362F;
+        background-color: rgba(185, 54, 47, 0.18);
+        color: #FF6B63;
         border-radius: 10px;
         display: flex;
         align-items: center;
@@ -555,40 +544,30 @@ def inject_global_css():
     .lp-cap-title {
         font-size: 1.1rem;
         font-weight: 800;
-        color: #20283A;
+        color: #F8FAFC;
         margin-bottom: 8px;
     }
     .lp-cap-desc {
         font-size: 0.88rem;
-        color: #4B5563;
+        color: #AAB4C0;
         line-height: 1.55;
     }
 
-    /* Workstation Preview Container */
-    .lp-ws-preview-container {
-        background: #FFFFFF;
-        border: 1.5px solid #F1D5D5;
-        border-radius: 20px;
-        padding: 36px 40px;
-        margin-bottom: 50px;
-        box-shadow: 0 6px 24px rgba(185, 54, 47, 0.05);
-    }
-
-    /* Floating A4 Report Showcase */
+    /* Real White A4 Report on Dark Background for High-Contrast Realism */
     .lp-a4-report {
-        background: #FFFFFF;
-        border: 1.5px solid #F1D5D5;
-        border-radius: 18px;
-        padding: 32px 36px;
-        box-shadow: 0 14px 40px rgba(185, 54, 47, 0.08), 0 2px 8px rgba(0,0,0,0.04);
+        background: #FFFFFF !important;
+        color: #1F2937 !important;
+        border-radius: 12px;
+        padding: 36px 40px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 1px rgba(255, 255, 255, 0.2);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .lp-a4-report:hover {
-        transform: translateY(-4px) perspective(1000px) rotateX(1deg);
-        box-shadow: 0 20px 50px rgba(185, 54, 47, 0.12);
+        transform: translateY(-4px);
+        box-shadow: 0 28px 65px rgba(0, 0, 0, 0.75);
     }
 
-    /* Kidney Health 4 Cards Grid */
+    /* Kidney Health 4 Cards Grid (#151C24 Dark Surface) */
     .lp-health-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -596,11 +575,11 @@ def inject_global_css():
         margin-bottom: 50px;
     }
     .lp-health-card {
-        background-color: #FFFFFF;
-        border: 1.5px solid #F1D5D5;
+        background-color: #151C24;
+        border: 1px solid rgba(255, 255, 255, 0.10);
         border-radius: 16px;
         padding: 24px;
-        box-shadow: 0 3px 12px rgba(185, 54, 47, 0.03);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
         transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         display: flex;
         flex-direction: column;
@@ -609,13 +588,13 @@ def inject_global_css():
     .lp-health-card:hover {
         transform: translateY(-4px);
         border-color: #B9362F;
-        box-shadow: 0 8px 24px rgba(185, 54, 47, 0.1);
+        box-shadow: 0 10px 28px rgba(185, 54, 47, 0.22);
     }
     .lp-health-icon {
         width: 44px;
         height: 44px;
-        background-color: #FCEDEC;
-        color: #B9362F;
+        background-color: rgba(185, 54, 47, 0.18);
+        color: #FF6B63;
         border-radius: 12px;
         display: flex;
         align-items: center;
@@ -626,19 +605,19 @@ def inject_global_css():
     .lp-health-title {
         font-size: 1.1rem;
         font-weight: 800;
-        color: #20283A;
+        color: #F8FAFC;
         margin-bottom: 8px;
     }
     .lp-health-desc {
         font-size: 0.88rem;
-        color: #4B5563;
+        color: #AAB4C0;
         line-height: 1.55;
     }
 
     /* Responsible AI Shield Section */
     .lp-shield-section {
-        background-color: #FCEDEC;
-        border: 1.5px solid #F1D5D5;
+        background-color: #151C24;
+        border: 1px solid rgba(255, 255, 255, 0.10);
         border-left: 5px solid #B9362F;
         border-radius: 18px;
         padding: 30px 36px;
@@ -646,36 +625,37 @@ def inject_global_css():
         display: flex;
         align-items: center;
         gap: 24px;
-        box-shadow: 0 4px 16px rgba(185, 54, 47, 0.04);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
     }
     .lp-shield-icon-box {
         width: 64px;
         height: 64px;
         min-width: 64px;
-        background-color: #FFFFFF;
-        border: 2px solid #F1D5D5;
+        background-color: #1B232D;
+        border: 2px solid rgba(255, 255, 255, 0.12);
         border-radius: 18px;
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: 2rem;
-        box-shadow: 0 4px 14px rgba(185, 54, 47, 0.12);
+        box-shadow: 0 4px 18px rgba(185, 54, 47, 0.25);
         animation: pulseShield 3s infinite ease-in-out;
     }
     @keyframes pulseShield {
-        0%, 100% { box-shadow: 0 0 10px rgba(185, 54, 47, 0.15); transform: scale(1); }
-        50% { box-shadow: 0 0 22px rgba(185, 54, 47, 0.35); transform: scale(1.04); }
+        0%, 100% { box-shadow: 0 0 10px rgba(185, 54, 47, 0.2); transform: scale(1); }
+        50% { box-shadow: 0 0 25px rgba(217, 72, 65, 0.45); transform: scale(1.04); }
     }
 
-    /* Final Red CTA */
+    /* Final Red Gradient CTA */
     .lp-final-cta-wrapper {
-        background: linear-gradient(135deg, #8F2924 0%, #B9362F 60%, #D94841 100%);
+        background: linear-gradient(135deg, #151C24 0%, #3B1210 40%, #8F2924 75%, #B9362F 100%);
+        border: 1px solid rgba(255, 255, 255, 0.15);
         border-radius: 24px;
         padding: 56px 44px;
         text-align: center;
         color: #FFFFFF;
-        margin-bottom: 50px;
-        box-shadow: 0 14px 40px rgba(143, 41, 36, 0.35);
+        margin-bottom: 24px;
+        box-shadow: 0 16px 48px rgba(185, 54, 47, 0.3);
         position: relative;
         overflow: hidden;
     }
@@ -690,14 +670,37 @@ def inject_global_css():
         font-size: 1.15rem;
         color: #FEE2E2;
         max-width: 640px;
-        margin: 0 auto 32px auto;
+        margin: 0 auto;
         line-height: 1.6;
+    }
+    .rs-cta-white-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        background-color: #FFFFFF;
+        color: #B9362F !important;
+        border: 2px solid #FFFFFF;
+        border-radius: 10px;
+        padding: 12px 28px;
+        font-weight: 800;
+        font-size: 1rem;
+        text-decoration: none;
+        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+        cursor: pointer;
+    }
+    .rs-cta-white-btn:hover {
+        background-color: #FCEDEC;
+        color: #8F2924 !important;
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
     }
 
     /* Footer */
     .lp-footer {
-        background-color: #111827;
-        color: #E5E7EB;
+        background-color: #080B10;
+        color: #AAB4C0;
         border-top: 3.5px solid #B9362F;
         border-radius: 20px 20px 0 0;
         padding: 44px 40px 28px 40px;
@@ -711,7 +714,7 @@ def inject_global_css():
     .lp-footer-col h4 {
         font-size: 0.95rem;
         font-weight: 800;
-        color: #FFFFFF;
+        color: #F8FAFC;
         margin-bottom: 14px;
         letter-spacing: 0.04em;
     }
@@ -722,15 +725,15 @@ def inject_global_css():
     }
     .lp-footer-col li {
         font-size: 0.88rem;
-        color: #9CA3AF;
+        color: #AAB4C0;
         margin-bottom: 9px;
     }
     .lp-footer-bottom {
-        border-top: 1px solid #1F2937;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
         padding-top: 20px;
         text-align: center;
         font-size: 0.8rem;
-        color: #6B7280;
+        color: #64748B;
     }
 
     /* Keyframes */
@@ -761,7 +764,6 @@ def inject_global_css():
         .lp-cap-grid { grid-template-columns: 1fr; }
         .lp-trust-strip { flex-direction: column; gap: 14px; }
         .lp-trust-sep { display: none; }
-        .lp-hero-wrapper { padding: 30px 20px; }
         .lp-hero-heading { font-size: 2rem; }
         .lp-hero-trust-row { flex-direction: column; gap: 8px; }
     }

@@ -179,27 +179,27 @@ def render_landing_page(page_workstation=None):
 
                 <!-- Floating Glass Card 1: AI Detection -->
                 <div class="lp-float-card lp-float-card-1">
-                    <div style="font-size: 0.68rem; color: #6B7280; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">AI Detection</div>
+                    <div style="font-size: 0.68rem; color: #AAB4C0; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">AI Detection</div>
                     <div style="display: flex; align-items: center; gap: 6px; margin-top: 2px;">
-                        <span style="width: 7px; height: 7px; background: #B9362F; border-radius: 50%; display: inline-block;"></span>
-                        <span style="font-size: 0.92rem; font-weight: 800; color: #B9362F;">Stone detected</span>
+                        <span style="width: 7px; height: 7px; background: #FF6B63; border-radius: 50%; display: inline-block;"></span>
+                        <span style="font-size: 0.92rem; font-weight: 800; color: #FF6B63;">Stone detected</span>
                     </div>
                 </div>
 
                 <!-- Floating Glass Card 2: Status -->
                 <div class="lp-float-card lp-float-card-2">
-                    <div style="font-size: 0.68rem; color: #047857; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Analysis Status</div>
+                    <div style="font-size: 0.68rem; color: #34D399; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Analysis Status</div>
                     <div style="display: flex; align-items: center; gap: 5px; margin-top: 2px;">
                         <span style="color: #10B981; font-weight: 900; font-size: 0.95rem;">✓</span>
-                        <span style="font-size: 0.92rem; font-weight: 800; color: #065F46;">Complete (3/3)</span>
+                        <span style="font-size: 0.92rem; font-weight: 800; color: #34D399;">Complete (3/3)</span>
                     </div>
                 </div>
 
                 <!-- Floating Glass Card 3: Measurement -->
                 <div class="lp-float-card lp-float-card-3">
-                    <div style="font-size: 0.68rem; color: #8F2924; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Measurement</div>
-                    <div style="font-size: 0.95rem; font-weight: 800; color: #B9362F; margin-top: 2px;">
-                        8.19 <span style="font-size: 0.78rem;">mm</span>
+                    <div style="font-size: 0.68rem; color: #AAB4C0; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Measurement</div>
+                    <div style="font-size: 0.95rem; font-weight: 800; color: #FF6B63; margin-top: 2px;">
+                        8.19 <span style="font-size: 0.78rem; color: #AAB4C0;">mm</span>
                     </div>
                 </div>
             </div>
@@ -294,10 +294,10 @@ def render_landing_page(page_workstation=None):
 
     with why_c2:
         st.html(f"""
-        <div style="background-color: #111827; border-radius: 18px; border: 1.5px solid #1F2937; border-top: 3.5px solid #B9362F; padding: 22px; box-shadow: 0 12px 36px rgba(0,0,0,0.22);">
+        <div style="background-color: #151C24; border-radius: 18px; border: 1.5px solid rgba(255,255,255,0.10); border-top: 3.5px solid #B9362F; padding: 22px; box-shadow: 0 12px 36px rgba(0,0,0,0.35);">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
-                <span style="color: #FFFFFF; font-size: 0.88rem; font-weight: 800;">VERTICAL CT VISUALIZATION</span>
-                <span style="background: #FCEDEC; color: #B9362F; font-size: 0.72rem; font-weight: 700; padding: 3px 8px; border-radius: 6px;">
+                <span style="color: #F8FAFC; font-size: 0.88rem; font-weight: 800;">VERTICAL CT VISUALIZATION</span>
+                <span style="background: rgba(185,54,47,0.18); border: 1px solid rgba(255,107,99,0.3); color: #FF6B63; font-size: 0.72rem; font-weight: 700; padding: 3px 8px; border-radius: 6px;">
                     Multi-Stage Pipeline
                 </span>
             </div>
@@ -309,8 +309,8 @@ def render_landing_page(page_workstation=None):
                     <line x1="210" y1="113" x2="210" y2="177" stroke="#FFFFFF" stroke-width="1.8" />
                 </svg>
             </div>
-            <div style="margin-top: 14px; background: rgba(255,255,255,0.06); border-radius: 8px; padding: 12px; font-size: 0.82rem; color: #D1D5DB; line-height: 1.5;">
-                <strong style="color: #F87171;">Automated Insight:</strong> Sequential detection, contour segmentation, and caliper measurement occur simultaneously within the active slice.
+            <div style="margin-top: 14px; background: rgba(255,255,255,0.04); border-radius: 8px; padding: 12px; font-size: 0.82rem; color: #AAB4C0; line-height: 1.5; border: 1px solid rgba(255,255,255,0.06);">
+                <strong style="color: #FF6B63;">Automated Insight:</strong> Sequential detection, contour segmentation, and caliper measurement occur simultaneously within the active slice.
             </div>
         </div>
         """)
@@ -334,23 +334,23 @@ def render_landing_page(page_workstation=None):
         <meta charset="utf-8">
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-            body {{ font-family: 'Inter', sans-serif; margin: 0; padding: 0; background: transparent; color: #20283A; }}
-            .pipe-wrap {{ background: #FCEDEC; border: 1.5px solid #F1D5D5; border-radius: 20px; padding: 28px 24px; box-shadow: 0 4px 18px rgba(185, 54, 47, 0.04); }}
+            body {{ font-family: 'Inter', sans-serif; margin: 0; padding: 0; background: transparent; color: #F8FAFC; }}
+            .pipe-wrap {{ background: #111820; border: 1.5px solid rgba(255, 255, 255, 0.10); border-radius: 20px; padding: 28px 24px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45); }}
             .pipe-steps {{ display: flex; align-items: center; justify-content: space-between; position: relative; margin-bottom: 24px; }}
-            .pipe-line {{ position: absolute; top: 22px; left: 8%; right: 8%; height: 3px; background: #F1D5D5; z-index: 1; }}
-            .pipe-line-progress {{ position: absolute; top: 22px; left: 8%; width: 0%; height: 3px; background: #B9362F; z-index: 2; transition: width 0.4s ease; }}
+            .pipe-line {{ position: absolute; top: 22px; left: 8%; right: 8%; height: 3px; background: rgba(255, 255, 255, 0.12); z-index: 1; }}
+            .pipe-line-progress {{ position: absolute; top: 22px; left: 8%; width: 0%; height: 3px; background: linear-gradient(90deg, #B9362F, #FF6B63); z-index: 2; transition: width 0.4s ease; box-shadow: 0 0 10px rgba(255, 107, 99, 0.6); }}
             .step-node {{ display: flex; flex-direction: column; align-items: center; position: relative; z-index: 3; cursor: pointer; transition: transform 0.2s ease; width: 15%; }}
             .step-node:hover {{ transform: translateY(-3px); }}
-            .step-badge {{ width: 44px; height: 44px; border-radius: 50%; background: #FFFFFF; border: 2.5px solid #F1D5D5; color: #6B7280; font-weight: 800; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06); transition: all 0.3s ease; }}
-            .step-node.active .step-badge {{ background: #B9362F; border-color: #B9362F; color: #FFFFFF; box-shadow: 0 4px 14px rgba(185, 54, 47, 0.35); }}
-            .step-lbl {{ font-size: 0.82rem; font-weight: 800; color: #4B5563; margin-top: 8px; text-transform: uppercase; letter-spacing: 0.04em; }}
-            .step-node.active .step-lbl {{ color: #B9362F; }}
+            .step-badge {{ width: 44px; height: 44px; border-radius: 50%; background: #151C24; border: 2.5px solid rgba(255, 255, 255, 0.14); color: #AAB4C0; font-weight: 800; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.3); transition: all 0.3s ease; }}
+            .step-node.active .step-badge {{ background: #B9362F; border-color: #FF6B63; color: #FFFFFF; box-shadow: 0 0 16px rgba(255, 107, 99, 0.5); }}
+            .step-lbl {{ font-size: 0.82rem; font-weight: 800; color: #AAB4C0; margin-top: 8px; text-transform: uppercase; letter-spacing: 0.04em; }}
+            .step-node.active .step-lbl {{ color: #FF6B63; }}
             
-            .detail-card {{ background: #FFFFFF; border: 1.5px solid #F1D5D5; border-left: 5px solid #B9362F; border-radius: 14px; padding: 20px 24px; box-shadow: 0 4px 16px rgba(185, 54, 47, 0.05); display: flex; align-items: center; justify-content: space-between; }}
+            .detail-card {{ background: #151C24; border: 1.5px solid rgba(255, 255, 255, 0.10); border-left: 5px solid #FF6B63; border-radius: 14px; padding: 20px 24px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35); display: flex; align-items: center; justify-content: space-between; }}
             .detail-left {{ max-width: 70%; }}
-            .detail-title {{ font-size: 1.15rem; font-weight: 800; color: #20283A; margin-bottom: 6px; }}
-            .detail-desc {{ font-size: 0.9rem; color: #4B5563; line-height: 1.55; }}
-            .detail-chip {{ background: #FCEDEC; border: 1px solid #F1D5D5; color: #B9362F; font-weight: 800; font-size: 0.78rem; padding: 6px 14px; border-radius: 8px; letter-spacing: 0.05em; }}
+            .detail-title {{ font-size: 1.15rem; font-weight: 800; color: #F8FAFC; margin-bottom: 6px; }}
+            .detail-desc {{ font-size: 0.9rem; color: #AAB4C0; line-height: 1.55; }}
+            .detail-chip {{ background: rgba(185, 54, 47, 0.18); border: 1px solid rgba(255, 107, 99, 0.35); color: #FF6B63; font-weight: 800; font-size: 0.78rem; padding: 6px 14px; border-radius: 8px; letter-spacing: 0.05em; }}
         </style>
     </head>
     <body>
@@ -427,21 +427,21 @@ def render_landing_page(page_workstation=None):
     components.html(pipeline_component_html, height=220, scrolling=False)
 
     # =========================================================================
-    # 8. BIG INTERACTIVE CT DEMO (DARK CHARCOAL #16181D)
+    # 8. BIG INTERACTIVE CT DEMO (DARK CHARCOAL #080B10)
     # =========================================================================
     st.markdown("""
     <div id="demo" class="lp-section-header" style="margin-top: 48px;">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px;">
             <div>
-                <div style="color: #D94841; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px;">
+                <div style="color: #FF6B63; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px;">
                     REAL AI ANALYSIS DEMONSTRATION
                 </div>
-                <div class="lp-dark-title" style="color: #20283A;">Watch AI Analyze a CT Scan.</div>
-                <div class="lp-dark-sub" style="color: #6B7280;">
+                <div class="lp-dark-title" style="color: #F8FAFC;">Watch AI Analyze a CT Scan.</div>
+                <div class="lp-dark-sub" style="color: #AAB4C0;">
                     Step through the automated sequence from scan line sweep to detection box, pulsing marker, calipers, and AI analysis panel.
                 </div>
             </div>
-            <span style="background: rgba(185,54,47,0.12); border: 1.5px solid #B9362F; color: #B9362F; font-weight: 700; font-size: 0.82rem; padding: 6px 16px; border-radius: 20px;">
+            <span style="background: rgba(185,54,47,0.18); border: 1.5px solid rgba(255,107,99,0.35); color: #FF6B63; font-weight: 700; font-size: 0.82rem; padding: 6px 16px; border-radius: 20px;">
                 ● Live 8-Step Simulation
             </span>
         </div>
@@ -456,18 +456,18 @@ def render_landing_page(page_workstation=None):
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
             body {{ font-family: 'Inter', sans-serif; background: transparent; margin: 0; color: #FFFFFF; }}
-            .demo-wrap {{ background: #0F131C; border: 1.5px solid #2A2F3B; border-radius: 18px; padding: 22px; display: flex; gap: 26px; }}
+            .demo-wrap {{ background: #080B10; border: 1.5px solid rgba(255, 255, 255, 0.10); border-radius: 18px; padding: 22px; display: flex; gap: 26px; box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5); }}
             .ct-box {{ position: relative; width: 55%; height: 390px; background: #000; border-radius: 12px; overflow: hidden; display: flex; align-items: center; justify-content: center; }}
             .ct-box img {{ max-height: 370px; max-width: 100%; object-fit: contain; }}
             .scan-laser {{ position: absolute; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, #E53935, #FFF, #E53935, transparent); box-shadow: 0 0 16px #E53935; transition: top 0.2s ease; opacity: 0; }}
             
             .side-box {{ width: 45%; display: flex; flex-direction: column; justify-content: space-between; }}
-            .panel-card {{ background: #161B26; border: 1.5px solid #2A2F3B; border-left: 4.5px solid #B9362F; border-radius: 12px; padding: 20px; box-shadow: 0 8px 24px rgba(0,0,0,0.3); opacity: 0; transform: translateX(20px); transition: all 0.5s ease; }}
+            .panel-card {{ background: #151C24; border: 1.5px solid rgba(255, 255, 255, 0.10); border-left: 4.5px solid #FF6B63; border-radius: 12px; padding: 20px; box-shadow: 0 8px 24px rgba(0,0,0,0.4); opacity: 0; transform: translateX(20px); transition: all 0.5s ease; }}
             .panel-card.slide-in {{ opacity: 1; transform: translateX(0); }}
             
             .ctrl-btns {{ display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }}
-            .demo-btn {{ background: #1F2937; border: 1px solid #374151; color: #E5E7EB; font-weight: 700; font-size: 0.8rem; padding: 8px 14px; border-radius: 8px; cursor: pointer; transition: all 0.2s; }}
-            .demo-btn:hover, .demo-btn.active {{ background: #B9362F; border-color: #B9362F; color: #FFFFFF; }}
+            .demo-btn {{ background: #151C24; border: 1px solid rgba(255, 255, 255, 0.12); color: #AAB4C0; font-weight: 700; font-size: 0.8rem; padding: 8px 14px; border-radius: 8px; cursor: pointer; transition: all 0.2s; }}
+            .demo-btn:hover, .demo-btn.active {{ background: #B9362F; border-color: #FF6B63; color: #FFFFFF; box-shadow: 0 0 12px rgba(185, 54, 47, 0.4); }}
         </style>
     </head>
     <body>
@@ -501,22 +501,22 @@ def render_landing_page(page_workstation=None):
                     </div>
 
                     <div class="panel-card" id="resPanel">
-                        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #2A2F3B; padding-bottom: 8px; margin-bottom: 12px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255, 255, 255, 0.10); padding-bottom: 8px; margin-bottom: 12px;">
                             <span style="font-size: 0.85rem; font-weight: 800; color: #FFFFFF;">AI ANALYSIS</span>
                             <span style="background: rgba(16, 185, 129, 0.2); color: #10B981; font-weight: 800; font-size: 0.72rem; padding: 2px 8px; border-radius: 4px;">Verified</span>
                         </div>
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
                             <div>
-                                <div style="font-size: 0.7rem; color: #9CA3AF; font-weight: 700;">POTENTIAL STONE</div>
+                                <div style="font-size: 0.7rem; color: #AAB4C0; font-weight: 700;">POTENTIAL STONE</div>
                                 <div style="font-size: 1.15rem; font-weight: 800; color: #FFFFFF;">Detected (1)</div>
                             </div>
                             <div>
-                                <div style="font-size: 0.7rem; color: #9CA3AF; font-weight: 700;">CALCULATED SIZE</div>
-                                <div style="font-size: 1.15rem; font-weight: 800; color: #D94841;">8.19 mm</div>
+                                <div style="font-size: 0.7rem; color: #AAB4C0; font-weight: 700;">CALCULATED SIZE</div>
+                                <div style="font-size: 1.15rem; font-weight: 800; color: #FF6B63;">8.19 mm</div>
                             </div>
                         </div>
                         <div>
-                            <div style="font-size: 0.7rem; color: #9CA3AF; font-weight: 700;">MODEL CONFIDENCE</div>
+                            <div style="font-size: 0.7rem; color: #AAB4C0; font-weight: 700;">MODEL CONFIDENCE</div>
                             <div style="font-size: 1.25rem; font-weight: 800; color: #10B981;">92% Optimal</div>
                         </div>
                     </div>
@@ -671,24 +671,24 @@ def render_landing_page(page_workstation=None):
     ws_p_col1, ws_p_col2 = st.columns([1.1, 1], gap="large")
     with ws_p_col1:
         st.html(f"""
-        <div style="background-color: #111827; border-radius: 14px; border: 1.5px solid #1F2937; border-top: 3.5px solid #B9362F; padding: 18px;">
+        <div style="background-color: #151C24; border-radius: 14px; border: 1.5px solid rgba(255, 255, 255, 0.10); border-top: 3.5px solid #B9362F; padding: 18px; box-shadow: 0 8px 30px rgba(0,0,0,0.35);">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                <span style="color: #FFFFFF; font-size: 0.85rem; font-weight: 800;">WORKSPACE INTERACTION PREVIEW</span>
-                <span style="font-size: 0.72rem; background: #FCEDEC; color: #B9362F; font-weight: 800; padding: 3px 8px; border-radius: 8px;">Slice 034 / 128</span>
+                <span style="color: #F8FAFC; font-size: 0.85rem; font-weight: 800;">WORKSPACE INTERACTION PREVIEW</span>
+                <span style="font-size: 0.72rem; background: rgba(185, 54, 47, 0.18); border: 1px solid rgba(255, 107, 99, 0.3); color: #FF6B63; font-weight: 800; padding: 3px 8px; border-radius: 8px;">Slice 034 / 128</span>
             </div>
             <img src="data:image/jpeg;base64,{s1_b64}" style="width: 100%; max-height: 230px; object-fit: contain; border-radius: 8px; margin-bottom: 12px;" alt="Workstation CT Preview" />
             <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; text-align: center;">
-                <div style="background: rgba(255,255,255,0.06); padding: 8px; border-radius: 6px;">
-                    <div style="color: #9CA3AF; font-size: 0.68rem; font-weight: 700;">STONES</div>
-                    <div style="color: #FFFFFF; font-size: 1.15rem; font-weight: 800;">3</div>
+                <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.06); padding: 8px; border-radius: 6px;">
+                    <div style="color: #AAB4C0; font-size: 0.68rem; font-weight: 700;">STONES</div>
+                    <div style="color: #F8FAFC; font-size: 1.15rem; font-weight: 800;">3</div>
                 </div>
-                <div style="background: rgba(255,255,255,0.06); padding: 8px; border-radius: 6px;">
-                    <div style="color: #9CA3AF; font-size: 0.68rem; font-weight: 700;">LARGEST</div>
-                    <div style="color: #D94841; font-size: 1.15rem; font-weight: 800;">5.27 mm</div>
+                <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.06); padding: 8px; border-radius: 6px;">
+                    <div style="color: #AAB4C0; font-size: 0.68rem; font-weight: 700;">LARGEST</div>
+                    <div style="color: #FF6B63; font-size: 1.15rem; font-weight: 800;">5.27 mm</div>
                 </div>
-                <div style="background: rgba(255,255,255,0.06); padding: 8px; border-radius: 6px;">
-                    <div style="color: #9CA3AF; font-size: 0.68rem; font-weight: 700;">CONFIDENCE</div>
-                    <div style="color: #10B981; font-size: 1.15rem; font-weight: 800;">70%</div>
+                <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.06); padding: 8px; border-radius: 6px;">
+                    <div style="color: #AAB4C0; font-size: 0.68rem; font-weight: 700;">CONFIDENCE</div>
+                    <div style="color: #34D399; font-size: 1.15rem; font-weight: 800;">70%</div>
                 </div>
             </div>
         </div>
@@ -697,24 +697,24 @@ def render_landing_page(page_workstation=None):
     with ws_p_col2:
         st.markdown("""
         <div style="padding-top: 8px;">
-            <div style="display: inline-flex; align-items: center; gap: 8px; background: #FCEDEC; color: #B9362F; font-size: 0.78rem; font-weight: 800; padding: 4px 12px; border-radius: 6px; margin-bottom: 12px;">
+            <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(185, 54, 47, 0.18); border: 1px solid rgba(255, 107, 99, 0.3); color: #FF6B63; font-size: 0.78rem; font-weight: 800; padding: 4px 12px; border-radius: 6px; margin-bottom: 12px;">
                 ● LIVE INTERACTIVE WORKSPACE
             </div>
-            <div style="font-size: 1.45rem; font-weight: 900; color: #20283A; margin-bottom: 12px; line-height: 1.25;">
+            <div style="font-size: 1.45rem; font-weight: 900; color: #F8FAFC; margin-bottom: 12px; line-height: 1.25;">
                 Full-Featured Diagnostic Workstation
             </div>
-            <p style="font-size: 0.95rem; color: #4B5563; line-height: 1.6; margin-bottom: 20px;">
+            <p style="font-size: 0.95rem; color: #AAB4C0; line-height: 1.6; margin-bottom: 20px;">
                 Experience the real RenalScan analysis environment. Adjust model thresholds, toggle visualization layers, inspect sub-pixel contour masks, and export clinical reports.
             </p>
             <ul style="list-style: none; padding: 0; margin-bottom: 26px;">
-                <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-weight: 600; color: #20283A; font-size: 0.9rem;">
-                    <span style="color: #B9362F; font-weight: 900;">✓</span> Multi-layer visualization overlays (YOLO, Otsu, Calipers)
+                <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-weight: 600; color: #F8FAFC; font-size: 0.9rem;">
+                    <span style="color: #FF6B63; font-weight: 900;">✓</span> Multi-layer visualization overlays (YOLO, Otsu, Calipers)
                 </li>
-                <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-weight: 600; color: #20283A; font-size: 0.9rem;">
-                    <span style="color: #B9362F; font-weight: 900;">✓</span> Spatial anatomical kidney left/right distribution mapping
+                <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-weight: 600; color: #F8FAFC; font-size: 0.9rem;">
+                    <span style="color: #FF6B63; font-weight: 900;">✓</span> Spatial anatomical kidney left/right distribution mapping
                 </li>
-                <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-weight: 600; color: #20283A; font-size: 0.9rem;">
-                    <span style="color: #B9362F; font-weight: 900;">✓</span> One-click clinical report (.txt) &amp; measurement (.csv) downloads
+                <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-weight: 600; color: #F8FAFC; font-size: 0.9rem;">
+                    <span style="color: #FF6B63; font-weight: 900;">✓</span> One-click clinical report (.txt) &amp; measurement (.csv) downloads
                 </li>
             </ul>
         </div>
@@ -798,13 +798,13 @@ def render_landing_page(page_workstation=None):
     with rep_col2:
         st.markdown("""
         <div style="padding-top: 14px;">
-            <div style="display: inline-flex; align-items: center; gap: 8px; background: #FCEDEC; color: #B9362F; font-size: 0.78rem; font-weight: 800; padding: 4px 12px; border-radius: 6px; margin-bottom: 12px;">
+            <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(185, 54, 47, 0.18); border: 1px solid rgba(255, 107, 99, 0.3); color: #FF6B63; font-size: 0.78rem; font-weight: 800; padding: 4px 12px; border-radius: 6px; margin-bottom: 12px;">
                 📄 ONE-CLICK EXPORT
             </div>
-            <div style="font-size: 1.45rem; font-weight: 900; color: #20283A; margin-bottom: 12px; line-height: 1.25;">
+            <div style="font-size: 1.45rem; font-weight: 900; color: #F8FAFC; margin-bottom: 12px; line-height: 1.25;">
                 From Raw CT Slices to Diagnostic Reports
             </div>
-            <p style="font-size: 0.95rem; color: #4B5563; line-height: 1.6; margin-bottom: 22px;">
+            <p style="font-size: 0.95rem; color: #AAB4C0; line-height: 1.6; margin-bottom: 22px;">
                 Review the complete analysis workflow in the interactive workstation and generate audit-ready clinical exports.
             </p>
         </div>
@@ -816,7 +816,7 @@ def render_landing_page(page_workstation=None):
     # =========================================================================
     # 12. KIDNEY HEALTH (4 INTERACTIVE CARDS)
     # =========================================================================
-    st.markdown("""
+    st.html("""
     <div id="kidney-health" class="lp-section-header" style="margin-top: 50px;">
         <h2 class="lp-section-title">Know Your <span>Kidneys</span></h2>
         <p class="lp-section-desc">
@@ -832,11 +832,10 @@ def render_landing_page(page_workstation=None):
                     Hard mineral and salt deposits (calcium oxalate, uric acid, struvite, cystine) that crystallize inside the renal pelvis and calyces when urine becomes supersaturated.
                 </div>
             </div>
-            <div style="margin-top: 14px; font-size: 0.8rem; font-weight: 700; color: #B9362F;">
+            <div style="margin-top: 14px; font-size: 0.8rem; font-weight: 700; color: #FF6B63;">
                 Learn Formation Path →
             </div>
         </div>
-
         <div class="lp-health-card">
             <div>
                 <div class="lp-health-icon">⚡</div>
@@ -845,11 +844,10 @@ def render_landing_page(page_workstation=None):
                     Severe radiating flank and lower abdominal pain, visible hematuria (blood in urine), painful dysuria, urinary urgency, chills, and intermittent nausea.
                 </div>
             </div>
-            <div style="margin-top: 14px; font-size: 0.8rem; font-weight: 700; color: #B9362F;">
+            <div style="margin-top: 14px; font-size: 0.8rem; font-weight: 700; color: #FF6B63;">
                 Triage Indicators →
             </div>
         </div>
-
         <div class="lp-health-card">
             <div>
                 <div class="lp-health-icon">⚠️</div>
@@ -858,11 +856,10 @@ def render_landing_page(page_workstation=None):
                     Chronic dehydration, excessive dietary sodium and animal protein intake, familial history, metabolic disorders, hyperparathyroidism, and obesity.
                 </div>
             </div>
-            <div style="margin-top: 14px; font-size: 0.8rem; font-weight: 700; color: #B9362F;">
+            <div style="margin-top: 14px; font-size: 0.8rem; font-weight: 700; color: #FF6B63;">
                 Etiology Factors →
             </div>
         </div>
-
         <div class="lp-health-card">
             <div>
                 <div class="lp-health-icon">💧</div>
@@ -871,54 +868,49 @@ def render_landing_page(page_workstation=None):
                     Consistently drinking sufficient fluids to generate &gt;2.5L daily urine volume, reducing dietary sodium, and maintaining adequate dietary calcium intake.
                 </div>
             </div>
-            <div style="margin-top: 14px; font-size: 0.8rem; font-weight: 700; color: #B9362F;">
+            <div style="margin-top: 14px; font-size: 0.8rem; font-weight: 700; color: #FF6B63;">
                 Lifestyle Guidance →
             </div>
         </div>
     </div>
-    """, unsafe_allow_html=True)
+    """)
 
     # =========================================================================
     # 13. RESPONSIBLE AI (ANIMATED PULSING MEDICAL SHIELD)
     # =========================================================================
-    st.markdown("""
+    st.html("""
     <div id="about" class="lp-shield-section" style="margin-top: 48px;">
         <div class="lp-shield-icon-box">🛡️</div>
         <div>
-            <div style="font-size: 1.25rem; font-weight: 900; color: #20283A; margin-bottom: 6px;">
+            <div style="font-size: 1.25rem; font-weight: 900; color: #F8FAFC; margin-bottom: 6px;">
                 AI-Assisted. Human-Centered.
             </div>
-            <div style="font-size: 0.92rem; color: #4B5563; line-height: 1.65;">
+            <div style="font-size: 0.92rem; color: #AAB4C0; line-height: 1.65;">
                 RenalScan provides AI-assisted image analysis to support the interpretation of CT images. AI-generated findings should be reviewed by qualified healthcare professionals. This prototype is designed for computer vision research and technical demonstration.
             </div>
         </div>
     </div>
-    """, unsafe_allow_html=True)
+    """)
 
     # =========================================================================
-    # 14. FINAL CTA (FULL WIDTH DARK RED CONTAINER + WHITE BUTTON)
+    # 14. FINAL CTA (FULL WIDTH DEEP RED GRADIENT CONTAINER)
     # =========================================================================
-    st.markdown("""
+    st.html("""
     <div class="lp-final-cta-wrapper">
         <h2 class="lp-final-cta-title">Ready to Explore RenalScan?</h2>
         <p class="lp-final-cta-sub">
-            Experience AI-assisted kidney stone analysis from CT images.
+            Experience AI-assisted kidney stone analysis from CT images. Fast, automated, reproducible.
         </p>
-    """, unsafe_allow_html=True)
-
-    f_col1, f_col2, f_col3 = st.columns([1, 1.2, 1])
-    with f_col2:
-        if st.button("Start Analysis →", key="final_deep_start", use_container_width=True):
-            go_to_workstation()
-
-    st.markdown("""
-        <div style="margin-top: 18px;">
-            <a href="#how-it-works" style="color: #FEE2E2; font-size: 0.88rem; text-decoration: underline; font-weight: 700;">
-                How It Works
+        <div style="display: flex; justify-content: center; gap: 16px; align-items: center; margin-top: 28px; flex-wrap: wrap;">
+            <a href="workstation" target="_self" class="rs-cta-white-btn">
+                Start Analysis →
+            </a>
+            <a href="#how-it-works" style="color: #FEE2E2; font-size: 0.95rem; text-decoration: underline; font-weight: 700; padding: 10px 18px;">
+                Explore How It Works ↑
             </a>
         </div>
     </div>
-    """, unsafe_allow_html=True)
+    """)
 
     # =========================================================================
     # 15. FOOTER (MINIMAL, PREMIUM DARK CHARCOAL)
