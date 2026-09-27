@@ -34,10 +34,12 @@ def render_workstation_page(page_landing=None):
     sample_files = get_sample_files()
 
     def go_to_home():
+        st.session_state["current_page"] = "landing"
         if page_landing is not None:
             st.switch_page(page_landing)
         else:
             st.switch_page("")
+        st.stop()
 
     # Session State for Images
     if 'active_image' not in st.session_state:
@@ -80,7 +82,7 @@ def render_workstation_page(page_landing=None):
         </div>
         """, unsafe_allow_html=True)
     with ws_nav3:
-        if st.button("← Back to Home", key="ws_back_home_btn", use_container_width=True):
+        if st.button("← Back to Home", key="ws_back_home_btn_top", use_container_width=True):
             go_to_home()
 
     st.write("")
@@ -667,6 +669,13 @@ def render_workstation_page(page_landing=None):
                 </div>
             </div>
             """, unsafe_allow_html=True)
+
+    # Workstation Bottom Navigation
+    st.write("")
+    wb_col1, wb_col2, wb_col3 = st.columns([1.2, 1, 1.2])
+    with wb_col2:
+        if st.button("← Return to Landing Page", key="ws_back_home_btn_bottom", use_container_width=True):
+            go_to_home()
 
     # Workstation Footer
     st.markdown("""

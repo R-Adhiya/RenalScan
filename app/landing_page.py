@@ -45,10 +45,12 @@ def render_landing_page(page_workstation=None):
     """Renders the complete 15-section product landing website."""
 
     def go_to_workstation():
+        st.session_state["current_page"] = "workstation"
         if page_workstation is not None:
             st.switch_page(page_workstation)
         else:
             st.switch_page("workstation")
+        st.stop()
 
     samples_b64 = load_sample_images()
     s1_b64, s2_b64, s3_b64 = samples_b64[0], samples_b64[1], samples_b64[2]
